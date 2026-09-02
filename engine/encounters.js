@@ -1,0 +1,2 @@
+const createEncounterTable = () => {}
+const catchRate = () => {}
