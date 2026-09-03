@@ -1,1 +1,3 @@
-import pokedex from "./data/pokedex.js";
+import { populateDexPage } from "./data/pokedex.js";
+
+populateDexPage();

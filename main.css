@@ -1,0 +1,208 @@
+:root {
+    --fontFamily: 'Segoe UI';
+    --Fire: linear-gradient(to bottom, red, orange);
+    --Water: linear-gradient(to bottom, darkblue, blue);
+    --Grass: linear-gradient(to bottom, darkgreen, green);
+    --Electric: linear-gradient(to bottom, orange, yellow);
+    --Bug: linear-gradient(to bottom, green, orange);
+    --Flying: linear-gradient(to bottom, cyan, lightgrey);
+    --Fighting: linear-gradient(to bottom, red, brown);
+    --Rock: linear-gradient(to bottom, brown, grey);
+    --Ground: linear-gradient(to bottom, brown, orange);
+    --Normal: linear-gradient(to bottom, grey, beige);
+    --Psychic: linear-gradient(to bottom, purple, pink);
+    --Ghost: linear-gradient(to bottom, grey, purple);
+    --Poison: linear-gradient(to bottom, purple, brown);
+    --Ice: linear-gradient(to bottom, blue, cyan);
+    --Dragon: linear-gradient(to bottom, navy, red);
+    --Dark: linear-gradient(to bottom, black, purple);
+    --Steel: linear-gradient(to bottom, navy, grey);
+    --Fairy: linear-gradient(to bottom, pink, yellow);
+}
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
+.cardSection {
+    width:100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 0.25rem;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+.dexCard {
+    margin: 1rem;
+    border: 2px solid black;
+    height: 200px;
+    width: 150px;
+    aspect-ratio: 1;
+    font-size: 0.65rem;
+    position: relative;
+    background-color: beige;
+    font-family: var(--fontFamily);
+    overflow: hidden;
+}
+
+.dexCardHeader {
+    justify-content: space-between;
+    background-color: #b2b1b1;
+    position: relative;
+    overflow: hidden;
+    height: 8%;
+    top: 0;
+    font-size: 90%;
+}
+
+.dexCardCost {
+    background-color: rgba(245, 245, 220, 0.534);
+    border: 1px solid brown;
+    box-sizing: border-box;
+    padding: 0.02rem 0.1rem;
+    border-radius: 100px;
+    position: relative;
+    color: red;
+    right: 3px;
+}
+
+.dexCardName {
+    position: absolute;
+    left: 15px;
+    font-size: 130%;
+}
+
+.dexType {
+    padding: 1rem 0.25rem;
+    position: relative;
+    left: 4px;
+}
+
+.dexHealthBar {
+    background-color: red;
+    height: 10%;
+    color: black;
+    justify-content: center;
+}
+
+.dexType {
+    font-size: 80%;
+}
+
+.dexSpriteBox {
+    width: 75%;
+    aspect-ratio: 1/1;
+    border: 1px solid black;
+    background-color: grey;
+    display: grid;
+    place-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dexStatBar {
+    background-color: orange;
+    justify-content: space-between;
+}
+
+.dexStatBar span {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    aspect-ratio: 1;
+    width: 35%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dexStatBar span:nth-of-type(1) {
+    background-color: pink;
+    color: red;
+    border: 3px solid red;
+}
+
+.dexStatBar span:nth-of-type(2) {
+    background-color: lightblue;
+    color: rgb(0, 106, 255);
+    border: 3px solid blue;
+}
+
+.dexStatBar span:nth-of-type(3) {
+    background-color: lightyellow;
+    color: orange;
+    border: 3px solid brown;
+}
+
+.dexTypeFire { 
+    background-image: var(--Fire);
+    color: white;
+}
+.dexTypeWater { 
+    background-image: var(--Water);
+    color: white;
+}
+.dexTypeGrass { 
+    background-image: var(--Grass);
+    color: white;
+}
+.dexTypeElectric { 
+    background-image: var(--Electric);
+    color: black;
+}
+.dexTypeBug { 
+    background-image: var(--Bug);
+    color: white;
+}
+.dexTypeFlying { 
+    background-image: var(--Flying);
+    color: black;
+}
+.dexTypeFighting { 
+    background-image: var(--Fighting);
+    color: white;
+}
+.dexTypeRock { 
+    background-image: var(--Rock);
+    color: white;
+}
+.dexTypeGround { 
+    background-image: var(--Ground);
+    color: white;
+}
+.dexTypeNormal { 
+    background-image: var(--Normal);
+    color: black;
+}
+.dexTypePsychic { 
+    background-image: var(--Psychic);
+    color: white;
+}
+.dexTypeGhost { 
+    background-image: var(--Ghost);
+    color: white;
+}
+.dexTypePoison { 
+    background-image: var(--Poison);
+    color: white;
+}
+.dexTypeIce { 
+    background-image: var(--Ice);
+    color: white;
+}
+.dexTypeDragon { 
+    background-image: var(--Dragon);
+    color: white;
+}
+.dexTypeDark { 
+    background-image: var(--Dark);
+    color: white;
+}
+.dexTypeSteel { 
+    background-image: var(--Steel);
+    color: white;
+}
+.dexTypeFairy { 
+    background-image: var(--Fairy);
+    color: grey;
+}
