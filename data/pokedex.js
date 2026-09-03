@@ -491,8 +491,8 @@ const gen1dex = {
         NEXT: null
     },
     //
-    Nidoran: {
-        NAME: 'Nidoran',
+    NidoranM: {
+        NAME: 'Nidoran-M',
         HP: 1,
         POW: 1,
         DEF: 1,
@@ -500,7 +500,18 @@ const gen1dex = {
         TYPE: ['Poison'],
         COST: 0,
         RARITY: 'C',
-        NEXT: 'Nidorino,Nidorina'
+        NEXT: 'Nidorino'
+    },
+    NidoranF: {
+        NAME: 'Nidoran-F',
+        HP: 1,
+        POW: 1,
+        DEF: 1,
+        SPE: 0,
+        TYPE: ['Poison'],
+        COST: 0,
+        RARITY: 'C',
+        NEXT: 'Nidorina'
     },
     Nidorino: {
         NAME: 'Nidorino',
@@ -1491,7 +1502,7 @@ const gen1dex = {
      },
     //
     MimeJr: {
-        NAME: 'Mime Jr.',
+        NAME: 'Mime-Jr',
         HP: 1,
         POW: 1,
         DEF: 2,
@@ -1502,7 +1513,7 @@ const gen1dex = {
         NEXT: 'MrMime'
     },
     MrMime: {
-        NAME: 'Mr. Mime',
+        NAME: 'Mr-Mime',
         HP: 2,
         POW: 2,
         DEF: 3,
@@ -1604,8 +1615,8 @@ const gen1dex = {
        RARITY: 'R',
        NEXT: 'Ninetails'
     },
-    Ninetails: {
-        NAME: 'Ninetails',
+    Ninetales: {
+        NAME: 'Ninetales',
         HP: 3,
         POW: 3,
         DEF: 2,
@@ -2011,7 +2022,7 @@ const gen1dex = {
     
     */
     Farfetchd: {
-        NAME: `Farfetch'd`,
+        NAME: `Farfetchd`,
         HP: 2,
         POW: 2,
         DEF: 1,
@@ -2228,7 +2239,9 @@ async function fetchSprite(name) {
 
     name = name.toLowerCase();
 
-    var sprite = fetch(`https://img.pokemondb.net/sprites/diamond-pearl/normal/${name}.png`);
+    const spriteImg = new Image();
+
+    spriteImg.src=`https://img.pokemondb.net/sprites/diamond-pearl/normal/${name}.png`;
 
     return sprite;
 }
@@ -2285,7 +2298,11 @@ const createDexCard = (poke=pokedex[20][1]) => {
 
     var name = poke.NAME.toLowerCase();
 
+    newSpriteImg.addEventListener('error', (e) => { 
+        e.target.src=`https://img.pokemondb.net/sprites/x-y/normal/${name}.png`
+    });
     newSpriteImg.src = `https://img.pokemondb.net/sprites/diamond-pearl/normal/${name}.png`;
+
     
     newSpriteBox.appendChild(newSpriteImg);
     

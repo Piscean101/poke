@@ -1,6 +1,6 @@
 :root {
     --fontFamily: 'Segoe UI';
-    --Fire: linear-gradient(to bottom, red, orange);
+    --Fire: linear-gradient(to bottom, red, red, orange);
     --Water: linear-gradient(to bottom, darkblue, blue);
     --Grass: linear-gradient(to bottom, darkgreen, green);
     --Electric: linear-gradient(to bottom, orange, yellow);
@@ -12,7 +12,7 @@
     --Normal: linear-gradient(to bottom, grey, beige);
     --Psychic: linear-gradient(to bottom, purple, pink);
     --Ghost: linear-gradient(to bottom, grey, purple);
-    --Poison: linear-gradient(to bottom, purple, brown);
+    --Poison: linear-gradient(to bottom, navy,rgb(245, 0, 245));
     --Ice: linear-gradient(to bottom, blue, cyan);
     --Dragon: linear-gradient(to bottom, navy, red);
     --Dark: linear-gradient(to bottom, black, purple);
@@ -79,7 +79,7 @@ body {
 }
 
 .dexHealthBar {
-    background-color: red;
+    background-color: green;
     height: 10%;
     color: black;
     justify-content: center;
@@ -98,6 +98,11 @@ body {
     place-items: center;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.dexSpriteImg {
+    aspect-ratio: 1;
+    width: 80%;
 }
 
 .dexStatBar {
