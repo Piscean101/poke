@@ -35,7 +35,7 @@ const gen1dex = {
 
         STARTER GROUP
         COST: 0 -> 1 -> 2
-        STAT TOTALS: 4 -> 7 -> 12
+        STAT TOTALS: 4 -> 8 -> 13
 
 
 
@@ -56,7 +56,7 @@ const gen1dex = {
         HP: 1,
         POW: 4,
         DEF: 0,
-        SPE: 2,
+        SPE: 3,
         TYPE: ['Psychic'],
         COST: 1,
         RARITY: 'X',
@@ -65,7 +65,7 @@ const gen1dex = {
     Alakazam: {
         NAME: 'Alakazam',
         HP: 2,
-        POW: 5,
+        POW: 6,
         DEF: 0,
         SPE: 5,
         TYPE: ['Psychic'],
@@ -90,7 +90,7 @@ const gen1dex = {
         HP: 2,
         POW: 3,
         DEF: 1,
-        SPE: 1,
+        SPE: 2,
         TYPE: ['Fire'],
         COST: 1,
         RARITY: 'N',
@@ -100,7 +100,7 @@ const gen1dex = {
         NAME: 'Charizard',
         HP: 3,
         POW: 4,
-        DEF: 1,
+        DEF: 2,
         SPE: 4,
         TYPE: ['Fire','Flying'],
         COST: 2,
@@ -124,7 +124,7 @@ const gen1dex = {
         HP: 2,
         POW: 2,
         DEF: 2,
-        SPE: 1,
+        SPE: 2,
         TYPE: ['Water'],
         COST: 1,
         RARITY: 'N',
@@ -134,7 +134,7 @@ const gen1dex = {
         NAME: 'Blastoise',
         HP: 3,
         POW: 3,
-        DEF: 3,
+        DEF: 4,
         SPE: 3,
         TYPE: ['Water'],
         COST: 2,
@@ -155,7 +155,7 @@ const gen1dex = {
     },
     Ivysaur: {
         NAME: 'Ivysaur',
-        HP: 2,
+        HP: 3,
         POW: 2,
         DEF: 2,
         SPE: 1,
@@ -169,7 +169,7 @@ const gen1dex = {
         HP: 4,
         POW: 3,
         DEF: 3,
-        SPE: 2,
+        SPE: 3,
         TYPE: ['Grass','Poison'],
         COST: 2,
         RARITY: 'N',
@@ -190,7 +190,7 @@ const gen1dex = {
     Machoke: {
         NAME: 'Machoke',
         HP: 2,
-        POW: 3,
+        POW: 4,
         DEF: 1,
         SPE: 1,
         TYPE: ['Fighting'],
@@ -203,7 +203,7 @@ const gen1dex = {
         HP: 4,
         POW: 5,
         DEF: 2,
-        SPE: 1,
+        SPE: 2,
         TYPE: ['Fighting'],
         COST: 2,
         RARITY: 'N',
@@ -226,7 +226,7 @@ const gen1dex = {
         HP: 1,
         POW: 4,
         DEF: 0,
-        SPE: 2,
+        SPE: 3,
         TYPE: ['Ghost','Poison'],
         COST: 1,
         RARITY: 'R',
@@ -237,7 +237,7 @@ const gen1dex = {
         HP: 2,
         POW: 5,
         DEF: 1,
-        SPE: 4,
+        SPE: 5,
         TYPE: ['Ghost','Poison'],
         COST: 2,
         RARITY: 'M',
@@ -258,7 +258,7 @@ const gen1dex = {
     Graveler: {
         NAME: 'Graveler',
         HP: 2,
-        POW: 2,
+        POW: 3,
         DEF: 3,
         SPE: 0,
         TYPE: ['Rock','Ground'],
@@ -269,9 +269,9 @@ const gen1dex = {
     Golem: {
         NAME: 'Golem',
         HP: 3,
-        POW: 4,
-        DEF: 4,
-        SPE: 1,
+        POW: 5,
+        DEF: 5,
+        SPE: 0,
         TYPE: ['Rock','Ground'],
         COST: 2,
         RARITY: 'M',
@@ -292,7 +292,7 @@ const gen1dex = {
     Magneton: {
         NAME: 'Magneton',
         HP: 1,
-        POW: 3,
+        POW: 4,
         DEF: 1,
         SPE: 2,
         TYPE: ['Electric','Steel'],
@@ -302,47 +302,13 @@ const gen1dex = {
     },
     Magnezone: {
         NAME: 'Magnezone',
-        HP: 3,
+        HP: 2,
         POW: 5,
-        DEF: 4,
-        SPE: 0,
+        DEF: 5,
+        SPE: 1,
         TYPE: ['Electric','Steel'],
         COST: 2,
         RARITY: 'N',
-        NEXT: null
-    },
-    //
-    Horsea: {
-        NAME: 'Horsea',
-        HP: 1,
-        POW: 1,
-        DEF: 1,
-        SPE: 1,
-        TYPE: ['Water'],
-        COST: 0,
-        RARITY: 'U',
-        NEXT: 'Seadra'
-    },
-    Seadra: {
-        NAME: 'Seadra',
-        HP: 2,
-        POW: 2,
-        DEF: 2,
-        SPE: 1,
-        TYPE: ['Water'],
-        COST: 1,
-        RARITY: 'X',
-        NEXT: 'Kingdra'
-    },
-    Kingdra: {
-        NAME: 'Kingdra',
-        HP: 3,
-        POW: 3,
-        DEF: 3,
-        SPE: 3,
-        TYPE: ['Water','Dragon'],
-        COST: 2,
-        RARITY: 'L',
         NEXT: null
     },
     //
@@ -361,7 +327,7 @@ const gen1dex = {
         NAME: 'Rhydon',
         HP: 2,
         POW: 2,
-        DEF: 2,
+        DEF: 3,
         SPE: 1,
         TYPE: ['Rock','Ground'],
         COST: 1,
@@ -370,7 +336,7 @@ const gen1dex = {
     },
     Rhyperior: {
         NAME: 'Rhyperior',
-        HP: 2,
+        HP: 3,
         POW: 5,
         DEF: 4,
         SPE: 1,
@@ -395,7 +361,7 @@ const gen1dex = {
         NAME: 'Electabuzz',
         HP: 1,
         POW: 3,
-        DEF: 0,
+        DEF: 1,
         SPE: 3,
         TYPE: ['Electric'],
         COST: 1,
@@ -405,7 +371,7 @@ const gen1dex = {
     Electivire: {
         NAME: 'Electivire',
         HP: 3,
-        POW: 4,
+        POW: 5,
         DEF: 3,
         SPE: 2,
         TYPE: ['Electric'],
@@ -428,7 +394,7 @@ const gen1dex = {
     Magmar: {
         NAME: 'Magmar',
         HP: 2,
-        POW: 2,
+        POW: 3,
         DEF: 2,
         SPE: 1,
         TYPE: ['Fire'],
@@ -439,10 +405,45 @@ const gen1dex = {
     Magmortar: {
         NAME: 'Magmortar',
         HP: 3,
-        POW: 4,
+        POW: 5,
         DEF: 3,
         SPE: 2,
         TYPE: ['Fire'],
+        COST: 2,
+        RARITY: 'N',
+        NEXT: null
+    },
+    //
+    //
+    Porygon: {
+        NAME: 'Porygon',
+        HP: 1,
+        POW: 1,
+        DEF: 2,
+        SPE: 0,
+        TYPE: ['Normal'],
+        COST: 0,
+        RARITY: 'R',
+        NEXT: 'Porygon2'
+    },
+    Porygon2: {
+        NAME: 'Porygon2',
+        HP: 2,
+        POW: 2,
+        DEF: 2,
+        SPE: 2,
+        TYPE: ['Normal'],
+        COST: 1,
+        RARITY: 'M',
+        NEXT: 'PorygonZ'
+    },
+    PorygonZ: {
+        NAME: 'Porygon-Z',
+        HP: 2,
+        POW: 6,
+        DEF: 2,
+        SPE: 3,
+        TYPE: ['Normal'],
         COST: 2,
         RARITY: 'N',
         NEXT: null
@@ -473,7 +474,7 @@ const gen1dex = {
         HP: 2,
         POW: 2,
         DEF: 1,
-        SPE: 1,
+        SPE: 2,
         TYPE: ['Normal','Flying'],
         COST: 1,
         RARITY: 'U',
@@ -482,7 +483,7 @@ const gen1dex = {
     Pidgeot: {
         NAME: 'Pidgeot',
         HP: 3,
-        POW: 2,
+        POW: 3,
         DEF: 2,
         SPE: 3,
         TYPE: ['Normal','Flying'],
@@ -517,7 +518,7 @@ const gen1dex = {
         NAME: 'Nidorino',
         HP: 2,
         POW: 2,
-        DEF: 1,
+        DEF: 2,
         SPE: 1,
         TYPE: ['Poison'],
         COST: 1,
@@ -528,7 +529,7 @@ const gen1dex = {
         NAME: 'Nidorina',
         HP: 2,
         POW: 2,
-        DEF: 1,
+        DEF: 2,
         SPE: 1,
         TYPE: ['Poison'],
         COST: 1,
@@ -540,7 +541,7 @@ const gen1dex = {
         HP: 3,
         POW: 3,
         DEF: 2,
-        SPE: 2,
+        SPE: 3,
         TYPE: ['Poison','Ground'],
         COST: 2,
         RARITY: 'M',
@@ -551,7 +552,7 @@ const gen1dex = {
         HP: 3,
         POW: 2,
         DEF: 3,
-        SPE: 2,
+        SPE: 3,
         TYPE: ['Poison','Ground'],
         COST: 2,
         RARITY: 'M',
@@ -572,7 +573,7 @@ const gen1dex = {
     Gloom: {
         NAME: 'Gloom',
         HP: 2,
-        POW: 1,
+        POW: 2,
         DEF: 2,
         SPE: 1,
         TYPE: ['Grass','Poison'],
@@ -583,7 +584,7 @@ const gen1dex = {
     Vileplume: {
         NAME: 'Vileplume',
         HP: 3,
-        POW: 3,
+        POW: 4,
         DEF: 2,
         SPE: 2,
         TYPE: ['Grass','Poison'],
@@ -593,7 +594,7 @@ const gen1dex = {
     },
     Bellossom: {
         NAME: 'Bellossom',
-        HP: 2,
+        HP: 3,
         POW: 2,
         DEF: 3,
         SPE: 3,
@@ -618,7 +619,7 @@ const gen1dex = {
         NAME: 'Poliwhirl',
         HP: 2,
         POW: 2,
-        DEF: 1,
+        DEF: 2,
         SPE: 1,
         TYPE: ['Water'],
         COST: 1,
@@ -627,9 +628,9 @@ const gen1dex = {
     },
     Poliwrath: {
         NAME: 'Poliwrath',
-        HP: 2,
-        POW: 4,
-        DEF: 2,
+        HP: 3,
+        POW: 3,
+        DEF: 3,
         SPE: 2,
         TYPE: ['Water','Fighting'],
         COST: 2,
@@ -650,7 +651,7 @@ const gen1dex = {
     },
     Weepinbell: {
         NAME: 'Weepinbell',
-        HP: 1,
+        HP: 2,
         POW: 3,
         DEF: 1,
         SPE: 1,
@@ -662,7 +663,7 @@ const gen1dex = {
     Victreebel: {
         NAME: 'Victreebel',
         HP: 2,
-        POW: 3,
+        POW: 4,
         DEF: 1,
         SPE: 4,
         TYPE: ['Grass','Poison'],
@@ -686,7 +687,7 @@ const gen1dex = {
         NAME: 'Clefairy',
         HP: 3,
         POW: 1,
-        DEF: 1,
+        DEF: 2,
         SPE: 1,
         TYPE: ['Fairy'],
         COST: 1,
@@ -695,10 +696,10 @@ const gen1dex = {
     },
     Clefable: {
         NAME: 'Clefable',
-        HP: 3,
-        POW: 2,
+        HP: 4,
+        POW: 3,
         DEF: 3,
-        SPE: 2,
+        SPE: 1,
         TYPE: ['Fairy'],
         COST: 2,
         RARITY: 'M',
@@ -718,10 +719,10 @@ const gen1dex = {
     },
     Jigglypuff: {
         NAME: 'Jigglypuff',
-        HP: 2,
+        HP: 4,
         POW: 1,
         DEF: 2,
-        SPE: 1,
+        SPE: 0,
         TYPE: ['Normal','Fairy'],
         COST: 1,
         RARITY: 'M',
@@ -729,10 +730,10 @@ const gen1dex = {
     },
     Wigglytuff: {
         NAME: 'Wigglytuff',
-        HP: 5,
-        POW: 1,
+        HP: 6,
+        POW: 2,
         DEF: 2,
-        SPE: 2,
+        SPE: 1,
         TYPE: ['Normal','Fairy'],
         COST: 2,
         RARITY: 'N',
@@ -754,7 +755,7 @@ const gen1dex = {
         NAME: 'Golbat',
         HP: 2,
         POW: 2,
-        DEF: 0,
+        DEF: 1,
         SPE: 2,
         TYPE: ['Poison','Flying'],
         COST: 1,
@@ -765,7 +766,7 @@ const gen1dex = {
         NAME: 'Crobat',
         HP: 2,
         POW: 2,
-        DEF: 0,
+        DEF: 1,
         SPE: 6,
         TYPE: ['Poison','Flying'],
         COST: 2,
@@ -773,37 +774,37 @@ const gen1dex = {
         NEXT: null
     },
     //
-    Porygon: {
-        NAME: 'Porygon',
+    Horsea: {
+        NAME: 'Horsea',
         HP: 1,
         POW: 1,
-        DEF: 1,
-        SPE: 0,
-        TYPE: ['Normal'],
-        COST: 0,
-        RARITY: 'R',
-        NEXT: 'Porygon2'
-    },
-    Porygon2: {
-        NAME: 'Porygon2',
-        HP: 2,
-        POW: 1,
-        DEF: 3,
-        SPE: 0,
-        TYPE: ['Normal'],
-        COST: 1,
-        RARITY: 'M',
-        NEXT: 'PorygonZ'
-    },
-    PorygonZ: {
-        NAME: 'Porygon-Z',
-        HP: 2,
-        POW: 5,
         DEF: 0,
+        SPE: 1,
+        TYPE: ['Water'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Seadra'
+    },
+    Seadra: {
+        NAME: 'Seadra',
+        HP: 1,
+        POW: 2,
+        DEF: 2,
+        SPE: 2,
+        TYPE: ['Water'],
+        COST: 1,
+        RARITY: 'X',
+        NEXT: 'Kingdra'
+    },
+    Kingdra: {
+        NAME: 'Kingdra',
+        HP: 2,
+        POW: 3,
+        DEF: 3,
         SPE: 3,
-        TYPE: ['Normal'],
+        TYPE: ['Water','Dragon'],
         COST: 2,
-        RARITY: 'N',
+        RARITY: 'L',
         NEXT: null
     },
     /*
@@ -812,7 +813,7 @@ const gen1dex = {
 
         FAST GROUP
         COST: 0 -> 0 -> 1
-        STAT TOTALS: 3 -> 5 -> 9
+        STAT TOTALS: 3 -> 5 -> 8
 
 
 
@@ -831,8 +832,8 @@ const gen1dex = {
     Metapod: {
         NAME: 'Metapod',
         HP: 1,
-        POW: 0,
-        DEF: 4,
+        POW: 1,
+        DEF: 3,
         SPE: 0,
         TYPE: ['Bug'],
         COST: 0,
@@ -865,8 +866,8 @@ const gen1dex = {
     Kakuna: {
         NAME: 'Kakuna',
         HP: 1,
-        POW: 0,
-        DEF: 4,
+        POW: 1,
+        DEF: 3,
         SPE: 0,
         TYPE: ['Bug','Poison'],
         COST: 0,
@@ -890,7 +891,7 @@ const gen1dex = {
     
         PSEUDO-LEGEND GROUP
         COST: 1 -> 2 -> 3
-        STAT TOTALS: 5 -> 10 -> 16
+        STAT TOTALS: 5 -> 10 -> 17
     
     
     
@@ -908,10 +909,10 @@ const gen1dex = {
     },
     Dragonair: {
         NAME: 'Dragonair',
-        HP: 3,
+        HP: 2,
         POW: 3,
         DEF: 2,
-        SPE: 2,
+        SPE: 3,
         TYPE: ['Dragon'],
         COST: 2,
         RARITY: 'L',
@@ -921,8 +922,8 @@ const gen1dex = {
         NAME: 'Dragonite',
         HP: 4,
         POW: 6,
-        DEF: 2,
-        SPE: 4,
+        DEF: 4,
+        SPE: 3,
         TYPE: ['Dragon','Flying'],
         COST: 3,
         RARITY: 'N',
@@ -1146,29 +1147,6 @@ const gen1dex = {
         NEXT: null
     },
     //
-    Koffing: {
-        NAME: 'Koffing',
-        HP: 1,
-        POW: 1,
-        DEF: 1,
-        SPE: 0,
-        TYPE: ['Poison'],
-        COST: 0,
-        RARITY: 'C',
-        NEXT: 'Weezing'
-    },
-    Weezing: {
-        NAME: 'Weezing',
-        HP: 1,
-        POW: 1,
-        DEF: 4,
-        SPE: 1,
-        TYPE: ['Poison'],
-        COST: 1,
-        RARITY: 'R',
-        NEXT: null
-    },
-    //
     Goldeen: {
         NAME: 'Goldeen',
         HP: 1,
@@ -1197,7 +1175,7 @@ const gen1dex = {
     
     TWO STAGE GROUP - UNCOMMON
     COST: 0 -> 1
-    STAT TOTALS: 4 -> 8
+    STAT TOTALS: 4 -> 9
     
     
     
@@ -1215,10 +1193,10 @@ const gen1dex = {
    },
    Raichu: {
        NAME: 'Raichu',
-       HP: 2,
-       POW: 2,
+       HP: 1,
+       POW: 3,
        DEF: 1,
-       SPE: 3,
+       SPE: 4,
        TYPE: ['Electric'],
        COST: 1,
        RARITY: 'X',
@@ -1241,7 +1219,7 @@ const gen1dex = {
         HP: 2,
         POW: 2,
         DEF: 2,
-        SPE: 2,
+        SPE: 3,
         TYPE: ['Bug','Poison'],
         COST: 1,
         RARITY: 'X',
@@ -1264,7 +1242,7 @@ const gen1dex = {
         HP: 1,
         POW: 3,
         DEF: 0,
-        SPE: 4,
+        SPE: 5,
         TYPE: ['Ground'],
         COST: 1,
         RARITY: 'R',
@@ -1285,37 +1263,37 @@ const gen1dex = {
     Persian: {
         NAME: 'Persian',
         HP: 2,
-        POW: 3,
+        POW: 2,
         DEF: 1,
-        SPE: 2,
+        SPE: 4,
         TYPE: ['Normal'],
         COST: 1,
         RARITY: 'M',
         NEXT: null
     },
-    //
-    Tentacool: {
-        NAME: 'Tentacool',
-        HP: 1,
-        POW: 1,
-        DEF: 1,
-        SPE: 1,
-        TYPE: ['Water','Poison'],
-        COST: 0,
-        RARITY: 'U',
-        NEXT: 'Tentacruel'
-    },
-    Tentacruel: {
-        NAME: 'Tentacruel',
-        HP: 2,
-        POW: 1,
-        DEF: 3,
-        SPE: 2,
-        TYPE: ['Water','Poison'],
-        COST: 1,
-        RARITY: 'X',
-        NEXT: null
-    },
+       //
+       Cubone: {
+           NAME: 'Cubone',
+           HP: 1,
+           POW: 1,
+           DEF: 2,
+           SPE: 0,
+           TYPE: ['Ground'],
+           COST: 0,
+           RARITY: 'U',
+           NEXT: 'Marowak'
+       },
+       Marowak: {
+           NAME: 'Marowak',
+           HP: 2,
+           POW: 4,
+           DEF: 2,
+           SPE: 1,
+           TYPE: ['Ground'],
+           COST: 1,
+           RARITY: 'M',
+           NEXT: null
+       },
     //
     Doduo: {
         NAME: 'Doduo',
@@ -1330,21 +1308,21 @@ const gen1dex = {
     },
     Dodrio: {
         NAME: 'Dodrio',
-        HP: 2,
-        POW: 3,
-        DEF: 1,
-        SPE: 2,
+        HP: 1,
+        POW: 4,
+        DEF: 0,
+        SPE: 4,
         TYPE: ['Normal','Flying'],
         COST: 1,
-        RARITY: 'R',
+        RARITY: 'X',
         NEXT: null
     },
     //
     Grimer: {
         NAME: 'Grimer',
         HP: 1,
-        POW: 1,
-        DEF: 2,
+        POW: 2,
+        DEF: 1,
         SPE: 0,
         TYPE: ['Poison'],
         COST: 0,
@@ -1354,58 +1332,12 @@ const gen1dex = {
     Muk: {
         NAME: 'Muk',
         HP: 4,
-        POW: 1,
+        POW: 2,
         DEF: 3,
         SPE: 0,
         TYPE: ['Poison'],
         COST: 1,
         RARITY: 'X',
-        NEXT: null
-    },
-    //
-    Cubone: {
-        NAME: 'Cubone',
-        HP: 2,
-        POW: 2,
-        DEF: 3,
-        SPE: 1,
-        TYPE: ['Ground'],
-        COST: 1,
-        RARITY: 'R',
-        NEXT: 'Marowak'
-    },
-    Marowak: {
-        NAME: 'Marowak',
-        HP: 2,
-        POW: 5,
-        DEF: 4,
-        SPE: 1,
-        TYPE: ['Ground'],
-        COST: 2,
-        RARITY: 'M',
-        NEXT: null
-    },
-    //
-    Shellder: {
-        NAME: 'Shellder',
-        HP: 1,
-        POW: 1,
-        DEF: 2,
-        SPE: 0,
-        TYPE: ['Water','Ice'],
-        COST: 0,
-        RARITY: 'U',
-        NEXT: 'Cloyster'
-    },
-    Cloyster: {
-        NAME: 'Cloyster',
-        HP: 1,
-        POW: 2,
-        DEF: 4,
-        SPE: 1,
-        TYPE: ['Water','Ice'],
-        COST: 1,
-        RARITY: 'M',
         NEXT: null
     },
     //
@@ -1424,7 +1356,7 @@ const gen1dex = {
         NAME: 'Hypno',
         HP: 2,
         POW: 2,
-        DEF: 3,
+        DEF: 4,
         SPE: 1,
         TYPE: ['Psychic'],
         COST: 1,
@@ -1432,11 +1364,11 @@ const gen1dex = {
         NEXT: null
     },
     //
-   Krabby: {
+    Krabby: {
         NAME: 'Krabby',
         HP: 1,
-        POW: 1,
-        DEF: 2,
+        POW: 3,
+        DEF: 0,
         SPE: 0,
         TYPE: ['Water'],
         COST: 0,
@@ -1445,10 +1377,10 @@ const gen1dex = {
     },
     Kingler: {
         NAME: 'Kingler',
-        HP: 2,
+        HP: 1,
         POW: 4,
-        DEF: 2,
-        SPE: 0,
+        DEF: 3,
+        SPE: 1,
         TYPE: ['Water'],
         COST: 1,
         RARITY: 'R',
@@ -1469,37 +1401,60 @@ const gen1dex = {
     Electrode: {
         NAME: 'Electrode',
         HP: 1,
-        POW: 2,
-        DEF: 0,
-        SPE: 5,
+        POW: 1,
+        DEF: 1,
+        SPE: 6,
         TYPE: ['Electric'],
         COST: 1,
         RARITY: 'X',
         NEXT: null
     },
     //
+    Koffing: {
+        NAME: 'Koffing',
+        HP: 1,
+        POW: 1,
+        DEF: 2,
+        SPE: 0,
+        TYPE: ['Poison'],
+        COST: 0,
+        RARITY: 'C',
+        NEXT: 'Weezing'
+    },
+    Weezing: {
+        NAME: 'Weezing',
+        HP: 2,
+        POW: 2,
+        DEF: 4,
+        SPE: 1,
+        TYPE: ['Poison'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: null
+    },
+    //
     Exeggcute: {
-         NAME: 'Exeggcute',
-         HP: 1,
-         POW: 2,
-         DEF: 0,
-         SPE: 1,
-         TYPE: ['Grass','Psychic'],
-         COST: 1,
-         RARITY: 'U',
-         NEXT: 'Exeguttor'
-     },
-     Exeggutor: {
-         NAME: 'Exeggutor',
-         HP: 2,
-         POW: 4,
-         DEF: 1,
-         SPE: 1,
-         TYPE: ['Grass','Psychic'],
-         COST: 2,
-         RARITY: 'M',
-         NEXT: null
-     },
+        NAME: 'Exeggcute',
+        HP: 1,
+        POW: 2,
+        DEF: 0,
+        SPE: 1,
+        TYPE: ['Grass','Psychic'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Exeguttor'
+    },
+    Exeggutor: {
+        NAME: 'Exeggutor',
+        HP: 2,
+        POW: 5,
+        DEF: 1,
+        SPE: 1,
+        TYPE: ['Grass','Psychic'],
+        COST: 1,
+        RARITY: 'M',
+        NEXT: null
+    },
     //
     MimeJr: {
         NAME: 'Mime-Jr',
@@ -1511,117 +1466,164 @@ const gen1dex = {
         COST: 0,
         RARITY: 'U',
         NEXT: 'MrMime'
-    },
+   },
     MrMime: {
         NAME: 'Mr-Mime',
-        HP: 2,
+        HP: 1,
         POW: 2,
-        DEF: 3,
-        SPE: 1,
+        DEF: 4,
+        SPE: 2,
         TYPE: ['Psychic','Fairy'],
         COST: 1,
         RARITY: 'X',
         NEXT: null
     },
-    //
-    Smoochum: {
-        NAME: 'Smoochum',
-        HP: 1,
-        POW: 2,
-        DEF: 0,
-        SPE: 1,
-        TYPE: ['Ice','Psychic'],
-        COST: 0,
-        RARITY: 'U',
-        NEXT: 'Jynx'
-    },
-    Jynx: {
-        NAME: 'Jynx',
-        HP: 2,
-        POW: 3,
-        DEF: 0,
-        SPE: 3,
-        TYPE: ['Ice','Psychic'],
-        COST: 1,
-        RARITY: 'M',
-        NEXT: null
-    },
-    //
-    Omanyte: {
-        NAME: 'Omanyte',
-        HP: 1,
-        POW: 1,
-        DEF: 2,
-        SPE: 0,
-        TYPE: ['Water','Rock'],
-        COST: 0,
-        RARITY: 'N',
-        NEXT: 'Omastar'
-    },
-    Omastar: {
-        NAME: 'Omastar',
-        HP: 2,
-        POW: 3,
-        DEF: 3,
-        SPE: 0,
-        TYPE: ['Water','Rock'],
-        COST: 1,
-        RARITY: 'N',
-        NEXT: null
-    },
-    //
-    Kabuto: {
-        NAME: 'Kabuto',
-        HP: 1,
-        POW: 2,
-        DEF: 1,
-        SPE: 0,
-        TYPE: ['Water','Rock'],
-        COST: 0,
-        RARITY: 'N',
-        NEXT: 'Kabutops'
-    },
-    Kabutops: {
-        NAME: 'Kabutops',
-        HP: 2,
-        POW: 3,
-        DEF: 1,
-        SPE: 2,
-        TYPE: ['Water','Rock'],
-        COST: 1,
-        RARITY: 'N',
-        NEXT: null
-    },
-    /* 
-    
-    
-    
-    TWO STAGE GROUP - RARE
-    COST: 1 -> 2
-    STAT TOTALS: 8 -> 12
-    
-    
-    
-    
+        //
+        Smoochum: {
+            NAME: 'Smoochum',
+            HP: 1,
+            POW: 2,
+            DEF: 0,
+            SPE: 1,
+            TYPE: ['Ice','Psychic'],
+            COST: 0,
+            RARITY: 'U',
+            NEXT: 'Jynx'
+        },
+        Jynx: {
+            NAME: 'Jynx',
+            HP: 2,
+            POW: 4,
+            DEF: 0,
+            SPE: 3,
+            TYPE: ['Ice','Psychic'],
+            COST: 1,
+            RARITY: 'M',
+            NEXT: null
+        },
+        //
+        Omanyte: {
+            NAME: 'Omanyte',
+            HP: 1,
+            POW: 1,
+            DEF: 2,
+            SPE: 0,
+            TYPE: ['Water','Rock'],
+            COST: 0,
+            RARITY: 'N',
+            NEXT: 'Omastar'
+        },
+        Omastar: {
+            NAME: 'Omastar',
+            HP: 2,
+            POW: 2,
+            DEF: 4,
+            SPE: 1,
+            TYPE: ['Water','Rock'],
+            COST: 1,
+            RARITY: 'N',
+            NEXT: null
+        },
+        //
+        Kabuto: {
+            NAME: 'Kabuto',
+            HP: 1,
+            POW: 2,
+            DEF: 1,
+            SPE: 0,
+            TYPE: ['Water','Rock'],
+            COST: 0,
+            RARITY: 'N',
+            NEXT: 'Kabutops'
+        },
+        Kabutops: {
+            NAME: 'Kabutops',
+            HP: 1,
+            POW: 4,
+            DEF: 2,
+            SPE: 2,
+            TYPE: ['Water','Rock'],
+            COST: 1,
+            RARITY: 'N',
+            NEXT: null
+        },
+        /* 
+        
+        
+        
+        TWO STAGE GROUP - RARE
+        COST: 1 -> 2
+        STAT TOTALS: 7 -> 12
+        
+        
+        
+        
     */
-   Vulpix: {
-       NAME: 'Vulpix',
-       HP: 2,
-       POW: 2,
-       DEF: 2,
-       SPE: 2,
-       TYPE: ['Fire'],
-       COST: 1,
-       RARITY: 'R',
-       NEXT: 'Ninetails'
-    },
-    Ninetales: {
-        NAME: 'Ninetales',
-        HP: 3,
-        POW: 3,
-        DEF: 2,
-        SPE: 4,
-        TYPE: ['Fire'],
+       //
+       Tentacool: {
+           NAME: 'Tentacool',
+           HP: 1,
+           POW: 1,
+           DEF: 3,
+           SPE: 2,
+           TYPE: ['Water','Poison'],
+           COST: 1,
+           RARITY: 'R',
+           NEXT: 'Tentacruel'
+        },
+        Tentacruel: {
+            NAME: 'Tentacruel',
+            HP: 2,
+            POW: 2,
+            DEF: 4,
+            SPE: 4,
+            TYPE: ['Water','Poison'],
+            COST: 2,
+            RARITY: 'X',
+            NEXT: null
+        },
+        //
+        Vulpix: {
+            NAME: 'Vulpix',
+            HP: 1,
+            POW: 2,
+            DEF: 2,
+            SPE: 2,
+            TYPE: ['Fire'],
+            COST: 1,
+            RARITY: 'R',
+            NEXT: 'Ninetails'
+        },
+        Ninetales: {
+            NAME: 'Ninetales',
+            HP: 2,
+            POW: 3,
+            DEF: 3,
+            SPE: 4,
+            TYPE: ['Fire'],
+            COST: 2,
+            RARITY: 'M',
+            NEXT: null
+        },
+        //
+        Shellder: {
+        NAME: 'Shellder',
+        HP: 1,
+        POW: 2,
+        DEF: 4,
+        SPE: 0,
+        TYPE: ['Water','Ice'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: 'Cloyster'
+        },
+        Cloyster: {
+        NAME: 'Cloyster',
+        HP: 1,
+        POW: 2,
+        DEF: 8,
+        SPE: 1,
+        TYPE: ['Water','Ice'],
         COST: 2,
         RARITY: 'M',
         NEXT: null
@@ -1629,9 +1631,9 @@ const gen1dex = {
     //
     Tangela: {
         NAME: 'Tangela',
-        HP: 2,
-        POW: 2,
-        DEF: 4,
+        HP: 1,
+        POW: 3,
+        DEF: 3,
         SPE: 0,
         TYPE: ['Grass'],
         COST: 1,
@@ -1652,7 +1654,7 @@ const gen1dex = {
     //
     Staryu: {
         NAME: 'Staryu',
-        HP: 2,
+        HP: 1,
         POW: 2,
         DEF: 1,
         SPE: 3,
@@ -1663,9 +1665,9 @@ const gen1dex = {
     },
     Starmie: {
         NAME: 'Starmie',
-        HP: 3,
+        HP: 2,
         POW: 4,
-        DEF: 1,
+        DEF: 2,
         SPE: 4,
         TYPE: ['Water','Psychic'],
         COST: 2,
@@ -1675,7 +1677,7 @@ const gen1dex = {
     //
     Lickitung: {
         NAME: 'Lickitung',
-        HP: 4,
+        HP: 3,
         POW: 2,
         DEF: 2,
         SPE: 0,
@@ -1687,18 +1689,18 @@ const gen1dex = {
     Lickilicky: {
         NAME: 'Lickilicky',
         HP: 5,
-        POW: 4,
-        DEF: 2,
+        POW: 3,
+        DEF: 3,
         SPE: 1,
         TYPE: ['Normal'],
         COST: 2,
         RARITY: 'M',
         NEXT: null
     },
-    //
+    /* SPECIAL CASE Scyther Stat Total = 9 instead of 7 */
     Scyther: {
         NAME: 'Scyther',
-        HP: 1,
+        HP: 2,
         POW: 3,
         DEF: 1,
         SPE: 3,
@@ -1709,9 +1711,9 @@ const gen1dex = {
     },
     Scizor: {
         NAME: 'Scizor',
-        HP: 3,
+        HP: 2,
         POW: 5,
-        DEF: 3,
+        DEF: 4,
         SPE: 1,
         TYPE: ['Bug','Steel'],
         COST: 2,
@@ -1724,7 +1726,7 @@ const gen1dex = {
 
         TWO STAGE GROUP - ULTRA
         COST: 1 -> 3
-        STAT TOTALS: 7 -> 14
+        STAT TOTALS: 8 -> 14
 
     
     
@@ -1732,7 +1734,7 @@ const gen1dex = {
     Growlithe: {
         NAME: 'Growlithe',
         HP: 1,
-        POW: 2,
+        POW: 3,
         DEF: 2,
         SPE: 2,
         TYPE: ['Fire'],
@@ -1755,20 +1757,20 @@ const gen1dex = {
     Onix: {
         NAME: 'Onix',
         HP: 1,
-        POW: 3,
-        DEF: 3,
+        POW: 1,
+        DEF: 6,
         SPE: 0,
         TYPE: ['Rock','Ground'],
         COST: 1,
-        RARITY: 'X',
+        RARITY: 'U',
         NEXT: 'Steelix'
     },
     Steelix: {
         NAME: 'Steelix',
         HP: 2,
-        POW: 3,
-        DEF: 8,
-        SPE: 1,
+        POW: 2,
+        DEF: 10,
+        SPE: 0,
         TYPE: ['Ground','Steel'],
         COST: 3,
         RARITY: 'L',
@@ -1780,7 +1782,7 @@ const gen1dex = {
         HP: 5,
         POW: 1,
         DEF: 1,
-        SPE: 0,
+        SPE: 1,
         TYPE: ['Normal'],
         COST: 1,
         RARITY: 'X',
@@ -1817,7 +1819,7 @@ const gen1dex = {
         SPE: 3,
         TYPE: ['Water','Flying'],
         COST: 3,
-        RARITY: 'R',
+        RARITY: 'M',
         NEXT: null
     },
     /* 
@@ -1826,7 +1828,7 @@ const gen1dex = {
 
         TWO STAGE GROUP - SPECIAL / BRANCHING
         COST: 0 -> 2
-        STAT TOTALS: 4 -> 11
+        STAT TOTALS: 4 -> 12
     
     
 
@@ -1845,7 +1847,7 @@ const gen1dex = {
     },
     Slowbro: {
         NAME: 'Slowbro',
-        HP: 3,
+        HP: 4,
         POW: 4,
         DEF: 4,
         SPE: 0,
@@ -1856,7 +1858,7 @@ const gen1dex = {
     },
    Slowking: {
         NAME: 'Slowking',
-        HP: 4,
+        HP: 5,
         POW: 4,
         DEF: 3,
         SPE: 0,
@@ -1881,7 +1883,7 @@ const gen1dex = {
         NAME: 'Hitmonlee',
         HP: 2,
         POW: 4,
-        DEF: 2,
+        DEF: 3,
         SPE: 3,
         TYPE: ['Fighting'],
         COST: 2,
@@ -1893,7 +1895,7 @@ const gen1dex = {
         HP: 2,
         POW: 3,
         DEF: 4,
-        SPE: 2,
+        SPE: 3,
         TYPE: ['Fighting'],
         COST: 2,
         RARITY: 'N',
@@ -1902,7 +1904,7 @@ const gen1dex = {
     Hitmontop: {
         NAME: 'Hitmontop',
         HP: 2,
-        POW: 2,
+        POW: 3,
         DEF: 3,
         SPE: 4,
         TYPE: ['Fighting'],
@@ -1926,7 +1928,7 @@ const gen1dex = {
         NAME: 'Flareon',
         HP: 2,
         POW: 5,
-        DEF: 3,
+        DEF: 4,
         SPE: 1,
         TYPE: ['Fire'],
         COST: 2,
@@ -1936,7 +1938,7 @@ const gen1dex = {
     Jolteon: {
         NAME: 'Jolteon',
         HP: 2,
-        POW: 3,
+        POW: 4,
         DEF: 1,
         SPE: 5,
         TYPE: ['Electric'],
@@ -1947,7 +1949,7 @@ const gen1dex = {
     Vaporeon: {
         NAME: 'Vaporeon',
         HP: 5,
-        POW: 3,
+        POW: 4,
         DEF: 2,
         SPE: 1,
         TYPE: ['Water'],
@@ -1960,7 +1962,7 @@ const gen1dex = {
         HP: 2,
         POW: 5,
         DEF: 1,
-        SPE: 3,
+        SPE: 4,
         TYPE: ['Psychic'],
         COST: 2,
         RARITY: 'N',
@@ -1968,7 +1970,7 @@ const gen1dex = {
     },
     Umbreon: {
         NAME: 'Umbreon',
-        HP: 3,
+        HP: 4,
         POW: 2,
         DEF: 5,
         SPE: 1,
@@ -1980,7 +1982,7 @@ const gen1dex = {
     Leafeon: {
         NAME: 'Leafeon',
         HP: 2,
-        POW: 3,
+        POW: 4,
         DEF: 5,
         SPE: 1,
         TYPE: ['Grass'],
@@ -1992,7 +1994,7 @@ const gen1dex = {
         NAME: 'Glaceon',
         HP: 2,
         POW: 5,
-        DEF: 3,
+        DEF: 4,
         SPE: 1,
         TYPE: ['Ice'],
         COST: 2,
@@ -2002,7 +2004,7 @@ const gen1dex = {
     Sylveon: {
         NAME: 'Sylveon',
         HP: 2,
-        POW: 3,
+        POW: 4,
         DEF: 5,
         SPE: 1,
         TYPE: ['Fairy'],
@@ -2050,7 +2052,7 @@ const gen1dex = {
     
         SINGLE STAGE GROUP - RARE
         COST: 2
-        STAT TOTALS: 11
+        STAT TOTALS: 12
     
     
     
@@ -2058,7 +2060,7 @@ const gen1dex = {
     Kangaskhan: {
         NAME: 'Kangaskhan',
         HP: 3,
-        POW: 3,
+        POW: 4,
         DEF: 2,
         SPE: 3,
         TYPE: ['Normal'],
@@ -2072,7 +2074,7 @@ const gen1dex = {
         HP: 2,
         POW: 5,
         DEF: 2,
-        SPE: 2,
+        SPE: 3,
         TYPE: ['Bug'],
         COST: 2,
         RARITY: 'R',
@@ -2081,7 +2083,7 @@ const gen1dex = {
     //
     Tauros: {
         NAME: 'Tauros',
-        HP: 1,
+        HP: 2,
         POW: 4,
         DEF: 1,
         SPE: 5,
@@ -2093,7 +2095,7 @@ const gen1dex = {
     //
     Lapras: {
         NAME: 'Lapras',
-        HP: 5,
+        HP: 6,
         POW: 2,
         DEF: 2,
         SPE: 2,
@@ -2105,7 +2107,7 @@ const gen1dex = {
     //
     Aerodactyl: {
         NAME: 'Aerodactyl',
-        HP: 1,
+        HP: 2,
         POW: 3,
         DEF: 1,
         SPE: 6,
@@ -2121,7 +2123,7 @@ const gen1dex = {
 
             SINGLE STAGE GROUP - MYTHIC
             COST: 3
-            STAT TOTALS: 15
+            STAT TOTALS: 16
 
     
 
@@ -2129,7 +2131,7 @@ const gen1dex = {
     */
     Snorlax: {
         NAME: 'Snorlax',
-        HP: 6,
+        HP: 7,
         POW: 5,
         DEF: 4,
         SPE: 0,
@@ -2155,8 +2157,8 @@ const gen1dex = {
         NAME: 'Articuno',
         HP: 4,
         POW: 5,
-        DEF: 7,
-        SPE: 4,
+        DEF: 6,
+        SPE: 5,
         TYPE: ['Ice','Flying'],
         COST: 4,
         RARITY: 'L',
@@ -2167,8 +2169,8 @@ const gen1dex = {
         NAME: 'Zapdos',
         HP: 4,
         POW: 6,
-        DEF: 4,
-        SPE: 6,
+        DEF: 5,
+        SPE: 5,
         TYPE: ['Electric','Flying'],
         COST: 4,
         RARITY: 'L',
@@ -2178,8 +2180,8 @@ const gen1dex = {
     Moltres: {
         NAME: 'Moltres',
         HP: 4,
-        POW: 7,
-        DEF: 4,
+        POW: 6,
+        DEF: 5,
         SPE: 5,
         TYPE: ['Fire','Flying'],
         COST: 4,
@@ -2189,8 +2191,8 @@ const gen1dex = {
     //
     Mewtwo: {
         NAME: 'Mewtwo',
-        HP: 5,
-        POW: 6,
+        HP: 4,
+        POW: 7,
         DEF: 3,
         SPE: 6,
         TYPE: ['Psychic'],
@@ -2317,18 +2319,20 @@ const createDexCard = (poke=pokedex[20][1]) => {
 
 export const populateDexPage = () => {
 
-    document.addEventListener("DOMContentLoaded", () => {
+    if (document.title != 'Pokedex') { return } else {
+        
+            document.addEventListener("DOMContentLoaded", () => {
+            
+                const body = document.querySelector("body");
+                pokedex.forEach((e) => {
+                    body.appendChild(createDexCard(e[1]))
+                })
+                // body.appendChild(createDexCard());
+        
+        });
 
-    if (document.title != 'Pokedex') { return }
-    
-        const body = document.querySelector("body");
-        pokedex.forEach((e) => {
-            body.appendChild(createDexCard(e[1]))
-        })
-        // body.appendChild(createDexCard());
-
-});
+    }
 
 }
 
-// searchDex('1','COST','+')
+// searchDex('3','COST')
