@@ -11,9 +11,46 @@
     <div id="nav">
         <a href="../index.html" class="navBtn" id="backBtn"><button>&lt; Back</button></a>
     </div>
-    <div id="playerAvatarBox"></div>
+    <img id="playerAvatarBox"></img>
     <div id="playerRosterBox"></div>
     <div id="playerPCBox"></div>
-    <div id="playerBadgeBox"></div>
+    <div id="playerBadgeBox">
+        <span id="avatarChangeWrap">
+            <label id="avatarLabel" for="changeAvatar">Change your Avatar</label>
+            <select id="changeAvatar">
+                <option value="null">--</option>
+                <option value="ash">Ash</option>
+                <option value="barry">Barry</option>
+                <option value="misty">Misty</option>
+                <option value="bianca">Bianca</option>
+            </select>
+        </span>
+        <div id="badgeCase" class="profileSection">
+            <div id="badgeRegionWrap">
+                <button id="kantoCase" class="playerBadgeCase">Kanto</button>
+                <button id="johtoCase" class="playerBadgeCase">Johto</button>
+                <button id="hoennCase" class="playerBadgeCase">Hoenn</button>
+                <button id="sinnohCase" class="playerBadgeCase">Sinnoh</button>
+            </div>
+                <table>
+                    <tr>
+                        <td id="Badge1" class="badgeHolder"></td>
+                        <td id="Badge2" class="badgeHolder"></td>
+                    </tr>
+                    <tr>
+                        <td id="Badge3" class="badgeHolder"></td>
+                        <td id="Badge4" class="badgeHolder"></td>
+                    </tr>
+                    <tr>
+                        <td id="Badge5" class="badgeHolder"></td>
+                        <td id="Badge6" class="badgeHolder"></td>
+                    </tr>
+                    <tr>
+                        <td id="Badge7" class="badgeHolder"></td>
+                        <td id="Badge8" class="badgeHolder"></td>
+                    </tr>
+                </table>
+        </div>
+    </div>
 </body>
 </html>

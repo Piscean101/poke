@@ -19,18 +19,22 @@
     --Steel: linear-gradient(to bottom, navy, grey);
     --Fairy: linear-gradient(to bottom, pink, yellow);
 }
+
 button:hover { 
     cursor: pointer;
 }
+
 body {
     display: flex;
     flex-wrap: wrap;
 }
+
 #nav {
     position: absolute;
     top: 0;
     left: 0;
 }
+
 .navBtn button { 
     font-weight: bold;
 }
@@ -269,14 +273,19 @@ body {
 
 
 .profileSection {
+    /* display: grid;
+    place-items: center; */
     border: 2px solid black;
-    color: red;
+    font-weight: bold;
+    font-family: consolas;
 }
 #playerAvatarBox {
     position: relative;
     left: 5%;
     height: 25vh;
     aspect-ratio: 1;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 #playerRosterBox {
     position: absolute;
@@ -286,10 +295,12 @@ body {
     top: 1%;
 }
 #playerBadgeBox {
-    position: absolute;
+    /* position: absolute;
     left: 4%;
-    bottom: 2%;
-    height: 70vh;
+    bottom: 2%; */
+    position: relative;
+    transform: translate(-50%,40%);
+    height: 69vh;
     width: 15rem;
 }
 
@@ -299,4 +310,43 @@ body {
     height: 70vh;
     right: 1%;
     bottom: 1%;
+}
+
+#changeAvatar {
+    margin: 0.5rem;
+}
+
+#avatarChangeWrap {
+    position: absolute;
+    padding: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    background-color:#b2b1b1;
+}
+
+#badgeRegionWrap {
+    position: absolute;
+    top: 0;
+}
+
+#badgeCase {
+    box-sizing: border-box;
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+}
+
+#badgeCase table {
+    border: 2px solid orange;
+}
+
+.badgeHolder {
+    background-color: grey;
+    width: 50px;
+    height: 50px;
+    margin: 1rem;
+    padding: 0.5rem;
 }
