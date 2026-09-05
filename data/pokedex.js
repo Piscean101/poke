@@ -155,10 +155,10 @@ const gen1dex = {
     },
     Ivysaur: {
         NAME: 'Ivysaur',
-        HP: 3,
+        HP: 2,
         POW: 2,
         DEF: 2,
-        SPE: 1,
+        SPE: 2,
         TYPE: ['Grass','Poison'],
         COST: 1,
         RARITY: 'N',
@@ -166,8 +166,8 @@ const gen1dex = {
     },
     Venusaur: {
         NAME: 'Venusaur',
-        HP: 4,
-        POW: 3,
+        HP: 3,
+        POW: 4,
         DEF: 3,
         SPE: 3,
         TYPE: ['Grass','Poison'],

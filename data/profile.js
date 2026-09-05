@@ -8,17 +8,28 @@ export const updateProfile = () => {
         const badgeBox = document.getElementById("playerBadgeBox");
         const avatarChange = document.getElementById("changeAvatar");
         const badgeCaseBox = document.getElementById("badgeCase");
-        const badgeCases = document.querySelectorAll("playerBadgeCase");
+        const badgeCases = document.querySelectorAll(".playerBadgeCase");
 
         avatarChange.addEventListener("change", (e) => {
             setAvatar(e.target.value);
         });
 
+        const setBadgeRegion = (region=localStorage.getItem("badgeRegion")) => {
+            localStorage.setItem("badgeRegion",region);
+            switch(region) {
+                case 'Kanto':
+                displayBadges(checkBadges(['Boulder','Cascade','Thunder','Rainbow','Soul','Marsh','Volcano','Earth']));
+                break;
+                default: break;
+            }
+        }
+
         badgeCases.forEach((badgeCase) => {
-            badgeCase.addEventListener("click", (e) => {
-                localStorage.setItem("badgeRegion",e.target.innerHTML);
-            })
-        })
+                badgeCase.addEventListener("click", (e) => {
+                setBadgeRegion(e.target.innerHTML);
+            });
+                
+        });
 
         const setAvatar = (name) => {
             localStorage.setItem("playerAvatar",name);
@@ -36,25 +47,52 @@ export const updateProfile = () => {
         const getRoster = () => {};
 
         const getPC = () => {};
-
-        const setBadgeRegion = (region=localStorage.getItem("badgeRegion")) => {
-            localStorage.setItem("badgeRegion",region);
-            switch(region) {
-                case 'Kanto':
-                    break;
-                default: break;
-            }
+        
+        const checkBadges = (badgeChecklist) => {
+            const badgeList = [...localStorage.getItem("badgeList").split(',')];
+            // console.log('checking badges...')
+            let result = [badgeChecklist.map((e) => { 
+                console.log(badgeList,e,badgeList.includes(e));
+                if (badgeList.includes(e)) {
+                    return e;
+                } else {
+                    return null;
+                }
+            })];
+            console.log(result)
+            return result;
         }
 
-        const getBadges = (region = 'Kanto') => {
+        const addBadge = (badge) => {
+            const badgeList = localStorage.getItem("badgeList");
+            if (!badgeList) {
+                localStorage.setItem("badgeList",badge);
+            } else {
+                const badgeNames = [...badgeList.split(',')];
+                if (!badgeNames.includes(badge)) {
+                    badgeNames.push(badge);
+                }
+                localStorage.setItem("badgeList",badgeNames);
+            }
+            alert(`Congratulations! You earned the ${badge} badge!`);
+        }
 
-            // for (let i = 0; i < 8; i++) {
-            //     const newBadgeHolder = document.createElement("div");
-            //     newBadgeHolder.classList.add("badgeHolder");
-            //     newBadgeHolder.id = `badgeHolder${i}`;
-            //     badgeCaseBox.appendChild(newBadgeHolder);
-            // }
+        const displayBadges = ([badgeList]) => {
+            badgeList.forEach((e,i) => {
+                if (e != null) {
 
+                    const badgeImage = new Image();
+                    const badgeHolder = document.getElementById(`Badge${i+1}`);
+
+                    /* IMPLEMENT SWITCH TO PULL CORRECT LINKS FOR EACH BADGE c: */
+
+                    badgeImage.classList.add("badgeImage");
+                    badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/d/dd/${e}_Badge.png/75px-${e}_Badge.png`;
+                    badgeHolder.children.length ? badgeHolder.removeChild(badgeHolder.children[0]) : null;
+                    badgeHolder.appendChild(badgeImage);
+
+                }
+            })
         }
 
         const profileSections = [avatarBox,rosterBox,PCBox,badgeBox];
@@ -64,7 +102,7 @@ export const updateProfile = () => {
         });
 
         getAvatar();
-        getBadges();
+        setBadgeRegion(localStorage.getItem("badgeRegion"))
 
     }
 
