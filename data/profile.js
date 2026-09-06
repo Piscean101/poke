@@ -10,16 +10,15 @@ export const updateProfile = () => {
         const badgeCaseBox = document.getElementById("badgeCase");
         const badgeCases = document.querySelectorAll(".playerBadgeCase");
 
-        avatarChange.addEventListener("change", (e) => {
-            setAvatar(e.target.value);
-        });
-
-        const setBadgeRegion = (region=localStorage.getItem("badgeRegion")) => {
+        const setBadgeRegion = (region) => {
             localStorage.setItem("badgeRegion",region);
             switch(region) {
                 case 'Kanto':
-                displayBadges(checkBadges(['Boulder','Cascade','Thunder','Rainbow','Soul','Marsh','Volcano','Earth']));
-                break;
+                    displayBadges(checkBadges(['Boulder','Cascade','Thunder','Rainbow','Soul','Marsh','Volcano','Earth']));
+                    break;
+                case 'Johto':
+                    displayBadges(checkBadges(['Zephyr','Hive','Plain','Fog','Storm','Mineral','Glacier','Rising']));
+                    break;
                 default: break;
             }
         }
@@ -43,6 +42,10 @@ export const updateProfile = () => {
                 setAvatar(avatar);
             }
         };
+        
+        avatarChange.addEventListener("change", (e) => {
+            setAvatar(e.target.value);
+        });
 
         const getRoster = () => {};
 
@@ -52,14 +55,13 @@ export const updateProfile = () => {
             const badgeList = [...localStorage.getItem("badgeList").split(',')];
             // console.log('checking badges...')
             let result = [badgeChecklist.map((e) => { 
-                console.log(badgeList,e,badgeList.includes(e));
                 if (badgeList.includes(e)) {
                     return e;
                 } else {
                     return null;
                 }
             })];
-            console.log(result)
+
             return result;
         }
 
@@ -78,21 +80,80 @@ export const updateProfile = () => {
         }
 
         const displayBadges = ([badgeList]) => {
+
+            const badgeHolders = document.querySelectorAll('.badgeHolder');
+
+            badgeHolders.forEach((e) => {
+
+                e.children[0].src = '';
+                e.children[0].classList.remove("badgeImage");
+
+            });
+
             badgeList.forEach((e,i) => {
+
                 if (e != null) {
 
-                    const badgeImage = new Image();
-                    const badgeHolder = document.getElementById(`Badge${i+1}`);
+                    var badgeHolder = document.getElementById(`Badge${i+1}`);
+                    var badgeImage = badgeHolder.children[0];
+                    badgeImage.classList.add("badgeImage")
 
-                    /* IMPLEMENT SWITCH TO PULL CORRECT LINKS FOR EACH BADGE c: */
+                    switch(i) {
 
-                    badgeImage.classList.add("badgeImage");
-                    badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/d/dd/${e}_Badge.png/75px-${e}_Badge.png`;
-                    badgeHolder.children.length ? badgeHolder.removeChild(badgeHolder.children[0]) : null;
-                    badgeHolder.appendChild(badgeImage);
+                        case 0:
+                            e == 'Boulder' ? 
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/d/dd/Boulder_Badge.png/75px-Boulder_Badge.png` :
+                            e == 'Zephyr' ?
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/4/4a/Zephyr_Badge.png/75px-Zephyr_Badge.png` : null;
+                            break;
+                        case 1:
+                            e == 'Cascade' ? 
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/9/9c/Cascade_Badge.png/75px-Cascade_Badge.png` :
+                            e == 'Hive' ?
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/0/08/Hive_Badge.png/75px-Hive_Badge.png` : null;
+                            break;
+                        case 2: 
+                            e == 'Thunder' ?
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/a/a6/Thunder_Badge.png/75px-Thunder_Badge.png` :
+                            e == 'Plain' ?
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/a/a7/Plain_Badge.png/75px-Plain_Badge.png`: null;
+                            break;
+                        case 3:
+                            e == 'Rainbow' ?
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/b/b5/Rainbow_Badge.png/75px-Rainbow_Badge.png` :
+                            e == 'Fog' ?
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/4/48/Fog_Badge.png/75px-Fog_Badge.png` : null;
+                            break;
+                        case 4:
+                            e == 'Soul' ? 
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/7/7d/Soul_Badge.png/75px-Soul_Badge.png` :
+                            e == 'Storm' ?
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/b/b9/Storm_Badge.png/75px-Storm_Badge.png` : null;
+                            break;
+                        case 5:
+                            e == 'Marsh' ? 
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/6/6b/Marsh_Badge.png/75px-Marsh_Badge.png` :
+                            e == 'Mineral' ?
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/7/7b/Mineral_Badge.png/75px-Mineral_Badge.png`: null;
+                            break;
+                        case 6:
+                            e == 'Volcano' ? 
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/1/12/Volcano_Badge.png/75px-Volcano_Badge.png`:
+                            e == 'Glacier' ?
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/e/e6/Glacier_Badge.png/75px-Glacier_Badge.png`: null;
+                            break;
+                        case 7:
+                            e == 'Earth' ?
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/7/78/Earth_Badge.png/75px-Earth_Badge.png`:
+                            e == 'Rising' ?
+                            badgeImage.src = `https://archives.bulbagarden.net/media/upload/thumb/5/58/Rising_Badge.png/75px-Rising_Badge.png`: null;
+                            break;
+                        default: break;
+                    }
 
                 }
-            })
+            });
+
         }
 
         const profileSections = [avatarBox,rosterBox,PCBox,badgeBox];
@@ -102,7 +163,7 @@ export const updateProfile = () => {
         });
 
         getAvatar();
-        setBadgeRegion(localStorage.getItem("badgeRegion"))
+        setBadgeRegion(localStorage.getItem("badgeRegion"));
 
     }
 
