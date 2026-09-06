@@ -20,6 +20,8 @@
     --Fairy: linear-gradient(to bottom, pink, yellow);
     --badgeGlow: rgba(255, 201, 52, 0.821);
     --darkBackground: rgb(67,67,67);
+    --PCBlock: rgba(128, 128, 128, 0.368);
+    --lightBackground: #b2b1b1;
 }
 
 button:hover, select:hover { 
@@ -273,11 +275,11 @@ body {
 
 
 
-
+#PC {
+    background-color: var(--darkBackground);
+}
 .profileSection {
-    /* display: grid;
-    place-items: center; */
-    border: 2px solid black;
+    border: 3px solid black;
     font-weight: bold;
     font-family: consolas;
 }
@@ -288,6 +290,7 @@ body {
     aspect-ratio: 1;
     padding: 1.5rem;
     box-sizing: border-box;
+    background-color: var(--lightBackground);
 }
 #playerRosterBox {
     position: absolute;
@@ -295,23 +298,29 @@ body {
     min-width: 75vw;
     right: 1%;
     top: 1%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none;
 }
+
 #playerBadgeBox {
-    /* position: absolute;
-    left: 4%;
-    bottom: 2%; */
     position: relative;
     transform: translate(-50%,40%);
     height: 69vh;
     width: 15rem;
+    background-color: var(--lightBackground);
 }
 
 #playerPCBox {
     position: absolute;
-    width: 75vw;
+    max-width: 50vw;
     height: 70vh;
     right: 1%;
     bottom: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
 }
 
 #changeAvatar {
@@ -323,12 +332,11 @@ body {
     padding: 1rem;
     box-sizing: border-box;
     width: 100%;
-    background-color:#b2b1b1;
 }
 
 #badgeRegionWrap {
     position: absolute;
-    top: 0;
+    top: 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -346,6 +354,7 @@ body {
     bottom: 0;
     display: grid;
     place-items: center;
+    border: none;
 }
 
 #badgeCase table {
@@ -372,4 +381,28 @@ body {
     background-color: grey;
     border-radius: 100%;
     padding: 0.5rem;
+}
+
+.PCHolder {
+    background-color: var(--PCBlock);
+    border-bottom: 3px solid black;
+    height: 5rem;
+    aspect-ratio: 1;
+    margin: 1rem;
+    transition: all 350ms ease;
+}
+
+.rosterHolder {
+    height: 8rem;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    border: 4px solid var(--lightBackground);
+    transition: all 350ms ease;
+    box-shadow: 0px 0px 15px 1px white inset;
+    outline: 2px solid white;
+}
+
+.PCHolder:hover, .rosterHolder:hover {
+    border-color: gold;
+    cursor: pointer;
 }

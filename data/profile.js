@@ -10,26 +10,6 @@ export const updateProfile = () => {
         const badgeCaseBox = document.getElementById("badgeCase");
         const badgeCases = document.querySelectorAll(".playerBadgeCase");
 
-        const setBadgeRegion = (region) => {
-            localStorage.setItem("badgeRegion",region);
-            switch(region) {
-                case 'Kanto':
-                    displayBadges(checkBadges(['Boulder','Cascade','Thunder','Rainbow','Soul','Marsh','Volcano','Earth']));
-                    break;
-                case 'Johto':
-                    displayBadges(checkBadges(['Zephyr','Hive','Plain','Fog','Storm','Mineral','Glacier','Rising']));
-                    break;
-                default: break;
-            }
-        }
-
-        badgeCases.forEach((badgeCase) => {
-                badgeCase.addEventListener("click", (e) => {
-                setBadgeRegion(e.target.innerHTML);
-            });
-                
-        });
-
         const setAvatar = (name) => {
             localStorage.setItem("playerAvatar",name);
             avatarBox.src = `https://play.pokemonshowdown.com/sprites/trainers/${name}.png`;
@@ -47,36 +27,102 @@ export const updateProfile = () => {
             setAvatar(e.target.value);
         });
 
-        const getRoster = () => {};
+        const placeInPC = () => {};
 
-        const getPC = () => {};
+        const pullFromPC = () => {};
+
+        const getRoster = () => {
+
+            for (let i = 0; i < 6; i++) {
+
+                var rosterHolder = document.createElement("div");
+                var pokeImage = new Image();
+                pokeImage.src = '';
+                rosterHolder.appendChild(pokeImage);
+                rosterHolder.classList.add("rosterHolder");
+                rosterBox.appendChild(rosterHolder);
+
+            }
+
+        };
+
+        const getPC = (maxSize=6) => {
+
+            for (let i = 0; i < maxSize; i++) {
+                var PCHolder = document.createElement("div");
+                var pokeImage = new Image();
+                pokeImage.src = '';
+                PCHolder.appendChild(pokeImage);
+                PCHolder.classList.add("PCHolder");
+                PCBox.appendChild(PCHolder);
+            }
+
+        };
+
+        const setBadgeRegion = (region) => {
+            localStorage.setItem("badgeRegion",region);
+            switch(region) {
+                case 'Kanto':
+                    displayBadges(checkBadges(['Boulder','Cascade','Thunder','Rainbow','Soul','Marsh','Volcano','Earth']));
+                    break;
+                case 'Johto':
+                    displayBadges(checkBadges(['Zephyr','Hive','Plain','Fog','Storm','Mineral','Glacier','Rising']));
+                    break;
+                default: break;
+            }
+        };
+
+        badgeCases.forEach((badgeCase) => {
+                badgeCase.addEventListener("click", (e) => {
+                setBadgeRegion(e.target.innerHTML);
+            });
+                
+        });
         
         const checkBadges = (badgeChecklist) => {
+
             const badgeList = [...localStorage.getItem("badgeList").split(',')];
-            // console.log('checking badges...')
+
             let result = [badgeChecklist.map((e) => { 
+
                 if (badgeList.includes(e)) {
+
                     return e;
+
                 } else {
+
                     return null;
+
                 }
+
             })];
 
             return result;
+
         }
 
         const addBadge = (badge) => {
+
             const badgeList = localStorage.getItem("badgeList");
+
             if (!badgeList) {
+
                 localStorage.setItem("badgeList",badge);
+
             } else {
+
                 const badgeNames = [...badgeList.split(',')];
+
                 if (!badgeNames.includes(badge)) {
                     badgeNames.push(badge);
                 }
+
                 localStorage.setItem("badgeList",badgeNames);
+
             }
+
             alert(`Congratulations! You earned the ${badge} badge!`);
+
         }
 
         const displayBadges = ([badgeList]) => {
@@ -162,8 +208,10 @@ export const updateProfile = () => {
             e.classList.add('profileSection');
         });
 
-        getAvatar();
         setBadgeRegion(localStorage.getItem("badgeRegion"));
+        getAvatar();
+        getPC();
+        getRoster();
 
     }
 
