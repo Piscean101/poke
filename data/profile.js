@@ -1,21 +1,105 @@
+import { pokedex } from "./pokedex.js";
+import { gen1Badges, gen2Badges, allBadges } from "./badges.js";
+const avatarBox = document.getElementById("playerAvatarBox");
+const rosterBox = document.getElementById("playerRosterBox");
+const PCBox = document.getElementById("playerPCBox");
+const badgeBox = document.getElementById("playerBadgeBox");
+const inventoryBox = document.getElementById("playerInventoryBox");
+const avatarChange = document.getElementById("changeAvatar");
+const badgeCaseBox = document.getElementById("badgeCase");
+const badgeCases = document.querySelectorAll(".playerBadgeCase");
+const PCRoster = localStorage.getItem("PCRoster");
+const badgeList = localStorage.getItem("badgeList");
+
 /** DEFAULT USER SETTINGS */
 
 localStorage.getItem("maxPCSize") ? null : localStorage.setItem("maxPCSize",6);
 
 /* */
 
+export  const addBadge = (badge) => {
+
+            console.log(badgeList)
+
+            if (!allBadges.includes(badge)) {
+
+                alert(`Error: ${badge} Badge not Found!`);
+
+            }
+
+            else if (!badgeList) {
+
+                localStorage.setItem("badgeList",badge);
+
+                alert(`Congratulations! You earned the ${badge} badge!`);
+
+            } else {
+
+                const badgeNames = [...badgeList.split(',')];
+
+                if (!badgeNames.includes(badge)) {
+                    badgeNames.push(badge);
+                }
+
+                localStorage.setItem("badgeList",badgeNames);
+
+                alert(`Congratulations! You earned the ${badge} badge!`);
+
+            }
+
+}
+
+const checkBadges = (badgeChecklist) => {
+
+    const allBadges = [...localStorage.getItem("badgeList").split(',')];
+
+        let result = [badgeChecklist.map((e) => { 
+
+            if (allBadges.includes(e)) {
+
+                return e;
+
+            } else {
+
+                return null;
+
+        }
+
+    })];
+
+    return result;
+
+}
+
+export const verifySpecies = (species) => {
+
+    const result = [...Object.values(pokedex)].filter((e) => { return e[0] == species });
+
+    return result;
+
+}
+
 export const placeInPC = (species) => {
 
-    var PCPopulation = [];
-    const PC = localStorage.getItem("PCRoster");
+    if (!verifySpecies(species).length) { 
+        
+        alert(`Error: ${species} Not Found. Try checking spelling`);
+    
+    } else {
 
-    PC ? PCPopulation = [...PC.split(',')] : null;
+        var PCPopulation = [];
+    
+        PCRoster ? PCPopulation = [...PCRoster.split(',')] : null;
+    
+        // CREATE ERROR HANDLER FUNCTION FOR WHEN MAX PC SIZE REACHED
+    
+        PCPopulation.length < localStorage.getItem("maxPCSize") ? PCPopulation.push(species) : null
+    
+        localStorage.setItem("PCRoster",PCPopulation);
 
-    // CREATE ERROR HANDLER FUNCTION FOR WHEN MAX PC SIZE REACHED
+        alert(`Success! Added ${species} to your PC Box`)
 
-    PCPopulation.length < localStorage.getItem("maxPCSize") ? PCPopulation.push(species) : null
-
-    localStorage.setItem("PCRoster",PCPopulation);
+    }
 
 }
 
@@ -23,22 +107,36 @@ export const pullFromPC = (target) => {
 
 }
 
+export  const releasePoke = (name,poke) => {
+                        
+        const confirmRelease = confirm(`Are you sure you want to release ${name}? This can't be undone.`);
+                        
+        if (confirmRelease) {
+
+            const PC = PCRoster.split(',');
+            
+            poke.src = '../data/images/transparent.png';
+
+            for (let i = 0; i < PC.length; i++) {
+
+                if (PC[i] == name) {
+
+                    PC.splice(i,1);
+                    break;
+                    
+                }
+
+            }
+
+            localStorage.setItem("PCRoster",PC);
+            location.reload();
+
+        } 
+
+
+}
+
 export const updateProfile = () => {
-
-    if (document.title != 'PC') { return } else {
-
-        const avatarBox = document.getElementById("playerAvatarBox");
-        const rosterBox = document.getElementById("playerRosterBox");
-        const PCBox = document.getElementById("playerPCBox");
-        const badgeBox = document.getElementById("playerBadgeBox");
-        const avatarChange = document.getElementById("changeAvatar");
-        const badgeCaseBox = document.getElementById("badgeCase");
-        const badgeCases = document.querySelectorAll(".playerBadgeCase");
-        const PCRoster = localStorage.getItem("PCRoster");
-
-        // placeInPC("Gardevoir");
-        // placeInPC("Charizard");
-
 
         const setAvatar = (name) => {
             localStorage.setItem("playerAvatar",name);
@@ -63,6 +161,7 @@ export const updateProfile = () => {
 
                 var rosterHolder = document.createElement("div");
                 var pokeImage = new Image();
+                
                 rosterHolder.appendChild(pokeImage);
                 rosterHolder.classList.add("rosterHolder");
                 rosterBox.appendChild(rosterHolder);
@@ -74,17 +173,31 @@ export const updateProfile = () => {
         const getPC = (maxSize=localStorage.getItem("maxPCSize")) => {
 
             for (let i = 0; i < maxSize; i++) {
+
                 var PCHolder = document.createElement("div");
                 var pokeImage = new Image();
-                pokeImage.src = '../data/images/transparent.png';
+                var transP = '../data/images/transparent.png';
+                const poke = PCRoster.split(',')[i];
+
+                pokeImage.src = transP;
                 pokeImage.classList.add("pokeBoxImage");
-                console.log(PCRoster.split(',')[i])
-                if (PCRoster.split(',').length >= 1 && PCRoster.split(',')[i]) {
-                    pokeImage.src=`https://img.pokemondb.net/sprites/diamond-pearl/normal/${PCRoster.split(',')[i].toLowerCase()}.png`
+
+                pokeImage.addEventListener("dblclick", (e) => {
+
+                    var imgLink = window.location.origin + '/data/images/transparent.png';
+
+                    e.target.src != imgLink ? releasePoke(poke,e.target) : null;
+
+                })
+
+                if (PCRoster.split(',').length >= 1 && poke) {
+                    pokeImage.src=`https://img.pokemondb.net/sprites/diamond-pearl/normal/${PCRoster.split(',')[i].toLowerCase()}.png`;
                 } 
+
                 PCHolder.appendChild(pokeImage);
                 PCHolder.classList.add("PCHolder");
                 PCBox.appendChild(PCHolder);
+
             }
 
 
@@ -94,10 +207,10 @@ export const updateProfile = () => {
             localStorage.setItem("badgeRegion",region);
             switch(region) {
                 case 'Kanto':
-                    displayBadges(checkBadges(['Boulder','Cascade','Thunder','Rainbow','Soul','Marsh','Volcano','Earth']));
+                    displayBadges(checkBadges(gen1Badges));
                     break;
                 case 'Johto':
-                    displayBadges(checkBadges(['Zephyr','Hive','Plain','Fog','Storm','Mineral','Glacier','Rising']));
+                    displayBadges(checkBadges(gen2Badges));
                     break;
                 default: break;
             }
@@ -109,52 +222,6 @@ export const updateProfile = () => {
             });
                 
         });
-        
-        const checkBadges = (badgeChecklist) => {
-
-            const badgeList = [...localStorage.getItem("badgeList").split(',')];
-
-            let result = [badgeChecklist.map((e) => { 
-
-                if (badgeList.includes(e)) {
-
-                    return e;
-
-                } else {
-
-                    return null;
-
-                }
-
-            })];
-
-            return result;
-
-        }
-
-        const addBadge = (badge) => {
-
-            const badgeList = localStorage.getItem("badgeList");
-
-            if (!badgeList) {
-
-                localStorage.setItem("badgeList",badge);
-
-            } else {
-
-                const badgeNames = [...badgeList.split(',')];
-
-                if (!badgeNames.includes(badge)) {
-                    badgeNames.push(badge);
-                }
-
-                localStorage.setItem("badgeList",badgeNames);
-
-            }
-
-            alert(`Congratulations! You earned the ${badge} badge!`);
-
-        }
 
         const displayBadges = ([badgeList]) => {
 
@@ -233,7 +300,7 @@ export const updateProfile = () => {
 
         }
 
-        const profileSections = [avatarBox,rosterBox,PCBox,badgeBox];
+        const profileSections = [avatarBox,rosterBox,PCBox,badgeBox,inventoryBox];
 
         profileSections.forEach((e) => { 
             e.classList.add('profileSection');
@@ -243,7 +310,5 @@ export const updateProfile = () => {
         getAvatar();
         getPC();
         getRoster();
-
-    }
 
 }

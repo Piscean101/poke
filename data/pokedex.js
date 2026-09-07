@@ -2318,8 +2318,6 @@ const createDexCard = (poke=pokedex[20][1]) => {
 }
 
 export const populateDexPage = () => {
-
-    if (document.title != 'Pokedex') { return } else {
         
             document.addEventListener("DOMContentLoaded", () => {
             
@@ -2330,8 +2328,6 @@ export const populateDexPage = () => {
                 // body.appendChild(createDexCard());
         
         });
-
-    }
 
 }
 

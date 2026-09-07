@@ -33,6 +33,11 @@ body {
     flex-wrap: wrap;
 }
 
+#controlBody {
+    padding: 5rem;
+    display: grid;
+}
+
 #nav {
     position: absolute;
     top: 0;
@@ -321,6 +326,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     overflow-y: scroll;
+}
+
+#playerInventoryBox {
+    position: absolute;
+    bottom: 1rem;
+    height: 50vh;
+    aspect-ratio: 0.7;
+    left: 30%;
 }
 
 #changeAvatar {
