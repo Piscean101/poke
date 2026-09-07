@@ -1,3 +1,28 @@
+/** DEFAULT USER SETTINGS */
+
+localStorage.getItem("maxPCSize") ? null : localStorage.setItem("maxPCSize",6);
+
+/* */
+
+export const placeInPC = (species) => {
+
+    var PCPopulation = [];
+    const PC = localStorage.getItem("PCRoster");
+
+    PC ? PCPopulation = [...PC.split(',')] : null;
+
+    // CREATE ERROR HANDLER FUNCTION FOR WHEN MAX PC SIZE REACHED
+
+    PCPopulation.length < localStorage.getItem("maxPCSize") ? PCPopulation.push(species) : null
+
+    localStorage.setItem("PCRoster",PCPopulation);
+
+}
+
+export const pullFromPC = (target) => {
+
+}
+
 export const updateProfile = () => {
 
     if (document.title != 'PC') { return } else {
@@ -9,6 +34,11 @@ export const updateProfile = () => {
         const avatarChange = document.getElementById("changeAvatar");
         const badgeCaseBox = document.getElementById("badgeCase");
         const badgeCases = document.querySelectorAll(".playerBadgeCase");
+        const PCRoster = localStorage.getItem("PCRoster");
+
+        // placeInPC("Gardevoir");
+        // placeInPC("Charizard");
+
 
         const setAvatar = (name) => {
             localStorage.setItem("playerAvatar",name);
@@ -27,17 +57,12 @@ export const updateProfile = () => {
             setAvatar(e.target.value);
         });
 
-        const placeInPC = () => {};
-
-        const pullFromPC = () => {};
-
         const getRoster = () => {
 
             for (let i = 0; i < 6; i++) {
 
                 var rosterHolder = document.createElement("div");
                 var pokeImage = new Image();
-                pokeImage.src = '';
                 rosterHolder.appendChild(pokeImage);
                 rosterHolder.classList.add("rosterHolder");
                 rosterBox.appendChild(rosterHolder);
@@ -46,16 +71,22 @@ export const updateProfile = () => {
 
         };
 
-        const getPC = (maxSize=6) => {
+        const getPC = (maxSize=localStorage.getItem("maxPCSize")) => {
 
             for (let i = 0; i < maxSize; i++) {
                 var PCHolder = document.createElement("div");
                 var pokeImage = new Image();
-                pokeImage.src = '';
+                pokeImage.src = '../data/images/transparent.png';
+                pokeImage.classList.add("pokeBoxImage");
+                console.log(PCRoster.split(',')[i])
+                if (PCRoster.split(',').length >= 1 && PCRoster.split(',')[i]) {
+                    pokeImage.src=`https://img.pokemondb.net/sprites/diamond-pearl/normal/${PCRoster.split(',')[i].toLowerCase()}.png`
+                } 
                 PCHolder.appendChild(pokeImage);
                 PCHolder.classList.add("PCHolder");
                 PCBox.appendChild(PCHolder);
             }
+
 
         };
 

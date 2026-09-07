@@ -2214,9 +2214,9 @@ const gen1dex = {
     },
 }
 
-const pokedex = [...Object.entries(gen1dex)]
+export const pokedex = [...Object.entries(gen1dex)]
 
-const searchDex = (value,attr='NAME',range='=',dex=[...Object.values(pokedex)]) => {
+export const searchDex = (value,attr='NAME',range='=',dex=[...Object.values(pokedex)]) => {
 
     let result = [];
 

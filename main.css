@@ -406,3 +406,7 @@ body {
     border-color: gold;
     cursor: pointer;
 }
+
+.pokeBoxImage {
+    transform: scale(0.8);
+}
