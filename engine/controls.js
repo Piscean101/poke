@@ -9,7 +9,8 @@ export const controls = () => {
     const submitAddBadge = document.getElementById("cSubmitAddBadge");
 
     submitAddPC.addEventListener("click", (e) => {
-        placeInPC(inputAddPC.value)
+        placeInPC(inputAddPC.value);
+        placeInPC ? window.location = window.location.origin + '/pages/profile.html' : null;
     });
 
     submitAddBadge.addEventListener("click", (e) => {

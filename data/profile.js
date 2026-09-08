@@ -9,7 +9,18 @@ const avatarChange = document.getElementById("changeAvatar");
 const badgeCaseBox = document.getElementById("badgeCase");
 const badgeCases = document.querySelectorAll(".playerBadgeCase");
 const PCRoster = localStorage.getItem("PCRoster");
+console.log(PCRoster)
+!PCRoster ? localStorage.setItem("PCRoster","") : null;
+const PC = PCRoster.split(',');
+const playerRoster = localStorage.getItem("playerRoster");
+playerRoster ? null : localStorage.setItem("playerRoster","");
+const roster = playerRoster.split(',');
+const rosterHolders = document.querySelectorAll('.rosterHolder');
 const badgeList = localStorage.getItem("badgeList");
+
+
+const transP = '../data/images/transparent.png';
+const transPImgLink = window.location.origin + '/data/images/transparent.png';
 
 /** DEFAULT USER SETTINGS */
 
@@ -18,8 +29,6 @@ localStorage.getItem("maxPCSize") ? null : localStorage.setItem("maxPCSize",6);
 /* */
 
 export  const addBadge = (badge) => {
-
-            console.log(badgeList)
 
             if (!allBadges.includes(badge)) {
 
@@ -79,11 +88,34 @@ export const verifySpecies = (species) => {
 
 }
 
+export const addToRoster = (poke,img) => {
+
+    const emptyRoster = [...rosterHolders].filter((e) => { return !e.children[0].src != transPImgLink });
+
+    if (emptyRoster.length && roster.length < 6) {
+
+        roster.push(img);
+        
+        emptyRoster[0].children[0].src = img;
+
+        localStorage.setItem("playerRoster",roster);
+
+        location.reload();
+
+    }
+
+
+}
+
 export const placeInPC = (species) => {
+
+    const status = true;
 
     if (!verifySpecies(species).length) { 
         
         alert(`Error: ${species} Not Found. Try checking spelling`);
+
+        status = false;
     
     } else {
 
@@ -101,9 +133,29 @@ export const placeInPC = (species) => {
 
     }
 
+    return status;
+
 }
 
-export const pullFromPC = (target) => {
+export const pullFromPC = (poke,target) => {
+
+    let result;
+
+    for (let i = 0; i < PC.length; i++) {
+
+        if (PC[i] == poke) {
+
+            result = target.src;
+            target.src = transP;
+            PC.splice(i,1);
+            localStorage.setItem("PCRoster",PC); 
+            break;
+                    
+        }
+
+    }
+
+    return [poke,result];
 
 }
 
@@ -112,8 +164,6 @@ export  const releasePoke = (name,poke) => {
         const confirmRelease = confirm(`Are you sure you want to release ${name}? This can't be undone.`);
                         
         if (confirmRelease) {
-
-            const PC = PCRoster.split(',');
             
             poke.src = '../data/images/transparent.png';
 
@@ -136,6 +186,8 @@ export  const releasePoke = (name,poke) => {
 
 }
 
+// localStorage.clear("playerRoster")
+
 export const updateProfile = () => {
 
         const setAvatar = (name) => {
@@ -157,14 +209,23 @@ export const updateProfile = () => {
 
         const getRoster = () => {
 
+            roster.forEach((e,i) => {
+
+                e == '' ? roster.splice(i,1) : null;
+
+            });
+            
+
             for (let i = 0; i < 6; i++) {
 
-                var rosterHolder = document.createElement("div");
+                var current = [...rosterHolders][i];
                 var pokeImage = new Image();
+
+                roster[i] ? pokeImage.src = roster[i] : null;
                 
-                rosterHolder.appendChild(pokeImage);
-                rosterHolder.classList.add("rosterHolder");
-                rosterBox.appendChild(rosterHolder);
+                current.appendChild(pokeImage);
+                current.classList.add("rosterHolder");
+                rosterBox.appendChild(current);
 
             }
 
@@ -176,7 +237,6 @@ export const updateProfile = () => {
 
                 var PCHolder = document.createElement("div");
                 var pokeImage = new Image();
-                var transP = '../data/images/transparent.png';
                 const poke = PCRoster.split(',')[i];
 
                 pokeImage.src = transP;
@@ -184,9 +244,15 @@ export const updateProfile = () => {
 
                 pokeImage.addEventListener("dblclick", (e) => {
 
-                    var imgLink = window.location.origin + '/data/images/transparent.png';
+                    e.target.src != transPImgLink ? releasePoke(poke,e.target) : null;
 
-                    e.target.src != imgLink ? releasePoke(poke,e.target) : null;
+                });
+
+                pokeImage.addEventListener("click", (e) => {
+
+                    const result = pullFromPC(poke,e.target);
+
+                    result[0] ? addToRoster(result[0],result[1]) : null;
 
                 })
 

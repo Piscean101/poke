@@ -1768,8 +1768,8 @@ const gen1dex = {
     Steelix: {
         NAME: 'Steelix',
         HP: 2,
-        POW: 2,
-        DEF: 10,
+        POW: 3,
+        DEF: 9,
         SPE: 0,
         TYPE: ['Ground','Steel'],
         COST: 3,
