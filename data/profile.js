@@ -5,11 +5,10 @@ const rosterBox = document.getElementById("playerRosterBox");
 const PCBox = document.getElementById("playerPCBox");
 const badgeBox = document.getElementById("playerBadgeBox");
 const inventoryBox = document.getElementById("playerInventoryBox");
-const avatarChange = document.getElementById("changeAvatar");
+const avatarChange = document.querySelectorAll(".changeAvatar");
 const badgeCaseBox = document.getElementById("badgeCase");
 const badgeCases = document.querySelectorAll(".playerBadgeCase");
 const PCRoster = localStorage.getItem("PCRoster");
-console.log(PCRoster)
 !PCRoster ? localStorage.setItem("PCRoster","") : null;
 const PC = PCRoster.split(',');
 const playerRoster = localStorage.getItem("playerRoster");
@@ -82,21 +81,42 @@ const checkBadges = (badgeChecklist) => {
 
 export const verifySpecies = (species) => {
 
-    const result = [...Object.values(pokedex)].filter((e) => { return e[0] == species });
+    const result = [...Object.values(pokedex)].filter((e) => { return e[0].toLowerCase() == species.toLowerCase() });
 
     return result;
 
 }
 
-export const addToRoster = (poke,img) => {
+export const pullFromRoster = (target,img,name) => {
+
+    for (let i = 0; i < roster.length; i++) {
+
+        if (roster[i] == img) {
+
+            roster.splice(i,1);
+
+            localStorage.setItem("playerRoster",roster);
+            break;
+
+        }
+ 
+    }
+
+    placeInPC(name,true) ? target.src = '' : null;
+
+}
+
+export const placeInRoster = (poke,img) => {
 
     const emptyRoster = [...rosterHolders].filter((e) => { return !e.children[0].src != transPImgLink });
 
     if (emptyRoster.length && roster.length < 6) {
 
+        const target = emptyRoster[0].children[0];
+
         roster.push(img);
         
-        emptyRoster[0].children[0].src = img;
+        target.src = img;
 
         localStorage.setItem("playerRoster",roster);
 
@@ -107,9 +127,9 @@ export const addToRoster = (poke,img) => {
 
 }
 
-export const placeInPC = (species) => {
+export const placeInPC = (species,toggleAlert=false) => {
 
-    const status = true;
+    var status = true;
 
     if (!verifySpecies(species).length) { 
         
@@ -129,7 +149,9 @@ export const placeInPC = (species) => {
     
         localStorage.setItem("PCRoster",PCPopulation);
 
-        alert(`Success! Added ${species} to your PC Box`)
+        const pokeName = species[0].toUpperCase() + species.slice(1)
+
+        toggleAlert ? alert(`${pokeName} was moved to your PC Box`) : alert(`Success! Added ${pokeName} to your PC Box`)
 
     }
 
@@ -203,9 +225,11 @@ export const updateProfile = () => {
             }
         };
         
-        avatarChange.addEventListener("change", (e) => {
-            setAvatar(e.target.value);
-        });
+        avatarChange.forEach((e) => {
+            e.addEventListener("change", (f) => {
+                setAvatar(f.target.value);
+            });
+        })
 
         const getRoster = () => {
 
@@ -221,7 +245,19 @@ export const updateProfile = () => {
                 var current = [...rosterHolders][i];
                 var pokeImage = new Image();
 
-                roster[i] ? pokeImage.src = roster[i] : null;
+                if (roster[i]) {
+                    pokeImage.src = roster[i];
+                    pokeImage.addEventListener("click", (e) => {
+
+                        const split = e.target.src.split('/');
+                        var name = split[split.length-1].split('.')[0];
+                        name[0].toUpperCase();
+                        pullFromRoster(e.target,e.target.src,name);
+                        location.reload();
+
+                    })
+                } 
+                
                 
                 current.appendChild(pokeImage);
                 current.classList.add("rosterHolder");
@@ -252,7 +288,7 @@ export const updateProfile = () => {
 
                     const result = pullFromPC(poke,e.target);
 
-                    result[0] ? addToRoster(result[0],result[1]) : null;
+                    result[0] ? placeInRoster(result[0],result[1]) : null;
 
                 })
 
