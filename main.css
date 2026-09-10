@@ -403,6 +403,11 @@ body {
     aspect-ratio: 1;
     margin: 1rem;
     transition: all 350ms ease;
+    display: grid;
+}
+
+.PCHolder img {
+    position: absolute;
 }
 
 .rosterHolder {
@@ -423,5 +428,14 @@ body {
 }
 
 .pokeBoxImage {
-    transform: scale(0.8);
+    transform: scale(0.85);
+}
+
+.bigPCImg {
+    transform: scale(0.6);
+}
+
+.filled {
+    display: grid;
+    place-items: center;
 }

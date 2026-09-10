@@ -2026,7 +2026,7 @@ const gen1dex = {
     /* 
     
     
-    
+
     SINGE STAGE GROUP - SPECIAL
     COST: 0
     STAT TOTAL: 5
@@ -3551,4 +3551,4 @@ export const populateDexPage = () => {
 
 }
 
-searchDex('Tauros','NAME')
+searchDex('RARITY','C')
