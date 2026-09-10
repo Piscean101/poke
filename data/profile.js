@@ -293,8 +293,18 @@ export const updateProfile = () => {
                 })
 
                 if (PCRoster.split(',').length >= 1 && poke) {
-                    pokeImage.src=`https://img.pokemondb.net/sprites/diamond-pearl/normal/${PCRoster.split(',')[i].toLowerCase()}.png`;
-                } 
+                    const name = PCRoster.split(',')[i].toLowerCase();
+                    switch (name) {
+                        case 'sylveon':
+                            pokeImage.src=`https://img.pokemondb.net/sprites/x-y/normal/${name}.png`;
+                            pokeImage.classList.add('bigPCImg')
+                            break;
+                        default: 
+                            pokeImage.src=`https://img.pokemondb.net/sprites/diamond-pearl/normal/${name}.png`;
+                            break;
+                    }
+                    PCHolder.classList.add("filled")
+                }
 
                 PCHolder.appendChild(pokeImage);
                 PCHolder.classList.add("PCHolder");
