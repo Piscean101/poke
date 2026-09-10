@@ -89,28 +89,34 @@ export const verifySpecies = (species) => {
 
 export const pullFromRoster = (target,img,name) => {
 
-    for (let i = 0; i < roster.length; i++) {
+    if (PC.length >= Number(localStorage.getItem("maxPCSize"))) {
 
-        if (roster[i] == img) {
+        alert("Your PC is full.")
 
-            roster.splice(i,1);
+    } else {
 
-            localStorage.setItem("playerRoster",roster);
-            break;
-
+        for (let i = 0; i < roster.length; i++) {
+    
+            if (roster[i] == img) {
+    
+                roster.splice(i,1);
+    
+                localStorage.setItem("playerRoster",roster);
+                break;
+    
+            }
+     
         }
- 
-    }
+    
+        placeInPC(name,true) ? target.src = '' : null;
 
-    placeInPC(name,true) ? target.src = '' : null;
+    }
 
 }
 
 export const placeInRoster = (poke,img) => {
 
     const emptyRoster = [...rosterHolders].filter((e) => { return !e.children[0].src != transPImgLink });
-
-    if (emptyRoster.length && roster.length < 6) {
 
         const target = emptyRoster[0].children[0];
 
@@ -121,9 +127,6 @@ export const placeInRoster = (poke,img) => {
         localStorage.setItem("playerRoster",roster);
 
         location.reload();
-
-    }
-
 
 }
 
@@ -248,12 +251,12 @@ export const updateProfile = () => {
                 if (roster[i]) {
                     pokeImage.src = roster[i];
                     pokeImage.addEventListener("click", (e) => {
-
-                        const split = e.target.src.split('/');
-                        var name = split[split.length-1].split('.')[0];
-                        name[0].toUpperCase();
-                        pullFromRoster(e.target,e.target.src,name);
-                        location.reload();
+                            
+                            const split = e.target.src.split('/');
+                            var name = split[split.length-1].split('.')[0];
+                            name[0].toUpperCase();
+                            pullFromRoster(e.target,e.target.src,name);
+                            location.reload();
 
                     })
                 } 
@@ -278,17 +281,29 @@ export const updateProfile = () => {
                 pokeImage.src = transP;
                 pokeImage.classList.add("pokeBoxImage");
 
-                pokeImage.addEventListener("dblclick", (e) => {
+                // pokeImage.addEventListener("dblclick", (e) => {
 
-                    e.target.src != transPImgLink ? releasePoke(poke,e.target) : null;
+                //     e.target.src != transPImgLink ? releasePoke(poke,e.target) : null;
 
-                });
+                // });
 
                 pokeImage.addEventListener("click", (e) => {
 
-                    const result = pullFromPC(poke,e.target);
+                    const choice = confirm(`Move ${poke} to your Party?`);
+                        
+                        if (!choice) {
+                            
+                            const release = confirm(`Do you want to release ${poke}?`);
+                            
+                            if (release) { e.target.src != transPImgLink ? releasePoke(poke,e.target) : null }
 
-                    result[0] ? placeInRoster(result[0],result[1]) : null;
+                        } else { 
+
+                            const result = pullFromPC(poke,e.target);
+        
+                            result[0] ? placeInRoster(result[0],result[1]) : null;
+
+                        }
 
                 })
 

@@ -522,7 +522,7 @@ const gen1dex = {
         SPE: 1,
         TYPE: ['Poison'],
         COST: 1,
-        RARITY: 'R',
+        RARITY: 'U',
         NEXT: 'Nidoking'
     },
     Nidorina: {
@@ -533,7 +533,7 @@ const gen1dex = {
         SPE: 1,
         TYPE: ['Poison'],
         COST: 1,
-        RARITY: 'R',
+        RARITY: 'U',
         NEXT: 'Nidoqueen'
     },
     Nidoking: {
@@ -657,7 +657,7 @@ const gen1dex = {
         SPE: 0,
         TYPE: ['Grass','Poison'],
         COST: 0,
-        RARITY: 'U',
+        RARITY: 'C',
         NEXT: 'Weepinbell'
     },
     Weepinbell: {
@@ -668,7 +668,7 @@ const gen1dex = {
         SPE: 1,
         TYPE: ['Grass','Poison'],
         COST: 1,
-        RARITY: 'R',
+        RARITY: 'U',
         NEXT: 'Victreebel'
     },
     Victreebel: {
@@ -993,7 +993,7 @@ const gen1dex = {
         SPE: 2,
         TYPE: ['Normal','Flying'],
         COST: 1,
-        RARITY: 'R',
+        RARITY: 'U',
         NEXT: null
     },
     //
@@ -1016,7 +1016,7 @@ const gen1dex = {
         SPE: 1,
         TYPE: ['Poison'],
         COST: 1,
-        RARITY: 'R',
+        RARITY: 'U',
         NEXT: null
     },
     //
@@ -1154,7 +1154,7 @@ const gen1dex = {
         SPE: 1,
         TYPE: ['Water','Ice'],
         COST: 1,
-        RARITY: 'X',
+        RARITY: 'R',
         NEXT: null
     },
     //
@@ -1245,7 +1245,7 @@ const gen1dex = {
         SPE: 1,
         TYPE: ['Ground'],
         COST: 0,
-        RARITY: 'U',
+        RARITY: 'C',
         NEXT: 'Dugtrio'
     },
     Dugtrio: {
@@ -1360,7 +1360,7 @@ const gen1dex = {
         SPE: 0,
         TYPE: ['Psychic'],
         COST: 0,
-        RARITY: 'U',
+        RARITY: 'C',
         NEXT: 'Hypno'
     },
     Hypno: {
@@ -1383,7 +1383,7 @@ const gen1dex = {
         SPE: 0,
         TYPE: ['Water'],
         COST: 0,
-        RARITY: 'U',
+        RARITY: 'C',
         NEXT: 'Kingler'
     },
     Kingler: {
@@ -1406,7 +1406,7 @@ const gen1dex = {
         SPE: 2,
         TYPE: ['Electric'],
         COST: 0,
-        RARITY: 'U',
+        RARITY: 'C',
         NEXT: 'Electrode'
     },
     Electrode: {
@@ -1521,7 +1521,7 @@ const gen1dex = {
             SPE: 0,
             TYPE: ['Water','Rock'],
             COST: 0,
-            RARITY: 'N',
+            RARITY: 'X',
             NEXT: 'Omastar'
         },
         Omastar: {
@@ -1544,7 +1544,7 @@ const gen1dex = {
             SPE: 0,
             TYPE: ['Water','Rock'],
             COST: 0,
-            RARITY: 'N',
+            RARITY: 'X',
             NEXT: 'Kabutops'
         },
         Kabutops: {
@@ -1579,7 +1579,7 @@ const gen1dex = {
            SPE: 2,
            TYPE: ['Water','Poison'],
            COST: 1,
-           RARITY: 'R',
+           RARITY: 'U',
            NEXT: 'Tentacruel'
         },
         Tentacruel: {
@@ -1625,7 +1625,7 @@ const gen1dex = {
         SPE: 0,
         TYPE: ['Water','Ice'],
         COST: 1,
-        RARITY: 'R',
+        RARITY: 'U',
         NEXT: 'Cloyster'
         },
         Cloyster: {
@@ -1694,7 +1694,7 @@ const gen1dex = {
         SPE: 0,
         TYPE: ['Normal'],
         COST: 1,
-        RARITY: 'R',
+        RARITY: 'U',
         NEXT: 'LickiLicky'
     },
     Lickilicky: {
@@ -1736,7 +1736,7 @@ const gen1dex = {
     
 
         TWO STAGE GROUP - ULTRA
-        COST: 1 -> 3
+        COST: 1 -> 2
         STAT TOTALS: 8 -> 14
 
     
@@ -1760,7 +1760,7 @@ const gen1dex = {
         DEF: 3,
         SPE: 4,
         TYPE: ['Fire'],
-        COST: 3,
+        COST: 2,
         RARITY: 'L',
         NEXT: null
     },
@@ -1773,7 +1773,7 @@ const gen1dex = {
         SPE: 0,
         TYPE: ['Rock','Ground'],
         COST: 1,
-        RARITY: 'U',
+        RARITY: 'C',
         NEXT: 'Steelix'
     },
     Steelix: {
@@ -1783,7 +1783,7 @@ const gen1dex = {
         DEF: 9,
         SPE: 0,
         TYPE: ['Ground','Steel'],
-        COST: 3,
+        COST: 2,
         RARITY: 'L',
         NEXT: null
     },
@@ -1806,7 +1806,7 @@ const gen1dex = {
         DEF: 2,
         SPE: 1,
         TYPE: ['Normal'],
-        COST: 3,
+        COST: 2,
         RARITY: 'L',
         NEXT: null
     },
@@ -1829,8 +1829,31 @@ const gen1dex = {
         DEF: 4,
         SPE: 3,
         TYPE: ['Water','Flying'],
-        COST: 3,
+        COST: 2,
         RARITY: 'M',
+        NEXT: null
+    },
+    //
+    Munchlax: {
+        NAME: 'Munchlax',
+        HP: 5,
+        POW: 2,
+        DEF: 1,
+        SPE: 0,
+        TYPE: ['Normal'],
+        COST: 1,
+        RARITY: 'M',
+        NEXT: null
+    },
+    Snorlax: {
+        NAME: 'Snorlax',
+        HP: 7,
+        POW: 5,
+        DEF: 4,
+        SPE: 0,
+        TYPE: ['Normal'],
+        COST: 2,
+        RARITY: 'L',
         NEXT: null
     },
     /* 
@@ -2086,7 +2109,7 @@ const gen1dex = {
         SPE: 3,
         TYPE: ['Normal'],
         COST: 2,
-        RARITY: 'R',
+        RARITY: 'X',
         NEXT: null
     },
     //
@@ -2098,7 +2121,7 @@ const gen1dex = {
         SPE: 3,
         TYPE: ['Bug'],
         COST: 2,
-        RARITY: 'R',
+        RARITY: 'X',
         NEXT: null
     },
     //
@@ -2110,7 +2133,7 @@ const gen1dex = {
         SPE: 5,
         TYPE: ['Normal'],
         COST: 2,
-        RARITY: 'R',
+        RARITY: 'X',
         NEXT: null
     },
     //
@@ -2122,7 +2145,7 @@ const gen1dex = {
         SPE: 2,
         TYPE: ['Water','Ice'],
         COST: 2,
-        RARITY: 'R',
+        RARITY: 'X',
         NEXT: null
     },
     //
@@ -2134,7 +2157,7 @@ const gen1dex = {
         SPE: 6,
         TYPE: ['Rock','Flying'],
         COST: 2,
-        RARITY: 'R',
+        RARITY: 'M',
         NEXT: null
     },
     /*
@@ -2142,7 +2165,7 @@ const gen1dex = {
     
     
 
-            SINGLE STAGE GROUP - MYTHIC
+            SINGLE STAGE GROUP - LEGENDART
             COST: 3
             STAT TOTALS: 16
 
@@ -2150,18 +2173,6 @@ const gen1dex = {
 
     
     */
-    Snorlax: {
-        NAME: 'Snorlax',
-        HP: 7,
-        POW: 5,
-        DEF: 4,
-        SPE: 0,
-        TYPE: ['Normal'],
-        COST: 3,
-        RARITY: 'M',
-        NEXT: null
-    },
-    //
     Articuno: {
         NAME: 'Articuno',
         HP: 4,
@@ -2197,13 +2208,25 @@ const gen1dex = {
         RARITY: 'L',
         NEXT: null
     },
+    //
+    Mew: {
+        NAME: 'Mew',
+        HP: 4,
+        POW: 4,
+        DEF: 4,
+        SPE: 4,
+        TYPE: ['Psychic'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
     /*
     
     
     
 
-            SINGLE STAGE GROUP - LEGENDARY
-            COST: 4
+            SINGLE STAGE GROUP - BOSS
+            COST: 3
             STAT TOTALS: 20
 
     
@@ -2218,19 +2241,7 @@ const gen1dex = {
         DEF: 3,
         SPE: 6,
         TYPE: ['Psychic'],
-        COST: 4,
-        RARITY: 'L',
-        NEXT: null
-    },
-    //
-    Mew: {
-        NAME: 'Mew',
-        HP: 5,
-        POW: 5,
-        DEF: 5,
-        SPE: 5,
-        TYPE: ['Psychic'],
-        COST: 4,
+        COST: 3,
         RARITY: 'L',
         NEXT: null
     },
@@ -2255,7 +2266,7 @@ const gen2dex = {
         SPE: 0,
         TYPE: ['Grass'],
         COST: 0,
-        RARITY: 'M',
+        RARITY: 'N',
         NEXT: 'Bayleef'
     },
     Bayleef: {
@@ -2266,7 +2277,7 @@ const gen2dex = {
         SPE: 2,
         TYPE: ['Grass'],
         COST: 1,
-        RARITY: 'M',
+        RARITY: 'N',
         NEXT: 'Meganium'
     },
     Meganium: {
@@ -2289,7 +2300,7 @@ const gen2dex = {
         SPE: 1,
         TYPE: ['Fire'],
         COST: 0,
-        RARITY: 'M',
+        RARITY: 'N',
         NEXT: 'Quilava'
     },
     Quilava: {
@@ -2300,7 +2311,7 @@ const gen2dex = {
         SPE: 3,
         TYPE: ['Fire'],
         COST: 1,
-        RARITY: 'M',
+        RARITY: 'N',
         NEXT: 'Typhlosion'
     },
     Typhlosion: {
@@ -2323,7 +2334,7 @@ const gen2dex = {
         SPE: 1,
         TYPE: ['Water'],
         COST: 0,
-        RARITY: 'M',
+        RARITY: 'N',
         NEXT: 'Croconaw'
     },
     Croconaw: {
@@ -2334,7 +2345,7 @@ const gen2dex = {
         SPE: 2,
         TYPE: ['Water'],
         COST: 1,
-        RARITY: 'M',
+        RARITY: 'N',
         NEXT: 'Feraligatr'
     },
     Feraligatr: {
@@ -2401,7 +2412,7 @@ const gen2dex = {
         SPE: 0,
         TYPE: ['Electric'],
         COST: 0,
-        RARITY: 'R',
+        RARITY: 'C',
         NEXT: 'Flaaffy'
     },
     Flaaffy: {
@@ -2412,7 +2423,7 @@ const gen2dex = {
         SPE: 1,
         TYPE: ['Electric'],
         COST: 1,
-        RARITY: 'X',
+        RARITY: 'U',
         NEXT: 'Ampharos'
     },
     Ampharos: {
@@ -2435,7 +2446,7 @@ const gen2dex = {
         SPE: 0,
         TYPE: ['Normal','Fairy'],
         COST: 0,
-        RARITY: 'U',
+        RARITY: 'C',
         NEXT: 'Marill'
     },
     Marill: {
@@ -2446,7 +2457,7 @@ const gen2dex = {
         SPE: 1,
         TYPE: ['Water','Fairy'],
         COST: 1,
-        RARITY: 'R',
+        RARITY: 'U',
         NEXT: 'Azumarill'
     },
     Azumarill: {
@@ -2558,7 +2569,7 @@ const gen2dex = {
         SPE: 1,
         TYPE: ['Rock','Ground'],
         COST: 1,
-        RARITY: 'R',
+        RARITY: 'X',
         NEXT: 'Pupitar'
     },
     Pupitar: {
@@ -2569,7 +2580,7 @@ const gen2dex = {
         SPE: 2,
         TYPE: ['Rock','Ground'],
         COST: 2,
-        RARITY: 'M',
+        RARITY: 'N',
         NEXT: 'Tyranitar'
     },
     Tyranitar: {
@@ -2635,7 +2646,7 @@ const gen2dex = {
         SPE: 2,
         TYPE: ['Bug','Flying'],
         COST: 1,
-        RARITY: 'R',
+        RARITY: 'U',
         NEXT: null
     },
     //
@@ -2727,7 +2738,7 @@ const gen2dex = {
         SPE: 0,
         TYPE: ['Fire','Rock'],
         COST: 1,
-        RARITY: 'R',
+        RARITY: 'U',
         NEXT: null
     },
     /* 
@@ -2750,7 +2761,7 @@ const gen2dex = {
         SPE: 1,
         TYPE: ['Normal','Flying'],
         COST: 0,
-        RARITY: 'U',
+        RARITY: 'C',
         NEXT: 'Noctowl'
     },
     Noctowl: {
@@ -3035,7 +3046,7 @@ const gen2dex = {
         SPE: 0,
         TYPE: ['Ground'],
         COST: 0,
-        RARITY: 'R',
+        RARITY: 'U',
         NEXT: 'Donphan'
     },
     Donphan: {
@@ -3053,7 +3064,7 @@ const gen2dex = {
     
     
     ULTRA RARE
-    1 -> 3 
+    1 -> 2 
     8 -> 14
 
     
@@ -3077,7 +3088,7 @@ const gen2dex = {
         DEF: 5,
         SPE: 4,
         TYPE: ['Ground','Flying'],
-        COST: 3,
+        COST: 2,
         RARITY: 'N',
         NEXT: null
     },
@@ -3100,7 +3111,7 @@ const gen2dex = {
         DEF: 2,
         SPE: 5,
         TYPE: ['Dark','Ice'],
-        COST: 3,
+        COST: 2,
         RARITY: 'N',
         NEXT: null
     },
@@ -3345,7 +3356,7 @@ const gen2dex = {
        /* 
     
     
-    MYTHIC
+    LEGENDARY
     3 
     16
 
@@ -3387,11 +3398,24 @@ const gen2dex = {
         RARITY: 'L',
         NEXT: null
     },
+    //
+    //
+    Celebi: {
+        NAME: 'Celebi',
+        HP: 4,
+        POW: 4,
+        DEF: 4,
+        SPE: 4,
+        TYPE: ['Grass','Psychic'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
        /* 
     
     
-    LEGENDARY
-    4
+    BOSS
+    3
     20
 
     
@@ -3404,7 +3428,7 @@ const gen2dex = {
         DEF: 7,
         SPE: 5,
         TYPE: ['Psychic','Flying'],
-        COST: 4,
+        COST: 3,
         RARITY: 'L',
         NEXT: null
     },
@@ -3416,19 +3440,7 @@ const gen2dex = {
         DEF: 6,
         SPE: 3,
         TYPE: ['Fire','Flying'],
-        COST: 4,
-        RARITY: 'L',
-        NEXT: null
-    },
-    //
-    Celebi: {
-        NAME: 'Celebi',
-        HP: 5,
-        POW: 5,
-        DEF: 5,
-        SPE: 5,
-        TYPE: ['Grass','Psychic'],
-        COST: 4,
+        COST: 3,
         RARITY: 'L',
         NEXT: null
     },
@@ -3551,4 +3563,6 @@ export const populateDexPage = () => {
 
 }
 
-searchDex('RARITY','C')
+// searchDex('N','RARITY')
+
+// C:41 U:47 R:44 X:40 M:34 L:17 N:49
