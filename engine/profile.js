@@ -1,5 +1,5 @@
-import { pokedex } from "./pokedex.js";
-import { gen1Badges, gen2Badges, allBadges } from "./badges.js";
+import { pokedex } from "../data/pokedex.js";
+import { gen1Badges, gen2Badges, allBadges } from "../data/badges.js";
 const avatarBox = document.getElementById("playerAvatarBox");
 const rosterBox = document.getElementById("playerRosterBox");
 const PCBox = document.getElementById("playerPCBox");
@@ -108,7 +108,7 @@ export const pullFromRoster = (target,img,name) => {
      
         }
     
-        placeInPC(name,true) ? target.src = '' : null;
+        placeInPC(name.replace('-',''),true) ? target.src = '' : null;
 
     }
 
@@ -140,7 +140,7 @@ export const placeInPC = (species,toggleAlert=false) => {
 
         status = false;
     
-    } else {
+    } else { 
 
         var PCPopulation = [];
     
@@ -148,7 +148,7 @@ export const placeInPC = (species,toggleAlert=false) => {
     
         // CREATE ERROR HANDLER FUNCTION FOR WHEN MAX PC SIZE REACHED
     
-        PCPopulation.length < localStorage.getItem("maxPCSize") ? PCPopulation.push(species) : null
+        if (PCPopulation.length < localStorage.getItem("maxPCSize")) { PCPopulation.push(species) } else { alert('Your PC is full.'); return }
     
         localStorage.setItem("PCRoster",PCPopulation);
 
@@ -281,35 +281,46 @@ export const updateProfile = () => {
                 pokeImage.src = transP;
                 pokeImage.classList.add("pokeBoxImage");
 
-                // pokeImage.addEventListener("dblclick", (e) => {
-
-                //     e.target.src != transPImgLink ? releasePoke(poke,e.target) : null;
-
-                // });
-
                 pokeImage.addEventListener("click", (e) => {
 
-                    const choice = confirm(`Move ${poke} to your Party?`);
+                    var choice = true;
+
+                    if (roster.length > 5) { choice = false; alert('Your Party is full.') };
+
+                    if (choice) {
                         
-                        if (!choice) {
+                        choice = confirm(`Move ${poke.charAt(0).toUpperCase()+poke.slice(1)} to your Party?`);
+
+                    }
                             
-                            const release = confirm(`Do you want to release ${poke}?`);
+                    if (!choice) {
+
+                        const release = confirm(`Do you want to release ${poke.charAt(0).toUpperCase()+poke.slice(1)}?`);
+
+                        if (release) { e.target.src != transPImgLink ? releasePoke(poke,e.target) : null }
+
+                    }  else {
+
+                        const result = pullFromPC(poke,e.target);
+
+                        result[0] ? placeInRoster(result[0],result[1]) : null;
+
+                    } 
                             
-                            if (release) { e.target.src != transPImgLink ? releasePoke(poke,e.target) : null }
-
-                        } else { 
-
-                            const result = pullFromPC(poke,e.target);
-        
-                            result[0] ? placeInRoster(result[0],result[1]) : null;
-
-                        }
-
                 })
 
                 if (PCRoster.split(',').length >= 1 && poke) {
                     const name = PCRoster.split(',')[i].toLowerCase();
                     switch (name) {
+                        case 'mrmime':
+                            pokeImage.src=`https://img.pokemondb.net/sprites/diamond-pearl/normal/mr-mime.png`;
+                            break;
+                        case 'mimejr':
+                            pokeImage.src=`https://img.pokemondb.net/sprites/diamond-pearl/normal/mime-jr.png`;
+                            break;
+                        case 'hooh':
+                            pokeImage.src=`https://img.pokemondb.net/sprites/diamond-pearl/normal/ho-oh.png`;
+                            break;
                         case 'sylveon':
                             pokeImage.src=`https://img.pokemondb.net/sprites/x-y/normal/${name}.png`;
                             pokeImage.classList.add('bigPCImg')
