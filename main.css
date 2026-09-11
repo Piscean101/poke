@@ -42,6 +42,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1001;
 }
 
 .navBtn button { 
@@ -438,4 +439,83 @@ body {
 .filled {
     display: grid;
     place-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* */
+
+
+
+
+
+
+
+
+
+
+#shopBody {
+    overflow: hidden;
+    background-color: var(--darkBackground);
+}
+
+#playerShopAvatar {
+    left: 0;
+    top: 0;
+}
+
+#keeperShopAvatar {
+    right: 0;
+    top: 0;
+}
+
+.shopAvatar {
+    height: 22vh;
+    aspect-ratio: 1;
+    position: absolute;
+    border: 2px solid pink;
+}
+
+.shopSection {
+    position: relative;
+    height: 100vh;
+    width: 48vw;
+    border: 2px solid black;
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+}
+
+.shopItems {
+    height: 90vh;
+    aspect-ratio: 0.6;
+    border: 2px solid blue;
+}
+
+.shopItem {
+    position: relative;
+    border: 2px solid grey;
+    height: 5rem;
+    aspect-ratio: 3;
+    display: grid;
+    padding: 1rem;
+}
+
+.itemImg {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    transform: scale(2);
+}
+
+.bigShopImg {
+    transform: scale(1.5);
 }
