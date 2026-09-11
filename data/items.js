@@ -2,114 +2,143 @@ export const items = {
     Evolution: {
         RareCandy: {
         NAME: 'Rare Candy',
-        GOLD: 1000,
+        COST: 800,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'EXCEPTIONS',
+        DESC: 'Use to evolve many species of Pokémon',
+        URL: `https://archives.bulbagarden.net/media/upload/8/8d/Bag_Rare_Candy_Sprite.png`,
         CONSUME: true
         },
         FireStone: {
         NAME: 'Fire Stone',
-        GOLD: 1000,
+        COST: 675,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'FLAREON,NINETALES,ARCANINE,MAGMORTAR',
+        URL: `https://archives.bulbagarden.net/media/upload/8/86/Bag_Fire_Stone_Sprite.png`,
+        DESC: 'Use to evolve VULPIX EEVEE GROWLITHE OR MAGMAR',
         CONSUME: true
         },
         WaterStone: {
         NAME: 'Water Stone',
-        GOLD: 1000,
+        COST: 675,
         ENERGY: 0,
         TYPE: 'Evolve',
-        TARGET: 'VAPOREON,POLIWRATH,STARMIE,CLOYSTER,LUDICOLO,HUNTAIL,GOREBYSS',
+        TARGET: 'VAPOREON,POLIWRATH,STARMIE,CLOYSTER,LUDICOLO',
+        URL: `https://archives.bulbagarden.net/media/upload/3/3f/Bag_Water_Stone_Sprite.png`,
+        DESC: 'Use to evolve EEVEE POLIWHIRL STARYU SHELLDER or LOMBRE',
         CONSUME: true
         },
         LeafStone: {
         NAME: 'Leaf Stone',
-        GOLD: 1000,
+        COST: 675,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'LEAFEON,VILEPLUME,VICTREEBEL,EXEGGUTOR,SHIFTRY',
+        URL: `https://archives.bulbagarden.net/media/upload/e/eb/Bag_Leaf_Stone_Sprite.png`,
+        DESC: 'Use to evolve EXEGGCUTE NUZLEAF EEVEE GLOOM or WEEPINBELL',
         CONSUME: true
         },
         ThunderStone: {
         NAME: 'Thunder Stone',
-        GOLD: 1000,
+        COST: 675,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'JOLTEON,RAICHU,MAGNEZONE,PROBOPASS,ELECTIVIRE',
+        URL: `https://archives.bulbagarden.net/media/upload/7/79/Bag_Thunder_Stone_Sprite.png`,
+        DESC: 'Use to evolve PIKACHU EEVEE MAGNETON NOSEPASS or ELECTABUZZ',
         CONSUME: true
         },
         MoonStone: {
         NAME: 'Moon Stone',
-        GOLD: 1000,
+        COST: 650,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'UMBREON,NIDOQUEEN,NIDOKING,WIGGLYTUFF,CLEFABLE,DELCATTY',
+        URL:`https://archives.bulbagarden.net/media/upload/a/ae/Bag_Moon_Stone_Sprite.png`,
+        DESC: 'Use to evolve NIDORINO NIDORINA JIGGLYPUFF EEVEE CLEFAIRY or SKITTY',
         CONSUME: true
         },
         SunStone: {
         NAME: 'Sun Stone',
-        GOLD: 1000,
+        COST: 595,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'ESPEON,BELLOSSOM,SUNFLORA',
+        URL: `https://archives.bulbagarden.net/media/upload/a/ad/Bag_Sun_Stone_Sprite.png`,
+        DESC: 'Use to evolve EEVEE GLOOM or SUNKERN',
         CONSUME: true
         },
         DawnStone: {
         NAME: 'Dawn Stone',
-        GOLD: 1000,
+        COST: 595,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'KINGDRA,GALLADE,FROSLASS',
+        URL: `https://archives.bulbagarden.net/media/upload/7/70/Bag_Dawn_Stone_Sprite.png`,
+        DESC: 'Use to evolve SEADRA KIRLIA OR SNORUNT',
         CONSUME: true
         },
         DuskStone: {
         NAME: 'Dusk Stone',
-        GOLD: 1000,
+        COST: 595,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'DUSKNOIR,HONCHKROW,MISMAGIUS',
+        URL: `https://archives.bulbagarden.net/media/upload/b/b2/Bag_Dusk_Stone_Sprite.png`,
+        DESC: 'Use to evolve MURKROW MISDREAVUS or DUSCLOPS',
         CONSUME: true
         },
         ShinyStone: {
         NAME: 'Shiny Stone',
-        GOLD: 1000,
+        COST: 595,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'SYLVEON,TOGEKISS,ROSERADE',
+        URL: `https://archives.bulbagarden.net/media/upload/4/45/Bag_Shiny_Stone_Sprite.png`,
+        DESC: 'Use to evolve EEVEE TOGETIC or ROSELIA',
         CONSUME: true
         },
         IceStone: {
         NAME: 'Ice Stone',
-        GOLD: 1000,
+        COST: 595,
         ENERGY: 0,
         TYPE: 'Evolve',
-        TARGET: 'GLACEON,GLALIE,ABOMASNOW ',
+        TARGET: 'GLACEON,GLALIE,ABOMASNOW',
+        URL: `https://archives.bulbagarden.net/media/upload/5/51/Bag_Ice_Stone_Sprite.png`,
+        DESC: 'Use to evolve SNORUNT SNOVER or EEVEE',
         CONSUME: true
         },
-        LinkCable: {
-        NAME: 'Link Cable',
-        GOLD: 1000,
+        // DESC: 'Use to evolve KADABRA,HAUNTER,GRAVELER,MACHOKE,RHYDON,PORYGON2',
+        LinkCase: {
+        NAME: 'Link Case',
+        COST: 995,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'ALAKAZAM,GENGAR,GOLEM,MACHAMP,RHYPERIOR,PORYGONZ',
+        URL: `https://archives.bulbagarden.net/media/upload/2/2c/MDBag_Link_Cable_TDS_Sprite.png`,
+        DESC: 'Use to evolve Pokémon requiring a trade',
         CONSUME: true
         },
         KingsRock: {
         NAME: `King's Rock`,
-        GOLD: 1000,
+        COST: 500,
         ENERGY: 0,
         TYPE: 'Evolve',
-        TARGET: 'POLITOED,SLOWKING',
+        TARGET: 'POLITOED,SLOWKING,HUNTAIL,GOREBYSS',
+        URL: `https://archives.bulbagarden.net/media/upload/b/ba/Bag_King%27s_Rock_Sprite.png`,
+        DESC: 'Use to evolve SLOWPOKE CLAMPERL OR POLIWHIRL',
         CONSUME: true
         },
         MetalCoat: {
         NAME: 'Metal Coat',
-        GOLD: 1000,
+        COST: 750,
         ENERGY: 0,
         TYPE: 'Evolve',
-        TARGET: 'STEELIX,SCIZOR ',
+        TARGET: 'STEELIX,SCIZOR,LUCARIO',
+        URL: `https://archives.bulbagarden.net/media/upload/e/ee/Bag_Metal_Coat_Sprite.png`,
+        DESC: 'Use to evolve ONIX SCYTHER OR RIOLU',
         CONSUME: true
         },
     },
@@ -156,11 +185,11 @@ export const items = {
         },
         NetBall: {
             NAME: 'Net Ball',
-            COST: 20,
+            COST: 25,
             DESC: 'Good for catching FLYING WATER and BUG Pokémon',
             ENERGY: 0,
             TYPE: 'Capture',
-            RATE: [5,25],
+            RATE: [10,30],
             URL: `https://archives.bulbagarden.net/media/upload/a/a6/Net_Ball_battle_IV.png`,
             CONSUME: true
         },
@@ -177,7 +206,7 @@ export const items = {
         DreamBall: {
             NAME: 'Dream Ball',
             COST: 25,
-            DESC: 'Good for catching PSYCHIC and FAIRY Pokémon',
+            DESC: 'Good for catching GHOST PSYCHIC and FAIRY Pokémon',
             ENERGY: 0,
             TYPE: 'Capture',
             RATE: [10,30],
@@ -186,25 +215,24 @@ export const items = {
         },
         DuskBall: {
             NAME: 'Dusk Ball',
-            COST: 25,
+            COST: 20,
             DESC: 'Good for catching Pokémon on CAVE Routes',
             ENERGY: 0,
             TYPE: 'Capture',
-            RATE: [10,30],
+            RATE: [10,40],
             URL: `https://archives.bulbagarden.net/media/upload/b/b5/Dusk_Ball_battle_IV.png`,
             CONSUME: true
         },
         NestBall: {
             NAME: 'Nest Ball',
-            COST: 15,
+            COST: 10,
             DESC: 'Exceptionally good for catching COMMON Pokémon',
             ENERGY: 0,
             TYPE: 'Capture',
-            RATE: [10,40],
+            RATE: [5,40],
             URL: `https://archives.bulbagarden.net/media/upload/f/f3/Nest_Ball_battle_IV.png`,
             CONSUME: true
         },
-        /* INCREASED CATCH RATE: RARE ULTRA MYTHIC LEGEND RARITY */
         PremierBall: {
             NAME: 'Premier Ball',
             COST: 150,
@@ -215,17 +243,58 @@ export const items = {
             URL: `https://archives.bulbagarden.net/media/upload/5/53/Premier_Ball_battle_IV.png`,
             CONSUME: true
         },
-        /* RANDOM MON UNCOMMON -> ULTRA */
         CherishBall: {
             NAME: 'Cherish Ball',
             COST: 975,
-            DESC: '',
+            DESC: 'Contains a Random Pokémon',
             ENERGY: null,
             TYPE: 'Random',
             RATE: null,
             URL: `https://archives.bulbagarden.net/media/upload/c/c5/Cherish_Ball_battle_IV.png`,
             CONSUME: true
         }
+    },
+    Potions: {
+        Potion: {
+            NAME: 'Potion',
+            URL: `https://archives.bulbagarden.net/media/upload/e/ed/Bag_Potion_Sprite.png`,
+            COST: 15,
+            ENERGY: 0,
+            DESC: `Restore 1 HP to injured Party member`,
+            CONSUME: true
+        },
+        SuperPotion: {
+            NAME: 'Super Potion',
+            URL: `https://archives.bulbagarden.net/media/upload/a/a3/Bag_Super_Potion_Sprite.png`,
+            COST: 35,
+            ENERGY: 0,
+            DESC: `Restore 2 HP to injured Party member`,
+            CONSUME: true
+        },
+        HyperPotion: {
+            NAME: 'Hyper Potion',
+            URL: `https://archives.bulbagarden.net/media/upload/e/e1/Bag_Hyper_Potion_Sprite.png`,
+            COST: 70,
+            ENERGY: 1,
+            DESC: `Restore 4 HP to injured Party member`,
+            CONSUME: true
+        },
+        Revive: {
+            NAME: 'Revive',
+            URL: `https://archives.bulbagarden.net/media/upload/9/9a/Bag_Revive_Sprite.png`,
+            COST: 95,
+            ENERGY: 0,
+            DESC: `Revive fainted Party member to 1 HP`,
+            CONSUME: true
+        },
+        MaxRevive: {
+            NAME: 'Max Revive',
+            URL: `https://archives.bulbagarden.net/media/upload/6/6e/Bag_Max_Revive_Sprite.png`,
+            COST: 195,
+            ENERGY: 2,
+            DESC: `Revive fainted Party member to Max HP`,
+            CONSUME: true
+        },
     }
 }
 
