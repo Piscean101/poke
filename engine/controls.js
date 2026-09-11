@@ -1,6 +1,7 @@
 import { placeInPC , addBadge } from "./profile.js";
 import { pickRandom } from "./damage.js";
 import { pokedex } from "../data/pokedex.js";
+import { addToInventory, moveMoney } from "./shop.js";
 
 export const controls = () => {
 
@@ -10,7 +11,12 @@ export const controls = () => {
     const inputAddBadge = document.getElementById("cInputAddBadge");
     const submitAddBadge = document.getElementById("cSubmitAddBadge");
 
-    const inputRandomPC = document.getElementById("cInputRandomPC");
+    const inputAddItem = document.getElementById("cInputAddItem");
+    const submitAddItem = document.getElementById("cSubmitAddItem");
+
+    const inputAddMoney = document.getElementById("cInputAddMoney");
+    const submitAddMoney = document.getElementById("cSubmitAddMoney");
+
     const submitRandomPC = document.getElementById("cSubmitRandomPC");
 
     submitAddPC.addEventListener("click", (e) => {
@@ -22,8 +28,15 @@ export const controls = () => {
     });
 
     submitRandomPC.addEventListener("click", (e) => {
-        // console.log(pokedex[Math.floor(Math.random()*pokedex.length)][0])
         placeInPC(pokedex[Math.floor(Math.random()*pokedex.length)][0]) ? window.location = window.location.origin + '/pages/profile.html' : null;
+    });
+
+    submitAddItem.addEventListener("click", (e) => {
+        addToInventory(inputAddItem.value);
+    });
+
+    submitAddMoney.addEventListener("click", (e) => {
+        moveMoney(inputAddMoney.value);
     })
 
 }

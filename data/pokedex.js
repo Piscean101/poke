@@ -1623,7 +1623,7 @@ const gen1dex = {
         POW: 2,
         DEF: 4,
         SPE: 0,
-        TYPE: ['Water','Ice'],
+        TYPE: ['Water'],
         COST: 1,
         RARITY: 'U',
         NEXT: 'Cloyster'

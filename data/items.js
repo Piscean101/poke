@@ -235,7 +235,7 @@ export const items = {
         },
         PremierBall: {
             NAME: 'Premier Ball',
-            COST: 150,
+            COST: 95,
             DESC: 'Exceptionally good for catching RARE Pokémon',
             ENERGY: null,
             TYPE: 'Capture',
@@ -292,7 +292,7 @@ export const items = {
             URL: `https://archives.bulbagarden.net/media/upload/6/6e/Bag_Max_Revive_Sprite.png`,
             COST: 195,
             ENERGY: 2,
-            DESC: `Revive fainted Party member to Max HP`,
+            DESC: `Revive fainted Party member to full HP`,
             CONSUME: true
         },
     }

@@ -4,16 +4,17 @@ import { controls } from "./engine/controls.js";
 import { loadShop } from "./engine/shop.js";
 
 /* 
-ITEMS
+ITEMS (
+    MAXIMUM BAG SIZE
+    MONEY
+    EVOLUTION
+    COMBAT
+)
 DEX -> GEN 3
-MONEY
 DEX -> GEN 4
-SHOP
-EVOLUTION
 STARTERS (3 RANDOM STARTERS : DO NOT SHARE A TYPE)
 TRAINERS
 MOVES
-COMBAT 
 CRIT RATES (
     SPE : CRIT %
     0 : 6%
@@ -38,12 +39,19 @@ CRIT RATES (
     BADGE BONUSES
     DEX -> GEN 6
     */
-   
-   function startGame() {
-        document.title == 'Pokedex' ? populateDexPage() : 
-        document.title == 'PC' ? updateProfile() : 
-        document.title == 'Controls' ? controls () :
-        document.title == 'Shop' ? loadShop() : null;
+
+// CHECK FOR THE NECESSARY LOCAL STORAGES TO FUNCTION, IF ANY NOT FOUND, CALL INITIALIZE => CHOOSE STARTER SEQUENCE, THEN REFRESH AND CALL START GAME
+if (!localStorage.getItem("playerInventory")) {
+
+    localStorage.setItem("playerInventory","Poké Ball");
+
+}   
+
+function startGame() {
+    document.title == 'Pokedex' ? populateDexPage() : 
+    document.title == 'PC' ? updateProfile() : 
+    document.title == 'Controls' ? controls () :
+    document.title == 'Shop' ? loadShop() : null;
 }
 
 startGame();
