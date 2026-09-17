@@ -92,7 +92,7 @@ export const purchaseItem = (name,cost) => {
     
     else {
 
-        const confirmBuy = confirm(`Purchase a ${name} for $${cost}?`);
+        const confirmBuy = confirm(`Buy this ${name} for $${cost}?`);
 
         if (confirmBuy) {
             
@@ -129,7 +129,7 @@ export const populateInventory = ([...itemList]) => {
         const itemImg = new Image();
         const itemDesc = document.createElement("span");
         const buyItem = document.createElement("div");
-        const sellCost = Math.floor(e.COST*0.45);
+        const sellCost = Math.floor(e.COST*0.42);
 
         shopItem.classList.add("playerItem");
         itemImg.classList.add("itemImg");

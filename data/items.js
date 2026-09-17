@@ -245,7 +245,7 @@ export const items = {
         },
         CherishBall: {
             NAME: 'Cherish Ball',
-            COST: 975,
+            COST: 750,
             DESC: 'Contains a Random Pokémon',
             ENERGY: null,
             TYPE: 'Random',

@@ -4,18 +4,27 @@ import { controls } from "./engine/controls.js";
 import { loadShop } from "./engine/shop.js";
 
 /* 
+ENCOUNTERS
 ITEMS (
+--increase starting energy
+--temporarily improve universal catch rate
     MAXIMUM BAG SIZE
-    MONEY
     EVOLUTION
-    COMBAT
+    COMBAT (
+    stage
+    choice
+    handleSwitch
+    handleCombat (
+        checkType
+        )
+    )
 )
 DEX -> GEN 3
 DEX -> GEN 4
 STARTERS (3 RANDOM STARTERS : DO NOT SHARE A TYPE)
 TRAINERS
 MOVES
-CRIT RATES (
+CRIT RATES ( --double power AND half def
     SPE : CRIT %
     0 : 6%
     1 : 10%
@@ -29,10 +38,10 @@ CRIT RATES (
     9 : 66%
     10 : 75%
     )
-    ENCOUNTERS
     GYM CHALLENGES
     BATTLE TOWER
     INTRO / NEW PLAYER / CHOOSE A STARTER 
+    MONEY/ITEM DISTRIBUTIONS
     CSS QUERIES
     ------>>>>  (BETA READY FOR LAUNCH) ----<<<<
     BADGES -> GEN 4

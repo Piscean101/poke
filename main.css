@@ -28,7 +28,7 @@
     --playerPriceBackground: linear-gradient(to right, rgb(0,106,255), white);
 }
 
-button:hover, select:hover, .shopItem:hover, .playerItem:hover { 
+button:hover, select:hover, .buyItem:hover { 
     cursor: pointer;
 }
 
@@ -502,8 +502,11 @@ body {
     height: 95vh;
     aspect-ratio: 0.6;
     /* border: 2px solid blue; */
-    display: grid;
-    place-items: end;
+    display: flex;
+    /* place-items: end; */
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: start;
     overflow-y: scroll;
 }
 
@@ -567,13 +570,23 @@ body {
 .buyItem {
     position: absolute;
     right: 100%;
-    border: 2px solid red;
     height: 100%;
     width: 50px;
-    box-sizing: border-box;
+    top: 50%;
+    font-weight: bold;
+    color: white;
+    transform: translateY(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.playerItem .buyItem {
+    border: 2px solid var(--shopPlayerItemTitle)
+}
+
+.shopItem .buyItem {
+    border: 2px solid var(--shopKeeperItemTitle);
 }
 
 #walletDisplay {
