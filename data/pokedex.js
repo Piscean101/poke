@@ -218,7 +218,7 @@ const gen1dex = {
         SPE: 1,
         TYPE: ['Ghost','Poison'],
         COST: 0,
-        RARITY: 'C',
+        RARITY: 'U',
         NEXT: 'Haunter'
     },
     Haunter: {
@@ -1429,7 +1429,7 @@ const gen1dex = {
         SPE: 0,
         TYPE: ['Poison'],
         COST: 0,
-        RARITY: 'C',
+        RARITY: 'U',
         NEXT: 'Weezing'
     },
     Weezing: {
@@ -3448,24 +3448,30 @@ const gen2dex = {
 
 export const pokedex = [...Object.entries(gen1dex),...Object.entries(gen2dex)]
 
-export const searchDex = (value,attr='NAME',range='=',dex=[...Object.values(pokedex)]) => {
+export const searchDex = (attr='NAME',value,range='=',dex=[...Object.values(pokedex)]) => {
 
-    let result = [];
+    let result = []; var key; var nameList;
 
     switch(range) {
         case '+':
-            result.push(...dex.filter((e) => { return e[1][attr] >= value}));
+            result.push(...dex.filter((e) => { if (attr != 'TOTAL') { key = e[1][attr] } else { key = e[1]['POW'] + e[1]['DEF'] + e[1]['SPE'] + e[1]['HP']; }; return key >= value}));
             break;
         case '-':
-            result.push(...dex.filter((e) => { return e[1][attr] <= value}));
+            result.push(...dex.filter((e) => { if (attr != 'TOTAL') { key = e[1][attr] } else { key = e[1]['POW'] + e[1]['DEF'] + e[1]['SPE'] + e[1]['HP']; }; return key <= value}));
+            break;
+        case '!':
+            result.push(...dex.filter((e) => { if (attr != 'TOTAL') { key = e[1][attr] } else { key = e[1]['POW'] + e[1]['DEF'] + e[1]['SPE'] + e[1]['HP']; }; return key != value}));
             break;
         default:
-            result.push(...dex.filter((e) => { return e[1][attr] == value}));
+            result.push(...dex.filter((e) => { if (attr != 'TOTAL') { key = e[1][attr] } else { key = e[1]['POW'] + e[1]['DEF'] + e[1]['SPE'] + e[1]['HP']; }; return key == value}));
+            break;
     }
-    
-    console.log(`MATCHING SPECIES FOUND: ${result.length}`,result.map((e) => { return e = e[1].NAME }));
 
-    return [result,result.length ? result[0][1] : null];
+    nameList = result.map((e) => { return e = e[1].NAME });
+    
+    // console.log(`MATCHING SPECIES FOUND: ${result.length}`,nameList);
+
+    return [result,result.length ? result[0][1] : null,nameList];
 
 }
 
@@ -3563,6 +3569,6 @@ export const populateDexPage = () => {
 
 }
 
-// searchDex('N','RARITY')
+// searchDex('TOTAL',10,'=')
 
 // C:41 U:47 R:44 X:40 M:34 L:17 N:49

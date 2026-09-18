@@ -95,6 +95,12 @@ export const pullFromRoster = (target,img,name) => {
 
     } else {
 
+    if (roster.length == 1) {
+
+        alert(`Wait! ${name[0].toUpperCase()+name.slice(1)} is the last Pokémon in your Party!`);
+
+    } else {
+
         for (let i = 0; i < roster.length; i++) {
     
             if (roster[i] == img) {
@@ -109,6 +115,8 @@ export const pullFromRoster = (target,img,name) => {
         }
     
         placeInPC(name.replace('-',''),true) ? target.src = '' : null;
+
+    }
 
     }
 

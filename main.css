@@ -26,9 +26,13 @@
     --keeperPriceBackground: linear-gradient(to right, green, white);
     --shopPlayerItemTitle: rgb(0, 106, 255);
     --playerPriceBackground: linear-gradient(to right, rgb(0,106,255), white);
+    --selectRouteBackground: antiquewhite;
+    --selectRouteBorder: rgb(0, 92, 0);
+    --routeSelected: rgba(255, 164, 27, 0.821);
+    --locked: grey;
 }
 
-button:hover, select:hover, .buyItem:hover { 
+button:hover, select:hover, .buyItem:hover, .selectRoute.unlocked:hover { 
     cursor: pointer;
 }
 
@@ -592,4 +596,67 @@ body {
 #walletDisplay {
     font-weight: bold;
     font-family: consolas;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**                      **/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#selectRoutePage {
+    display: grid;
+    place-items: center;
+}
+
+.selectRoute {
+    width: 70vw;
+    background-color: var(--selectRouteBackground);
+    border: 15px solid var(--selectRouteBorder);
+    margin: 0.15rem;
+    font-size: 4rem;
+    font-family: Impact;
+    color: var(--selectRouteBorder);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 65px;
+    transition: 400ms ease all;
+    box-sizing: border-box;
+    height: 6.5rem;
+}
+
+.selectRoute.locked {
+    border-color: var(--locked);
+    color: var(--locked);
+}
+
+.selectRoute.unlocked:hover {
+    background-color: var(--routeSelected);
+    font-size: 4.25rem;
+    border-radius: 75px;
 }

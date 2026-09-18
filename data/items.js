@@ -295,7 +295,7 @@ export const items = {
             DESC: `Revive fainted Party member to full HP`,
             CONSUME: true
         },
-    }
+    },
 }
 
 const createItem = () => {

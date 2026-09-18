@@ -2,6 +2,8 @@ import { populateDexPage } from "./data/pokedex.js";
 import { updateProfile } from "./engine/profile.js";
 import { controls } from "./engine/controls.js";
 import { loadShop } from "./engine/shop.js";
+import { selectRoute } from "./engine/routes.js";
+import { EncounterTable } from "./engine/encounters.js";
 
 /* 
 ENCOUNTERS
@@ -38,18 +40,19 @@ CRIT RATES ( --double power AND half def
     9 : 66%
     10 : 75%
     )
-    GYM CHALLENGES
-    BATTLE TOWER
+    GYM CHALLENGES (2V2 3v3 4v4 5V5);
+    ELITE FOUR (6V6);
+    BATTLE TOWER (3V3 4V4);
     INTRO / NEW PLAYER / CHOOSE A STARTER 
     MONEY/ITEM DISTRIBUTIONS
     CSS QUERIES
+    CHECK FOR THE NECESSARY LOCAL STORAGES TO FUNCTION, IF ANY NOT FOUND, CALL INITIALIZE => CHOOSE STARTER SEQUENCE, THEN REFRESH AND CALL START GAME
     ------>>>>  (BETA READY FOR LAUNCH) ----<<<<
     BADGES -> GEN 4
     BADGE BONUSES
     DEX -> GEN 6
     */
 
-// CHECK FOR THE NECESSARY LOCAL STORAGES TO FUNCTION, IF ANY NOT FOUND, CALL INITIALIZE => CHOOSE STARTER SEQUENCE, THEN REFRESH AND CALL START GAME
 if (!localStorage.getItem("playerInventory")) {
 
     localStorage.setItem("playerInventory","Poké Ball");
@@ -60,7 +63,13 @@ function startGame() {
     document.title == 'Pokedex' ? populateDexPage() : 
     document.title == 'PC' ? updateProfile() : 
     document.title == 'Controls' ? controls () :
-    document.title == 'Shop' ? loadShop() : null;
+    document.title == 'Shop' ? loadShop() : 
+    document.title == 'Choose Your Route' ? selectRoute() : null;
+    
+    if (document.title.split(':')[0] == 'Explore') {
+        const routeName = document.title.split(':')[1].replace(' ','');
+        const encounterTable = new EncounterTable(routeName,7); 
+    }
 }
 
 startGame();

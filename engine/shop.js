@@ -1,7 +1,7 @@
 import { items } from "../data/items.js";
 const shopKeeper = document.getElementById("keeperItems");
 const player = document.getElementById("playerItems");
-const allItems = [...Object.values(items['PokeBalls']),...Object.values(items['Evolution']),...Object.values(items['Potions'])];
+export const allItems = [...Object.values(items['PokeBalls']),...Object.values(items['Evolution']),...Object.values(items['Potions'])];
 var walletDisplayAmount; 
 
 // localStorage.setItem("playerInventory","Potion");
@@ -30,7 +30,7 @@ export const moveMoney = (num,add=true) => {
 
     localStorage.setItem("pokeWallet",wallet);
 
-    add == true ? alert(`You received $${num}`) : null;
+    add == true ? alert(`You received $${num}`) : add == 'Loss' ? alert(`You handed over ${num}`) : null;
 
 }
 
