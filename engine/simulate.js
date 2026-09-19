@@ -1,1 +1,0 @@
-function simBattle(mon1,mon2) {}

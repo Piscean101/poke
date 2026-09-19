@@ -17,7 +17,6 @@ const roster = playerRoster.split(',');
 const rosterHolders = document.querySelectorAll('.rosterHolder');
 const badgeList = localStorage.getItem("badgeList");
 
-
 const transP = '../data/images/transparent.png';
 const transPImgLink = window.location.origin + '/data/images/transparent.png';
 
