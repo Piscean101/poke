@@ -1,4 +1,5 @@
 export const items = {
+    // QUICK BALL / ESCAPE ROPE / COIN CASE
     Evolution: {
         RareCandy: {
         NAME: 'Rare Candy',
