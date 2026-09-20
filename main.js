@@ -68,7 +68,7 @@ function startGame() {
     
     if (document.title.split(':')[0] == 'Explore') {
         const routeName = document.title.split(':')[1].replace(' ','');
-        const encounterTable = new EncounterTable(routeName,7); 
+        const encounterTable = new EncounterTable(routeName); 
     }
 }
 

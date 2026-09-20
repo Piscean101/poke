@@ -1,19 +1,88 @@
 import { boyName, girlName, lastName, RandomName, RandomNumber, Sample } from '../data/name.js';
 import { pokedex, searchDex } from '../data/pokedex.js';
 import { items } from '../data/items.js';
-import { allItems, addToInventory, moveMoney } from './shop.js';
+import { allItems, addToInventory, removeFromInventory, moveMoney } from './shop.js';
 
 const nextEncounterButton = document.getElementById("nextEncounterButton");
+const encounterDisplay = document.getElementById("encounter");
+const body = document.querySelector("body");
+const inventory = localStorage.getItem("playerInventory");
+var newHeader = document.createElement("h1");
+const newEncounterImg = new Image();
+newEncounterImg.classList.add('newEncounterImg');
+// encounterDisplay.appendChild(newEncounterImg);
+newHeader.classList.add('encounterHeader','hidden');
+
+body.appendChild(newHeader);
+
+const ballInventory = () => {
+
+    var filter = inventory.split(',').filter((e) => { return e.split(' ')[1] == 'Ball'}).filter((e) => { return e != 'Cherish Ball' });
+
+    return filter.sort();
+
+}
+
+const displayPokeBalls = ([...ballRoster]) => {
+
+    const rosterHolder = document.createElement("div");
+    rosterHolder.id = "rosterHolder";
+    rosterHolder.classList.add("tempEncounterUI");
+
+    ballRoster.forEach((e) => {
+        const newImg = document.createElement("img");
+        newImg.classList.add("catchItemImg");
+        newImg.src = [...Object.values(items['PokeBalls'])].filter((f) => { return f.NAME == e })[0].URL;
+        rosterHolder.appendChild(newImg);
+        newImg.addEventListener("click", (ball) => {
+
+        })
+    })
+    
+    body.appendChild(rosterHolder);
+
+}
 
 const firstNames = [...boyName,...girlName];
 
 const handleCatch = (mon,ball) => {}
 
-const nextEncounter = () => {
+const nextEncounter = ([...encounter]) => {
+
+    const tempUIList = document.querySelectorAll(".tempEncounterUI");
+    const name = encounter[1].toLowerCase();
+    newEncounterImg.src = '../../../data/images/transparent.png';
+
+    tempUIList.forEach((e) => {
+        body.removeChild(e);
+    })
+
+    newHeader.classList.remove('hidden');
+
+    switch (encounter[0]) {
+        case 'Catch':
+            newEncounterImg.addEventListener('error', (e) => { 
+                e.target.src=`https://img.pokemondb.net/sprites/x-y/normal/${name}.png`
+            });
+            newEncounterImg.src = `https://img.pokemondb.net/sprites/diamond-pearl/normal/${name}.png`;
+            encounterDisplay.appendChild(newEncounterImg);
+            displayPokeBalls(ballInventory());
+            newHeader.innerHTML = `A wild ${encounter[1]} appeared!`;
+            break;
+        case 'Trainer':
+            newHeader.innerHTML = `${encounter[1]} challenged you to a battle!`;
+            break;
+        case 'Item':
+            newHeader.innerHTML = `You found an item!`;
+            break;
+        default: break;
+    }
+
+    setTimeout(() => { newHeader.classList.add('hidden') }, 2000)
 
 }
 
-const handleEncounter = () => {
+const handleEncounter = (type,obj) => {
 }
 
 var pokes = [...Object.values(pokedex)];
@@ -94,9 +163,8 @@ export const encounterGroups = {
 }
 
 export class EncounterTable {
-    constructor(name='Route 1',size=7) {
-        // this.encounterTable = encounterGroups[name];
-        // this.routeName = document.title.split(':')[1].replace(' ','');
+    constructor(name='Route 1') {
+
         this.encounterGroup = encounterGroups[name];
 
         this.nextEncounter = () => {}
@@ -130,18 +198,19 @@ export class EncounterTable {
                 result = ['Catch',e[1][1].NAME];
             }
             return result;
-        })
+        });
 
         this.encounterMap = new Set();
 
-        // this.rawEncounterTable.forEach((e) => {
-        //     this.encounterMap.add(e);
-        // })
+        this.nextEncounter = () => {
+            this.rawEncounterTable.length ? nextEncounter(this.rawEncounterTable.shift()) : console.log("Route Complete!")
+        }
 
         nextEncounterButton.addEventListener("click", (e) => {
             this.nextEncounter();
         })
 
         console.log(...this.rawEncounterTable);
+
     }
 }
