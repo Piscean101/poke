@@ -151,7 +151,7 @@ export const items = {
             ENERGY: 0,
             TYPE: 'Capture',
             RATE: [10],
-            URL: `https://archives.bulbagarden.net/media/upload/9/93/Bag_Pok%C3%A9_Ball_Sprite.png`,
+            URL: `https://archives.bulbagarden.net/media/upload/a/af/Pok%C3%A9_Ball_battle_IV.png`,
             CONSUME: true
         },
         GreatBall: {

@@ -599,6 +599,11 @@ body {
 #walletDisplay {
     font-weight: bold;
     font-family: consolas;
+    color: rgb(194, 194, 0);
+}
+
+#walletAmount {
+    /* color: white; */
 }
 
 
@@ -675,8 +680,10 @@ body {
     letter-spacing: 0.1rem;
 }
 .catchItemImg {
-    transform: scale(1.25);
+    height: 35px;
+    aspect-ratio: 1;
     border: 1px solid black;
+    box-sizing: border-box;
     padding: 0.25rem;
     margin: 0.25rem;
 }
@@ -699,6 +706,9 @@ body {
 }
 .newEncounterImg {
     transform: scale(2.5);
+}
+.newEncounterImg.item {
+    height: 20px;
 }
 #rosterHolder {
     border: 2px solid red;

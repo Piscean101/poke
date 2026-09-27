@@ -16,7 +16,9 @@ if (document.title == 'Shop') {
 
 const walletAmount = Number(localStorage.getItem("pokeWallet"));
 
-export const moveMoney = (num,add=true) => {
+export const moveMoney = (num,add=true,msg=false) => {
+
+    if (add == false) { msg = true }
 
     num = Number(num);
 
@@ -30,14 +32,19 @@ export const moveMoney = (num,add=true) => {
 
     localStorage.setItem("pokeWallet",wallet);
 
-    add == true ? alert(`You received $${num}`) : add == 'Loss' ? alert(`You handed over ${num}`) : null;
+    if (msg) {
+
+        add == true ? alert(`You received $${num}`) : add == 'Loss' ? alert(`You handed over ${num}`) : null;
+
+    }
 
 }
 
-export const createItemList = (count=6,type=['PokeBalls','Evolution','Potions'],maxCost=2000) => {
-    count = [4,5,6,7][Math.floor(Math.random()*4)];
+export const createItemList = (count=6,maxCost=1000,excl=['Metal Coat','Moon Stone','Dusk Stone','Link Case','Shiny Stone','Ice Stone','Fire Stone','Dream Ball','Potion','Super Potion']) => {
+    count = [6,6,7,8][Math.floor(Math.random()*4)];
     let result = []; let names = []; let filter = [];
-        filter.push(allItems.filter((e) => { return e.COST <= maxCost && e.COST != null }));
+    filter.push(allItems.filter((e) => { return e.COST <= maxCost && e.COST != null }));
+    filter.forEach((e,i) => { excl.includes(e) ? filter.splice(i,1) : null });
     while (count) {
         let choice = filter[0][Math.floor(Math.random()*filter[0].length)];
         if (!result.includes(choice)) {
@@ -61,13 +68,14 @@ export const parseInventory = (inventoryString) => {
     return result;
 };
 
-export const addToInventory = (itemName) => {
+export const addToInventory = (itemName,confirmation=false) => {
     if (!allItems.filter((e) => { return e.NAME == itemName }).length) {
         return alert(`Error: ${itemName} does not exist`)
     } else {
         const itemsInBag = localStorage.getItem("playerInventory").split(',');
         itemsInBag.push(itemName);
         localStorage.setItem("playerInventory",itemsInBag);
+        confirmation ? alert(`Added ${itemName} to your inventory.`) : null;
     }
 };
 

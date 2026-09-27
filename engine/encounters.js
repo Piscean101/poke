@@ -32,6 +32,7 @@ const displayPokeBalls = ([...ballRoster]) => {
     ballRoster.forEach((e) => {
         const newImg = document.createElement("img");
         newImg.classList.add("catchItemImg");
+        if (e == 'Poké Ball') { newImg.classList.add('pok') }
         newImg.src = [...Object.values(items['PokeBalls'])].filter((f) => { return f.NAME == e })[0].URL;
         rosterHolder.appendChild(newImg);
         newImg.addEventListener("click", (ball) => {
@@ -51,7 +52,10 @@ const nextEncounter = ([...encounter]) => {
 
     const tempUIList = document.querySelectorAll(".tempEncounterUI");
     const name = encounter[1].toLowerCase();
+    var caseStatus;
     newEncounterImg.src = '../../../data/images/transparent.png';
+    newEncounterImg.removeEventListener("click",addToInventory);
+    newEncounterImg.classList.remove('item');
 
     tempUIList.forEach((e) => {
         body.removeChild(e);
@@ -61,6 +65,7 @@ const nextEncounter = ([...encounter]) => {
 
     switch (encounter[0]) {
         case 'Catch':
+            caseStatus = 'Catch';
             newEncounterImg.addEventListener('error', (e) => { 
                 e.target.src=`https://img.pokemondb.net/sprites/x-y/normal/${name}.png`
             });
@@ -70,9 +75,19 @@ const nextEncounter = ([...encounter]) => {
             newHeader.innerHTML = `A wild ${encounter[1]} appeared!`;
             break;
         case 'Trainer':
+            caseStatus = 'Trainer';
             newHeader.innerHTML = `${encounter[1]} challenged you to a battle!`;
             break;
         case 'Item':
+            caseStatus = 'Item';
+            newEncounterImg.src = '../../data/images/item.png';
+            newEncounterImg.classList.add('item')
+            newEncounterImg.addEventListener("click", (item) => { 
+                if (newEncounterImg.src == window.location.origin + '/data/images/item.png') {
+                    addToInventory(encounter[1],true); 
+                    setTimeout(() => { nextEncounterButton.click()}, 300);
+                }
+            })
             newHeader.innerHTML = `You found an item!`;
             break;
         default: break;
@@ -107,7 +122,6 @@ export const rosterGroups = {
     'Bird Watcher': [],
     'Cyclist': [],
     'Explorer': [],
-    'Worker': []
 }
 
 const biomes = {
@@ -166,8 +180,8 @@ export const encounterGroups = {
         Difficulty: 3
     },
     'Dark Cave': {
-        Trainer: ['Trainer','Rocket Grunt','Camper','Pokémaniac','Burglar','Challenger','Explorer','Worker','Scientist'],
-        Catch: biomes['Dark Cave'],
+        Trainer: ['Trainer','Rocket Grunt','Camper','Pokémaniac','Burglar','Challenger','Explorer','Scientist'],
+        Catch: biomes['Dark Cave'].concat(biomes['Route 2']),
         Item: ['Poké Ball','Potion','Nest Ball','Net Ball','Dusk Ball','Coin Case','Great Ball','Ultra Ball','Dream Ball','Super Potion','Revive','Premier Ball','Rare Candy','Moon Stone','Hyper Potion','Dusk Stone',`King's Rock`],
         Path: ['Catch','Catch','Random','Trainer','Catch','Trainer','Catch','Item','Random','Catch'],
         Difficulty: 3
@@ -177,9 +191,8 @@ export const encounterGroups = {
 export class EncounterTable {
     constructor(name='Route 1') {
 
+        
         this.encounterGroup = encounterGroups[name];
-
-        this.nextEncounter = () => {}
 
         console.log(`${name}: ${this.encounterGroup['Catch'].length} encounters`,this.encounterGroup['Catch'].map(e => e[1].NAME))
 
@@ -193,11 +206,11 @@ export class EncounterTable {
                     result = ['Item',RandomName(this.encounterGroup['Item'])];
                     break;
                 case 'Trainer':
-                    result = ['Trainer',RandomName(this.encounterGroup['Trainer']) + ' ' + RandomName(firstNames)];
+                    result = ['Trainer',RandomName(this.encounterGroup['Trainer'])/* + ' ' + RandomName(firstNames)*/];
                     break;
                 case 'Random':
                     x = Math.random()*3;
-                    x <= 1 ? result = ['Catch',RandomName(this.encounterGroup['Catch'])] : x <= 2 ? result = ['Item',RandomName(this.encounterGroup['Item'])] : x <= 3 ? result = ['Trainer',RandomName(this.encounterGroup['Trainer']) + ' ' + RandomName(firstNames)] : null;
+                    x <= 1 ? result = ['Catch',RandomName(this.encounterGroup['Catch'])] : x <= 1.7 ? result = ['Item',RandomName(this.encounterGroup['Item'])] : x <= 3 ? result = ['Trainer',RandomName(this.encounterGroup['Trainer'])/* + ' ' + RandomName(firstNames)*/] : null;
                     break;
                 default: break;
             }
@@ -212,10 +225,18 @@ export class EncounterTable {
             return result;
         });
 
-        this.encounterMap = new Set();
+        this.updateRouteHistory = (routeName) => {
+
+        }
+
+        this.routeComplete = (routeName) => {
+            alert(`You passed ${routeName}!`);
+            this.updateRouteHistory(routeName);
+            window.location = location.origin + '/pages/explore/selectRoute.html';
+        }
 
         this.nextEncounter = () => {
-            this.rawEncounterTable.length ? nextEncounter(this.rawEncounterTable.shift()) : console.log("Route Complete!")
+            this.rawEncounterTable.length ? nextEncounter(this.rawEncounterTable.shift()) : this.routeComplete(name);
         }
 
         nextEncounterButton.addEventListener("click", (e) => {
