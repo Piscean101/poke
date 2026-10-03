@@ -36,7 +36,7 @@ export const controls = () => {
     });
 
     submitAddMoney.addEventListener("click", (e) => {
-        moveMoney(inputAddMoney.value);
+        moveMoney(inputAddMoney.value,true,`Added $${inputAddMoney.value}`);
     })
 
 }

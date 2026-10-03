@@ -1,5 +1,6 @@
 import { pokedex } from "../data/pokedex.js";
 import { gen1Badges, gen2Badges, allBadges } from "../data/badges.js";
+import { items } from '../data/items.js';
 const avatarBox = document.getElementById("playerAvatarBox");
 const rosterBox = document.getElementById("playerRosterBox");
 const PCBox = document.getElementById("playerPCBox");
@@ -161,7 +162,7 @@ export const placeInPC = (species,toggleAlert=false) => {
 
         const pokeName = species[0].toUpperCase() + species.slice(1)
 
-        toggleAlert ? alert(`${pokeName} was moved to your PC Box`) : alert(`Success! Added ${pokeName} to your PC Box`)
+        toggleAlert ? alert(`${pokeName} was moved to your PC Box`) : alert(`Success! ${pokeName} was placed in your PC Box`)
 
     }
 

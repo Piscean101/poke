@@ -60,6 +60,7 @@ body {
 *.hidden {
     opacity: 0;
     height: 0;
+    width: 1px;
     transition: all 500ms ease;
 }
 

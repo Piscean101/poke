@@ -55,7 +55,7 @@ CRIT RATES ( --double power AND half def
 
 if (!localStorage.getItem("playerInventory")) {
 
-    localStorage.setItem("playerInventory","Poké Ball");
+    localStorage.setItem("playerInventory","Poké Ball,Poké Ball,Poké Ball,Poké Ball,Poké Ball");
 
 }   
 

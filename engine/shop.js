@@ -16,9 +16,9 @@ if (document.title == 'Shop') {
 
 const walletAmount = Number(localStorage.getItem("pokeWallet"));
 
-export const moveMoney = (num,add=true,msg=false) => {
+export const moveMoney = (num,add=true,msg='') => {
 
-    if (add == false) { msg = true }
+    if (add == false) { msg = `You handed over $${num}` }
 
     num = Number(num);
 
@@ -32,9 +32,9 @@ export const moveMoney = (num,add=true,msg=false) => {
 
     localStorage.setItem("pokeWallet",wallet);
 
-    if (msg) {
+    if (msg != '') {
 
-        add == true ? alert(`You received $${num}`) : add == 'Loss' ? alert(`You handed over ${num}`) : null;
+        alert(msg);
 
     }
 

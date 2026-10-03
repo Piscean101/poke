@@ -2,6 +2,8 @@ import { boyName, girlName, lastName, RandomName, RandomNumber, Sample } from '.
 import { pokedex, searchDex } from '../data/pokedex.js';
 import { items } from '../data/items.js';
 import { allItems, addToInventory, removeFromInventory, moveMoney } from './shop.js';
+import { placeInPC } from './profile.js';
+
 
 const nextEncounterButton = document.getElementById("nextEncounterButton");
 const encounterDisplay = document.getElementById("encounter");
@@ -15,12 +17,30 @@ newHeader.classList.add('encounterHeader','hidden');
 
 body.appendChild(newHeader);
 
+const gameMessage = (msg) => {
+
+    newHeader.classList.remove('hidden');
+
+    newHeader.innerHTML = msg;
+
+    setTimeout(() => { newHeader.classList.add('hidden') }, 2000);
+
+}
+
 const ballInventory = () => {
 
-    var filter = inventory.split(',').filter((e) => { return e.split(' ')[1] == 'Ball'}).filter((e) => { return e != 'Cherish Ball' });
+    const tempInv = localStorage.getItem("playerInventory");
+
+    var filter = tempInv.split(',').filter((e) => { return e.split(' ')[1] == 'Ball'}).filter((e) => { return e != 'Cherish Ball' });
 
     return filter.sort();
 
+}
+
+const handleCatch = (ball) => {
+    const pk = newEncounterImg.src.split('/').pop().split('.').shift();
+    const findPk = pokedex.filter((e) => { return e[1].NAME.toUpperCase() == pk.toUpperCase() })[0][1];
+    placeInPC(findPk.NAME);
 }
 
 const displayPokeBalls = ([...ballRoster]) => {
@@ -32,21 +52,23 @@ const displayPokeBalls = ([...ballRoster]) => {
     ballRoster.forEach((e) => {
         const newImg = document.createElement("img");
         newImg.classList.add("catchItemImg");
+        newImg.classList.add(e.replace(" ","_"));
         if (e == 'Poké Ball') { newImg.classList.add('pok') }
         newImg.src = [...Object.values(items['PokeBalls'])].filter((f) => { return f.NAME == e })[0].URL;
         rosterHolder.appendChild(newImg);
         newImg.addEventListener("click", (ball) => {
-
+            gameMessage(`Threw the ${e}`);
+            handleCatch(e);
+            ball.target.classList.add("hidden");
+            removeFromInventory(e);
         })
-    })
+    });
     
     body.appendChild(rosterHolder);
 
 }
 
 const firstNames = [...boyName,...girlName];
-
-const handleCatch = (mon,ball) => {}
 
 const nextEncounter = ([...encounter]) => {
 
@@ -61,8 +83,6 @@ const nextEncounter = ([...encounter]) => {
         body.removeChild(e);
     })
 
-    newHeader.classList.remove('hidden');
-
     switch (encounter[0]) {
         case 'Catch':
             caseStatus = 'Catch';
@@ -72,11 +92,11 @@ const nextEncounter = ([...encounter]) => {
             newEncounterImg.src = `https://img.pokemondb.net/sprites/diamond-pearl/normal/${name}.png`;
             encounterDisplay.appendChild(newEncounterImg);
             displayPokeBalls(ballInventory());
-            newHeader.innerHTML = `A wild ${encounter[1]} appeared!`;
+            gameMessage(`A wild ${encounter[1]} appeared!`);
             break;
         case 'Trainer':
             caseStatus = 'Trainer';
-            newHeader.innerHTML = `${encounter[1]} challenged you to a battle!`;
+            gameMessage(`${encounter[1]} challenged you to a battle!`);
             break;
         case 'Item':
             caseStatus = 'Item';
@@ -84,16 +104,15 @@ const nextEncounter = ([...encounter]) => {
             newEncounterImg.classList.add('item')
             newEncounterImg.addEventListener("click", (item) => { 
                 if (newEncounterImg.src == window.location.origin + '/data/images/item.png') {
-                    addToInventory(encounter[1],true); 
+                    var [goldChance,goldAmt] = [Math.random(),Math.ceil(Math.random()*10)*10]; 
+                    goldChance > 0.8 ? moveMoney(goldAmt,true,`You found $${goldAmt}!`) : addToInventory(encounter[1],true); 
                     setTimeout(() => { nextEncounterButton.click()}, 300);
                 }
             })
-            newHeader.innerHTML = `You found an item!`;
+            gameMessage(`You found an item!`);
             break;
         default: break;
     }
-
-    setTimeout(() => { newHeader.classList.add('hidden') }, 2000)
 
 }
 
