@@ -41,6 +41,7 @@ const handleCatch = (ball) => {
     const pk = newEncounterImg.src.split('/').pop().split('.').shift();
     const findPk = pokedex.filter((e) => { return e[1].NAME.toUpperCase() == pk.toUpperCase() })[0][1];
     placeInPC(findPk.NAME);
+    setTimeout(() => { nextEncounterButton.click() },300);
 }
 
 const displayPokeBalls = ([...ballRoster]) => {
@@ -57,7 +58,7 @@ const displayPokeBalls = ([...ballRoster]) => {
         newImg.src = [...Object.values(items['PokeBalls'])].filter((f) => { return f.NAME == e })[0].URL;
         rosterHolder.appendChild(newImg);
         newImg.addEventListener("click", (ball) => {
-            gameMessage(`Threw the ${e}`);
+            // gameMessage(`Threw the ${e}`);
             handleCatch(e);
             ball.target.classList.add("hidden");
             removeFromInventory(e);
@@ -70,77 +71,161 @@ const displayPokeBalls = ([...ballRoster]) => {
 
 const firstNames = [...boyName,...girlName];
 
-const nextEncounter = ([...encounter]) => {
-
-    const tempUIList = document.querySelectorAll(".tempEncounterUI");
-    const name = encounter[1].toLowerCase();
-    var caseStatus;
-    newEncounterImg.src = '../../../data/images/transparent.png';
-    newEncounterImg.removeEventListener("click",addToInventory);
-    newEncounterImg.classList.remove('item');
-
-    tempUIList.forEach((e) => {
-        body.removeChild(e);
-    })
-
-    switch (encounter[0]) {
-        case 'Catch':
-            caseStatus = 'Catch';
-            newEncounterImg.addEventListener('error', (e) => { 
-                e.target.src=`https://img.pokemondb.net/sprites/x-y/normal/${name}.png`
-            });
-            newEncounterImg.src = `https://img.pokemondb.net/sprites/diamond-pearl/normal/${name}.png`;
-            encounterDisplay.appendChild(newEncounterImg);
-            displayPokeBalls(ballInventory());
-            gameMessage(`A wild ${encounter[1]} appeared!`);
-            break;
-        case 'Trainer':
-            caseStatus = 'Trainer';
-            gameMessage(`${encounter[1]} challenged you to a battle!`);
-            break;
-        case 'Item':
-            caseStatus = 'Item';
-            newEncounterImg.src = '../../data/images/item.png';
-            newEncounterImg.classList.add('item')
-            newEncounterImg.addEventListener("click", (item) => { 
-                if (newEncounterImg.src == window.location.origin + '/data/images/item.png') {
-                    var [goldChance,goldAmt] = [Math.random(),Math.ceil(Math.random()*10)*10]; 
-                    goldChance > 0.8 ? moveMoney(goldAmt,true,`You found $${goldAmt}!`) : addToInventory(encounter[1],true); 
-                    setTimeout(() => { nextEncounterButton.click()}, 300);
-                }
-            })
-            gameMessage(`You found an item!`);
-            break;
-        default: break;
-    }
-
-}
-
-const handleEncounter = (type,obj) => {
-}
-
-var pokes = [...Object.values(pokedex)];
-
 export const rosterGroups = {
-    'Youngster': [],
-    'Schoolkid': [],
-    'Bug Catcher': [],
-    'Bug Collector': [],
-    'Rookie Trainer': [],
-    'Hiker': [],
-    'Trainer': [],
-    'Jogger': [],
-    'Scientist:': [],
-    'Explorer': [],
-    'Rocket Grunt': [],
-    'Camper': [],
-    'Pokémaniac': [],
-    'Tourist': [],
-    'Challenger': [],
-    'Burglar': [],
-    'Bird Watcher': [],
-    'Cyclist': [],
-    'Explorer': [],
+    'Youngster': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/youngster-gen3.png',
+        'https://play.pokemonshowdown.com/sprites/trainers/youngster-gen7.png',
+        'https://play.pokemonshowdown.com/sprites/trainers/youngster.png'],
+        []
+    ],
+    'Schoolkid': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/schoolkidf-gen4.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/schoolgirl.png'],
+        []
+    ],
+    'Bug Catcher': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/bugcatcher-gen4dp.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/bugcatcher-gen6.png'],
+        []
+    ],
+    'Bug Maniac': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/bugmaniac-gen6.png'],
+        []
+    ],
+    'Rookie Trainer': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/risingstar.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/risingstar-gen6.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/camper.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/lass-gen6oras.png'],
+        []
+    ],
+    'Hiker': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/hiker-gen4.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/hiker-gen9.png'],
+        []
+    ],
+    'Trainer': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/lass-gen4dp.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/pokemonranger-gen4.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/smasher.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/yancy.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/victor-league.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/cameraman.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/dancer.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/scott.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/sightseerf.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/artist-gen4.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/emma.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/lass.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/mirror.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/ruffian.png'],
+        []
+    ],
+    'Police Officer': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/policeman.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/policeman-gen4.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/policeman-gen7.png'],
+        []
+    ],
+    'Jogger': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/jogger.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/triathleterunner-gen6.png'],
+        []
+    ],
+    'Scientist:': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/scientistf.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/scientist-gen4dp.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/scientistf-gen6.png'],
+        []
+    ],
+    'Athlete': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/bodybuilderf-gen9.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/bodybuilder-gen9.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/striker.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/hoopster.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/linebacker.png'],
+        []
+    ], 
+    'Explorer': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/colza.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/toddsnap2.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/hiker-gen7.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/ruinmaniac.png'],
+        []
+    ],
+    'Rocket Grunt': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/rainbowrocketgrunt.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/rainbowrocketgruntf.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/rocketgrunt.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/rocketgruntf.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/teamrocketgruntf-gen3.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/teamrocketgruntm-gen3.png'],
+        []
+    ],
+    // 'Camper': [
+    //     [''],
+    //     []
+    // ],
+    'Pokémaniac': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/pokemaniac-gen6.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/pokemaniac.png'],
+        []
+    ],
+    'Tourist': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/touristf.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/tourist.png'],
+        []
+    ],
+    'Challenger': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/collector-gen6.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/cyrus-masters.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/spark-casual.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/silver.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/cyrano.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/gambler.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/gentleman-gen8.png'],
+        []
+    ],
+    'Burglar': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/burglar.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/burglar-lgpe.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/burglar-gen3.png'],
+        []
+    ],
+    'Bird Keeper': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/birdkeeper-gen3.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/birdkeeper.png'],
+        []
+    ],
+    'Cyclist': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/cyclistf-gen4.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/cyclist-gen4.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/cyclist.png'],
+        []
+    ],
+    'Worker': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/worker.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/worker-gen4.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/worker-gen6.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/ruinmaniac-gen3.png'],
+        []
+    ],
+    'Professor': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/sycamore.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/elm.png'],
+        []
+    ],
+    'Beauty': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/beauty.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/beauty-gen4dp.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/beauty-gen7.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/beauty-gen8.png'],
+        []
+    ],
+    'Ninja': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/shadowtriad.png'],
+        []
+    ]
 }
 
 const biomes = {
@@ -171,41 +256,98 @@ export const encounterGroups = {
         Difficulty: 1
     },
     'Viridian Forest': {
-        Trainer: ['Youngster','Bug Catcher','Rookie Trainer','Bug Collector'],
+        Trainer: ['Youngster','Bug Catcher','Rookie Trainer','Bug Maniac'],
         Catch: biomes['Viridian Forest'],
         Item: ['Poké Ball','Potion','Nest Ball','Super Potion','Net Ball'],
         Path: ['Catch','Trainer','Catch','Random','Catch','Trainer','Item'],
         Difficulty: 2
     },
     'Route 3': {
-        Trainer: ['Youngster','Bug Collector','Rookie Trainer','Hiker','Trainer','Jogger'],
+        Trainer: ['Youngster','Bug Maniac','Rookie Trainer','Hiker','Trainer','Jogger'],
         Catch: biomes['Route 3'],
         Item: ['Poké Ball','Potion','Nest Ball','Great Ball','Super Potion','Revive','Dive Ball','Leaf Stone'],
         Path: ['Trainer','Catch','Random','Trainer','Random','Random','Item','Trainer'],
         Difficulty: 2
     },
     'Mount Moon': {
-        Trainer: ['Hiker','Trainer','Jogger','Scientist','Explorer','Rocket Grunt','Camper','Pokémaniac','Tourist'],
+        Trainer: ['Hiker','Trainer','Jogger','Scientist','Explorer','Rocket Grunt','Pokémaniac','Tourist'],
         Catch: biomes['Mount Moon'].concat(biomes['Route 2']),
         Item: ['Poké Ball','Potion','Nest Ball','Dusk Ball','Net Ball','Great Ball','Super Potion','Revive','Rare Candy','Moon Stone','Metal Coat'],
         Path: ['Catch','Catch','Random','Trainer','Catch','Catch','Random','Trainer','Item'],
         Difficulty: 2
     },
     'Route 4': {
-        Trainer: ['Hiker','Trainer','Jogger','Rocket Grunt','Camper','Pokémaniac','Police Officer','Burglar','Challenger','Cyclist','Bird Watcher'],
+        Trainer: ['Hiker','Trainer','Jogger','Rocket Grunt','Pokémaniac','Police Officer','Burglar','Challenger','Cyclist','Bird Keeper'],
         Catch: biomes['Route 4'].concat(biomes['Route 3']),
         Item: ['Poké Ball','Potion','Nest Ball','Net Ball','Great Ball','Ultra Ball','Dream Ball','Super Potion','Revive','Premier Ball','Rare Candy','Moon Stone','Hyper Potion','Leaf Stone'],
         Path: ['Catch','Trainer','Trainer','Random','Catch','Trainer','Catch','Item','Random','Trainer'],
         Difficulty: 3
     },
     'Dark Cave': {
-        Trainer: ['Trainer','Rocket Grunt','Camper','Pokémaniac','Burglar','Challenger','Explorer','Scientist'],
+        Trainer: ['Trainer','Rocket Grunt','Pokémaniac','Burglar','Challenger','Explorer','Scientist'],
         Catch: biomes['Dark Cave'].concat(biomes['Route 2']),
         Item: ['Poké Ball','Potion','Nest Ball','Net Ball','Dusk Ball','Coin Case','Great Ball','Ultra Ball','Dream Ball','Super Potion','Revive','Premier Ball','Rare Candy','Moon Stone','Hyper Potion','Dusk Stone',`King's Rock`],
-        Path: ['Catch','Catch','Random','Trainer','Catch','Trainer','Catch','Item','Random','Catch'],
+        Path: ['Catch','Catch','Random','Trainer','Catch','Trainer','Catch','Item','Catch','Catch'],
         Difficulty: 3
     },
 }
+
+const nextEncounter = ([...encounter]) => {
+
+    const tempUIList = document.querySelectorAll(".tempEncounterUI");
+    const name = encounter[1].toLowerCase();
+    var caseStatus;
+    newEncounterImg.src = '../../../data/images/transparent.png';
+    newEncounterImg.removeEventListener("click",addToInventory);
+    newEncounterImg.classList.remove('item');
+
+    tempUIList.forEach((e) => {
+        body.removeChild(e);
+    })
+
+    switch (encounter[0]) {
+        case 'Catch':
+            caseStatus = 'Catch';
+            newEncounterImg.addEventListener('error', (e) => { 
+                e.target.src=`https://img.pokemondb.net/sprites/x-y/normal/${name}.png`
+            });
+            newEncounterImg.src = `https://img.pokemondb.net/sprites/diamond-pearl/normal/${name}.png`;
+            // encounterDisplay.appendChild(newEncounterImg);
+            displayPokeBalls(ballInventory());
+            gameMessage(`A wild ${encounter[1]} appeared!`);
+            break;
+        case 'Trainer':
+            caseStatus = 'Trainer';
+            var encSprites = rosterGroups[encounter[1]][0];
+            var randSpriteIndex = Math.floor(Math.random()*encSprites.length);
+            newEncounterImg.src = rosterGroups[encounter[1]][0][randSpriteIndex];
+            // encounterDisplay.appendChild(newEncounterImg);
+            gameMessage(`${encounter[1]} challenged you to a battle!`);
+            break;
+        case 'Item':
+            caseStatus = 'Item';
+            newEncounterImg.src = '../../data/images/item.png';
+            newEncounterImg.classList.add('item')
+            newEncounterImg.addEventListener("click", (item) => { 
+                if (newEncounterImg.src == window.location.origin + '/data/images/item.png') {
+                    var [goldChance,goldAmt] = [Math.random(),Math.ceil(Math.random()*10)*10]; 
+                    goldChance > 0.8 ? moveMoney(goldAmt,true,`You found $${goldAmt}!`) : addToInventory(encounter[1],true); 
+                    setTimeout(() => { nextEncounterButton.click()}, 300);
+                }
+            })
+            gameMessage(`You found an item!`);
+            break;
+        default: break;
+    }
+
+    encounterDisplay.appendChild(newEncounterImg);
+
+}
+
+const handleEncounter = (type,obj) => {
+}
+
+var pokes = [...Object.values(pokedex)];
 
 export class EncounterTable {
     constructor(name='Route 1') {
@@ -249,7 +391,7 @@ export class EncounterTable {
         }
 
         this.routeComplete = (routeName) => {
-            alert(`You passed ${routeName}!`);
+            alert(`Success! You completed ${routeName}!`);
             this.updateRouteHistory(routeName);
             window.location = location.origin + '/pages/explore/selectRoute.html';
         }
