@@ -132,7 +132,7 @@ export const rosterGroups = {
             'https://play.pokemonshowdown.com/sprites/trainers/triathleterunner-gen6.png'],
         []
     ],
-    'Scientist:': [
+    'Scientist': [
         ['https://play.pokemonshowdown.com/sprites/trainers/scientistf.png',
             'https://play.pokemonshowdown.com/sprites/trainers/scientist-gen4dp.png',
             'https://play.pokemonshowdown.com/sprites/trainers/scientistf-gen6.png'],
@@ -233,14 +233,14 @@ const biomes = {
     'Route 2': [...searchDex('TOTAL',5,'-')[0].filter(e => e[1].TYPE.includes('Normal')).filter(e => e[1].RARITY == 'C')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Bug')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Tyrogue')[0]),
     'Viridian Forest': [...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Bug')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Grass')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Pikachu')[0]),
     'Route 3': [...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Grass')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Flying')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Poliwag')[0]),
-    'Mount Moon': [...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Rock')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',5,'-')[0].filter(e => e[1].TYPE.includes('Ground')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Clefairy')[0]),
+    'Mount Moon': [...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Rock')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',5,'-')[0].filter(e => e[1].TYPE.includes('Ground')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Clefairy')[0]).filter(e => { return !e[1].TYPE.includes('Water')}),
     'Route 4': [...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Flying')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Fire')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Normal')).filter(e => e[1].RARITY != 'N')]).concat(searchDex('NAME','Drowzee')[0]),
     'Dark Cave': [...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Dark')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Rock')).filter(e => e[1].RARITY != 'N')]).concat(searchDex('NAME','Machop')[0]).filter(e => { return !e[1].TYPE.includes('Water') && !e[1].TYPE.includes('Grass') }),
 }
 
 
 export const encounterGroups = {
-    //   AVOID PLACING ITEMS/RANDOM NEAR BEGINNING OF ROUTE TO AVOID REFRESH ABUSE
+    //   AVOID PLACING ITEMS/RANDOM NEAR BEGINNING OF ROUTE AND ANYWHERE SIMULTANEOUSLY
     'Route 1': {
         Trainer: ['Youngster','Schoolkid'],
         Catch: biomes['Route 1'],
@@ -249,45 +249,45 @@ export const encounterGroups = {
         Difficulty: 1
     },
     'Route 2': {
-        Trainer: ['Youngster','Bug Catcher','Rookie Trainer'],
+        Trainer: ['Youngster','Bug Catcher','Rookie Trainer','Schoolkid'],
         Catch: biomes['Route 2'],
         Item: ['Poké Ball','Potion','Nest Ball','Net Ball'],
-        Path: ['Trainer','Catch','Item','Random','Trainer'],
+        Path: ['Trainer','Catch','Trainer','Catch','Item','Trainer'],
         Difficulty: 1
     },
     'Viridian Forest': {
         Trainer: ['Youngster','Bug Catcher','Rookie Trainer','Bug Maniac'],
         Catch: biomes['Viridian Forest'],
         Item: ['Poké Ball','Potion','Nest Ball','Super Potion','Net Ball'],
-        Path: ['Catch','Trainer','Catch','Random','Catch','Trainer','Item'],
+        Path: ['Catch','Trainer','Random','Catch','Random','Trainer','Catch','Item'],
         Difficulty: 2
     },
     'Route 3': {
         Trainer: ['Youngster','Bug Maniac','Rookie Trainer','Hiker','Trainer','Jogger'],
         Catch: biomes['Route 3'],
         Item: ['Poké Ball','Potion','Nest Ball','Great Ball','Super Potion','Revive','Dive Ball','Leaf Stone'],
-        Path: ['Trainer','Catch','Random','Trainer','Random','Random','Item','Trainer'],
+        Path: ['Trainer','Trainer','Random','Trainer','Catch','Item','Catch','Random','Catch'],
         Difficulty: 2
     },
     'Mount Moon': {
-        Trainer: ['Hiker','Trainer','Jogger','Scientist','Explorer','Rocket Grunt','Pokémaniac','Tourist'],
+        Trainer: ['Hiker','Trainer','Jogger','Scientist','Explorer','Rocket Grunt','Pokémaniac','Tourist','Worker','Police Officer'],
         Catch: biomes['Mount Moon'].concat(biomes['Route 2']),
         Item: ['Poké Ball','Potion','Nest Ball','Dusk Ball','Net Ball','Great Ball','Super Potion','Revive','Rare Candy','Moon Stone','Metal Coat'],
-        Path: ['Catch','Catch','Random','Trainer','Catch','Catch','Random','Trainer','Item'],
+        Path: ['Catch','Catch','Random','Trainer','Catch','Catch','Random','Trainer','Item','Catch','Trainer'],
         Difficulty: 2
     },
     'Route 4': {
         Trainer: ['Hiker','Trainer','Jogger','Rocket Grunt','Pokémaniac','Police Officer','Burglar','Challenger','Cyclist','Bird Keeper'],
         Catch: biomes['Route 4'].concat(biomes['Route 3']),
         Item: ['Poké Ball','Potion','Nest Ball','Net Ball','Great Ball','Ultra Ball','Dream Ball','Super Potion','Revive','Premier Ball','Rare Candy','Moon Stone','Hyper Potion','Leaf Stone'],
-        Path: ['Catch','Trainer','Trainer','Random','Catch','Trainer','Catch','Item','Random','Trainer'],
+        Path: ['Catch','Trainer','Trainer','Random','Catch','Trainer','Catch','Catch','Random','Trainer','Trainer'],
         Difficulty: 3
     },
     'Dark Cave': {
-        Trainer: ['Trainer','Rocket Grunt','Pokémaniac','Burglar','Challenger','Explorer','Scientist'],
+        Trainer: ['Trainer','Rocket Grunt','Pokémaniac','Burglar','Challenger','Explorer','Scientist','Police Officer','Ninja'],
         Catch: biomes['Dark Cave'].concat(biomes['Route 2']),
         Item: ['Poké Ball','Potion','Nest Ball','Net Ball','Dusk Ball','Coin Case','Great Ball','Ultra Ball','Dream Ball','Super Potion','Revive','Premier Ball','Rare Candy','Moon Stone','Hyper Potion','Dusk Stone',`King's Rock`],
-        Path: ['Catch','Catch','Random','Trainer','Catch','Trainer','Catch','Item','Catch','Catch'],
+        Path: ['Catch','Catch','Catch','Catch','Trainer','Random','Trainer','Trainer','Catch','Random','Catch','Item','Trainer'],
         Difficulty: 3
     },
 }
@@ -304,6 +304,8 @@ const nextEncounter = ([...encounter]) => {
     tempUIList.forEach((e) => {
         body.removeChild(e);
     })
+
+    // console.log(encounter[1])
 
     switch (encounter[0]) {
         case 'Catch':
