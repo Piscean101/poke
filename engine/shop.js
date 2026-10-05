@@ -40,11 +40,10 @@ export const moveMoney = (num,add=true,msg='') => {
 
 }
 
-export const createItemList = (count=6,maxCost=1000,excl=['Metal Coat','Moon Stone','Dusk Stone','Link Case','Shiny Stone','Ice Stone','Fire Stone','Dream Ball','Potion','Super Potion']) => {
-    count = [6,6,7,8][Math.floor(Math.random()*4)];
+export const createItemList = (count=6,maxCost=2000,excl=[]) => {
+    count = [8,8,8,9,10,10,11,12][Math.floor(Math.random()*8)];
     let result = []; let names = []; let filter = [];
-    filter.push(allItems.filter((e) => { return e.COST <= maxCost && e.COST != null }));
-    filter.forEach((e,i) => { excl.includes(e) ? filter.splice(i,1) : null });
+    filter.push(allItems.filter((e) => { return e.COST <= maxCost && e.COST != null && !excl.includes(e.NAME) }));
     while (count) {
         let choice = filter[0][Math.floor(Math.random()*filter[0].length)];
         if (!result.includes(choice)) {
@@ -89,7 +88,6 @@ export const removeFromInventory = (itemName) => {
                 found++;
             }
         });
-        console.log(itemsInBag)
         localStorage.setItem("playerInventory",itemsInBag);
 
 };
@@ -106,7 +104,7 @@ export const purchaseItem = (name,cost) => {
             
             addToInventory(name);
             moveMoney(cost,false);
-            location.reload(true);
+            location.reload();
 
         }
 
@@ -137,7 +135,7 @@ export const populateInventory = ([...itemList]) => {
         const itemImg = new Image();
         const itemDesc = document.createElement("span");
         const buyItem = document.createElement("div");
-        const sellCost = Math.floor(e.COST*0.42);
+        const sellCost = Math.floor(e.COST*0.29);
 
         shopItem.classList.add("playerItem");
         itemImg.classList.add("itemImg");
@@ -210,6 +208,7 @@ export const populateShop = ([...itemList]) => {
 
 export const loadShop = () => {
             const REFRESH_INTERVAL_MS = 1 * 5 * 60 * 1000;
+            // const REFRESH_INTERVAL_MS = 0;
             const STORAGE_KEY = "lastRefreshTimePokeApp";
 
             const lastRefresh = localStorage.getItem(STORAGE_KEY);

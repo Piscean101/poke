@@ -11,11 +11,22 @@ const body = document.querySelector("body");
 const inventory = localStorage.getItem("playerInventory");
 var newHeader = document.createElement("h1");
 const newEncounterImg = new Image();
+const exploreRoute = document.title.split(':')[1];
 newEncounterImg.classList.add('newEncounterImg');
 // encounterDisplay.appendChild(newEncounterImg);
 newHeader.classList.add('encounterHeader','hidden');
 
 body.appendChild(newHeader);
+
+const rarityTable = {
+    C: 20,
+    U: 10,
+    R: 0,
+    X: -2,
+    M: -5,
+    L: -9,
+    N: -100
+}
 
 const gameMessage = (msg) => {
 
@@ -37,11 +48,40 @@ const ballInventory = () => {
 
 }
 
+const checkBallBonus = (ball,mon,route=exploreRoute) => {
+    var result = 0;
+    return result;
+}
+
+const calcCatch = (ball,mon) => {
+    var result = false;
+    const ballData = [...Object.entries(items['PokeBalls'])].filter((e) => { return e[1].NAME == ball})[0][1];
+    const monData = [...Object.entries(pokedex)].filter((e) => { return e[1][1].NAME == mon})[0][1][1];
+    var ballRate = ballData['RATE'][0]; var rarity = rarityTable[monData.RARITY];
+    const bonus = checkBallBonus(ball,mon);
+    var catchRate = ballRate + rarity + bonus;
+    var checkRoll = Math.random()*100;
+    checkRoll <= catchRate ? result = true : null;
+    console.log(`${ball}: ${ballRate}`,`${mon}: ${rarity}`,`Bonus: ${bonus}`,catchRate)
+    return result;
+}
+
 const handleCatch = (ball) => {
     const pk = newEncounterImg.src.split('/').pop().split('.').shift();
     const findPk = pokedex.filter((e) => { return e[1].NAME.toUpperCase() == pk.toUpperCase() })[0][1];
-    placeInPC(findPk.NAME);
-    setTimeout(() => { nextEncounterButton.click() },300);
+    const catchResult = calcCatch(ball,findPk.NAME);
+    if(catchResult) {
+        alert(`Success! You captured ${findPk.NAME}`);
+        placeInPC(findPk.NAME);
+        setTimeout(() => { nextEncounterButton.click() },300);
+    } else {
+        var flee = Math.floor(Math.random()*10);
+        alert(`Oh no! ${findPk.NAME} broke free!`);
+        if (flee >= 6) {
+            alert(`${findPk.NAME} fled`);
+            setTimeout(() => { nextEncounterButton.click() },300);
+        }
+    } 
 }
 
 const displayPokeBalls = ([...ballRoster]) => {
@@ -240,7 +280,8 @@ const biomes = {
 
 
 export const encounterGroups = {
-    //   AVOID PLACING ITEMS/RANDOM NEAR BEGINNING OF ROUTE AND ANYWHERE SIMULTANEOUSLY
+    //   AVOID PLACING ITEMS/RANDOM NEAR BEGINNING OF ROUTE AND AT VERY THE LAST ENCOUNTER
+    // AVOID PLACING ITEMS/RANDOM TOGETHER SIMULTANEOUSLY
     'Route 1': {
         Trainer: ['Youngster','Schoolkid'],
         Catch: biomes['Route 1'],
@@ -259,14 +300,14 @@ export const encounterGroups = {
         Trainer: ['Youngster','Bug Catcher','Rookie Trainer','Bug Maniac'],
         Catch: biomes['Viridian Forest'],
         Item: ['Poké Ball','Potion','Nest Ball','Super Potion','Net Ball'],
-        Path: ['Catch','Trainer','Random','Catch','Random','Trainer','Catch','Item'],
+        Path: ['Catch','Trainer','Random','Catch','Random','Trainer','Catch','Item','Trainer'],
         Difficulty: 2
     },
     'Route 3': {
         Trainer: ['Youngster','Bug Maniac','Rookie Trainer','Hiker','Trainer','Jogger'],
         Catch: biomes['Route 3'],
         Item: ['Poké Ball','Potion','Nest Ball','Great Ball','Super Potion','Revive','Dive Ball','Leaf Stone'],
-        Path: ['Trainer','Trainer','Random','Trainer','Catch','Item','Catch','Random','Catch'],
+        Path: ['Trainer','Trainer','Catch','Item','Catch','Trainer','Catch','Random','Trainer'],
         Difficulty: 2
     },
     'Mount Moon': {
@@ -286,7 +327,7 @@ export const encounterGroups = {
     'Dark Cave': {
         Trainer: ['Trainer','Rocket Grunt','Pokémaniac','Burglar','Challenger','Explorer','Scientist','Police Officer','Ninja'],
         Catch: biomes['Dark Cave'].concat(biomes['Route 2']),
-        Item: ['Poké Ball','Potion','Nest Ball','Net Ball','Dusk Ball','Coin Case','Great Ball','Ultra Ball','Dream Ball','Super Potion','Revive','Premier Ball','Rare Candy','Moon Stone','Hyper Potion','Dusk Stone',`King's Rock`],
+        Item: ['Poké Ball','Potion','Nest Ball','Net Ball','Dusk Ball','Great Ball','Ultra Ball','Dream Ball','Super Potion','Revive','Premier Ball','Rare Candy','Moon Stone','Hyper Potion','Dusk Stone',`King's Rock`],
         Path: ['Catch','Catch','Catch','Catch','Trainer','Random','Trainer','Trainer','Catch','Random','Catch','Item','Trainer'],
         Difficulty: 3
     },
@@ -332,9 +373,9 @@ const nextEncounter = ([...encounter]) => {
             newEncounterImg.classList.add('item')
             newEncounterImg.addEventListener("click", (item) => { 
                 if (newEncounterImg.src == window.location.origin + '/data/images/item.png') {
-                    var [goldChance,goldAmt] = [Math.random(),Math.ceil(Math.random()*10)*10]; 
-                    goldChance > 0.8 ? moveMoney(goldAmt,true,`You found $${goldAmt}!`) : addToInventory(encounter[1],true); 
-                    setTimeout(() => { nextEncounterButton.click()}, 300);
+                    var [goldChance,goldAmt] = [Math.random(),Math.ceil(Math.random()*5)*10]; 
+                    if(goldChance > 0.7) { moveMoney(goldAmt,true,`You found $${goldAmt}!`) } else { addToInventory(encounter[1],true) }
+                    nextEncounterButton.click()
                 }
             })
             gameMessage(`You found an item!`);

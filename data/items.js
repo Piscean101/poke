@@ -146,7 +146,7 @@ export const items = {
     PokeBalls: {
         PokeBall: {
             NAME: 'Poké Ball',
-            COST: 5,
+            COST: 10,
             DESC: 'Use to catch wild Pokémon',
             ENERGY: 0,
             TYPE: 'Capture',
@@ -156,7 +156,7 @@ export const items = {
         },
         GreatBall: {
             NAME: 'Great Ball',
-            COST: 15,
+            COST: 25,
             DESC: 'Improved catch rate from Poké Ball',
             ENERGY: 0,
             TYPE: 'Capture',
@@ -166,7 +166,7 @@ export const items = {
         },
         UltraBall: {
             NAME: 'Ultra Ball',
-            COST: 50,
+            COST: 70,
             DESC: 'Improved catch rate from Great Ball',
             ENERGY: 1,
             TYPE: 'Capture',
@@ -186,7 +186,7 @@ export const items = {
         },
         NetBall: {
             NAME: 'Net Ball',
-            COST: 25,
+            COST: 45,
             DESC: 'Good for catching FLYING WATER and BUG Pokémon',
             ENERGY: 0,
             TYPE: 'Capture',
@@ -196,7 +196,7 @@ export const items = {
         },
         DiveBall: {
             NAME: 'Dive Ball',
-            COST: 20,
+            COST: 45,
             DESC: 'Good for catching Pokémon on SEA Routes',
             ENERGY: 0,
             TYPE: 'Capture',
@@ -206,7 +206,7 @@ export const items = {
         },
         DreamBall: {
             NAME: 'Dream Ball',
-            COST: 25,
+            COST: 45,
             DESC: 'Good for catching GHOST PSYCHIC and FAIRY Pokémon',
             ENERGY: 0,
             TYPE: 'Capture',
@@ -216,7 +216,7 @@ export const items = {
         },
         DuskBall: {
             NAME: 'Dusk Ball',
-            COST: 20,
+            COST: 45,
             DESC: 'Good for catching Pokémon on CAVE Routes',
             ENERGY: 0,
             TYPE: 'Capture',
@@ -226,7 +226,7 @@ export const items = {
         },
         NestBall: {
             NAME: 'Nest Ball',
-            COST: 10,
+            COST: 20,
             DESC: 'Exceptionally good for catching COMMON Pokémon',
             ENERGY: 0,
             TYPE: 'Capture',
@@ -236,7 +236,7 @@ export const items = {
         },
         PremierBall: {
             NAME: 'Premier Ball',
-            COST: 95,
+            COST: 105,
             DESC: 'Exceptionally good for catching RARE Pokémon',
             ENERGY: null,
             TYPE: 'Capture',

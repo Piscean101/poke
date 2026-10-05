@@ -9,7 +9,7 @@ const inventoryBox = document.getElementById("playerInventoryBox");
 const avatarChange = document.querySelectorAll(".changeAvatar");
 const badgeCaseBox = document.getElementById("badgeCase");
 const badgeCases = document.querySelectorAll(".playerBadgeCase");
-const PCRoster = localStorage.getItem("PCRoster");
+var PCRoster = localStorage.getItem("PCRoster");
 !PCRoster ? localStorage.setItem("PCRoster","") : null;
 const PC = PCRoster.split(',');
 const playerRoster = localStorage.getItem("playerRoster");
@@ -150,8 +150,8 @@ export const placeInPC = (species,toggleAlert=false) => {
     
     } else { 
 
-        var PCPopulation = [];
-    
+        var PCPopulation = []; var PCRoster = localStorage.getItem("PCRoster");
+
         PCRoster ? PCPopulation = [...PCRoster.split(',')] : null;
     
         // CREATE ERROR HANDLER FUNCTION FOR WHEN MAX PC SIZE REACHED
@@ -162,7 +162,7 @@ export const placeInPC = (species,toggleAlert=false) => {
 
         const pokeName = species[0].toUpperCase() + species.slice(1)
 
-        toggleAlert ? alert(`${pokeName} was moved to your PC Box`) : alert(`Success! ${pokeName} was placed in your PC Box`)
+        toggleAlert ? alert(`${pokeName} was moved to your PC Box`) : alert(`${pokeName} was placed in your PC Box`)
 
     }
 
