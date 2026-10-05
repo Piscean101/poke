@@ -23,7 +23,8 @@ const transPImgLink = window.location.origin + '/data/images/transparent.png';
 
 /** DEFAULT USER SETTINGS */
 
-localStorage.getItem("maxPCSize") ? null : localStorage.setItem("maxPCSize",6);
+localStorage.getItem("maxPCSize") ? null : localStorage.setItem("maxPCSize",6+(Number(badgeList.split(',').length)*3));
+localStorage.setItem("maxPCSize",6+(Number(badgeList.split(',').length)*3))
 
 /* */
 

@@ -18,7 +18,7 @@ const walletAmount = Number(localStorage.getItem("pokeWallet"));
 
 export const moveMoney = (num,add=true,msg='') => {
 
-    if (add == false) { msg = `You handed over $${num}` }
+    if (add == false && msg != null) { msg = `You handed over $${num}` }
 
     num = Number(num);
 
@@ -32,7 +32,7 @@ export const moveMoney = (num,add=true,msg='') => {
 
     localStorage.setItem("pokeWallet",wallet);
 
-    if (msg != '') {
+    if (msg != '' && msg != null) {
 
         alert(msg);
 
@@ -98,13 +98,39 @@ export const purchaseItem = (name,cost) => {
     
     else {
 
-        const confirmBuy = confirm(`Buy this ${name} for $${cost}?`);
+        // const confirmBuy = confirm(`Buy this ${name} for $${cost}?`);
 
-        if (confirmBuy) {
+        // if (confirmBuy) {
             
-            addToInventory(name);
-            moveMoney(cost,false);
-            location.reload();
+        //     addToInventory(name);
+        //     moveMoney(cost,false);
+        //     location.reload();
+
+        // }
+
+        var confirmBuy = prompt(`Buy how many ${name}s?`);
+
+        if (isNaN(confirmBuy)) { alert(`Invalid input: NaN`) } else {
+
+            if (walletAmount < confirmBuy*cost) { alert(`You don't have enough money to buy these items.`) } else {
+
+                var confirmPrice = confirm(`Purchase ${confirmBuy} ${name}${confirmBuy > 1 ? 's' : ''} for $${confirmBuy*cost}?`);
+
+                if (confirmPrice) {
+
+                    while(confirmBuy) {
+    
+                        addToInventory(name);
+                        moveMoney(cost,false,null);
+                        confirmBuy--;
+    
+                    }
+
+                    location.reload();
+
+                }
+
+            }
 
         }
 
@@ -114,16 +140,21 @@ export const purchaseItem = (name,cost) => {
 
 export const sellItem = (name,cost) => {
 
-    const confirmSell = confirm(`Would you like to sell your ${name} for $${cost}?`);
+    var allItems = localStorage.getItem("playerInventory").split(',');
 
-    if(confirmSell) {
-        
-        removeFromInventory(name);
-        moveMoney(cost,true);
-        location.reload(true);
+    if (allItems.length == 1) { alert(`Be careful not to sell your last item`) } else {
+
+        const confirmSell = confirm(`Would you like to sell your ${name} for $${cost}?`);
+    
+        if(confirmSell) {
+            
+            removeFromInventory(name);
+            moveMoney(cost,true);
+            location.reload(true);
+    
+        }
 
     }
-
 
 }
 

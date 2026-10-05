@@ -60,9 +60,9 @@ const calcCatch = (ball,mon) => {
     var ballRate = ballData['RATE'][0]; var rarity = rarityTable[monData.RARITY];
     const bonus = checkBallBonus(ball,mon);
     var catchRate = ballRate + rarity + bonus;
-    var checkRoll = Math.random()*100;
+    var checkRoll = Math.floor(Math.random()*100);
     checkRoll <= catchRate ? result = true : null;
-    console.log(`${ball}: ${ballRate}`,`${mon}: ${rarity}`,`Bonus: ${bonus}`,catchRate)
+    console.log(`${ball}: ${ballRate}`,`${mon}: ${rarity}`,`Bonus: ${bonus}`,`Total: ${catchRate}`,checkRoll)
     return result;
 }
 
@@ -77,7 +77,7 @@ const handleCatch = (ball) => {
     } else {
         var flee = Math.floor(Math.random()*10);
         alert(`Oh no! ${findPk.NAME} broke free!`);
-        if (flee >= 6) {
+        if (flee >= 4) {
             alert(`${findPk.NAME} fled`);
             setTimeout(() => { nextEncounterButton.click() },300);
         }

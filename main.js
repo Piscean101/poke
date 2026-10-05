@@ -69,11 +69,11 @@ CRIT RATES ( --double power AND half def
     DEX -> GEN 6
     */
 
-if (!localStorage.getItem("playerInventory")) {
+// if (!localStorage.getItem("playerInventory")) {
 
-    localStorage.setItem("playerInventory","Poké Ball,Poké Ball,Poké Ball,Poké Ball,Poké Ball");
+//     localStorage.setItem("playerInventory","Poké Ball,Poké Ball,Poké Ball,Poké Ball,Poké Ball");
 
-}   
+// }   
 
 function startGame() {
     document.title == 'Pokedex' ? populateDexPage() : 

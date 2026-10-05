@@ -3980,7 +3980,7 @@ const gen3dex = {
         RARITY: 'X',
         NEXT: 'Shelgon'
     },
-    Sheldon: {
+    Shelgon: {
         NAME: 'Shelgon',
         HP: 2,
         POW: 3,
