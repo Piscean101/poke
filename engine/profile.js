@@ -23,8 +23,8 @@ const transPImgLink = window.location.origin + '/data/images/transparent.png';
 
 /** DEFAULT USER SETTINGS */
 
-localStorage.getItem("maxPCSize") ? null : localStorage.setItem("maxPCSize",6+(Number(badgeList.split(',').length)*3));
-localStorage.setItem("maxPCSize",6+(Number(badgeList.split(',').length)*3))
+// localStorage.getItem("maxPCSize") ? null : localStorage.setItem("maxPCSize",6+(Number(badgeList.split(',').length)*3));
+localStorage.setItem("maxPCSize",6+(Number(Math.floor(badgeList.split(',').length/2))*6))
 
 /* */
 
@@ -219,8 +219,6 @@ export  const releasePoke = (name,poke) => {
 
 
 }
-
-// localStorage.clear("playerRoster")
 
 export const updateProfile = () => {
 

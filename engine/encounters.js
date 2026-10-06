@@ -10,13 +10,15 @@ const encounterDisplay = document.getElementById("encounter");
 const body = document.querySelector("body");
 const inventory = localStorage.getItem("playerInventory");
 var newHeader = document.createElement("h1");
+var battleScreen = document.createElement("div");
 const newEncounterImg = new Image();
-const exploreRoute = document.title.split(':')[1];
+const exploreRoute = localStorage.getItem("currentRoute");
 newEncounterImg.classList.add('newEncounterImg');
 // encounterDisplay.appendChild(newEncounterImg);
 newHeader.classList.add('encounterHeader','hidden');
 
 body.appendChild(newHeader);
+body.appendChild(battleScreen);
 
 const rarityTable = {
     C: 10,
@@ -274,7 +276,7 @@ const biomes = {
     'Viridian Forest': [...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Bug')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Grass')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Pikachu')[0]),
     'Route 3': [...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Grass')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Flying')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Poliwag')[0]),
     'Mount Moon': [...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Rock')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',5,'-')[0].filter(e => e[1].TYPE.includes('Ground')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Clefairy')[0]).filter(e => { return !e[1].TYPE.includes('Water')}),
-    'Route 4': [...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Flying')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Fire')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Normal')).filter(e => e[1].RARITY != 'N')]).concat(searchDex('NAME','Drowzee')[0]),
+    'Route 4': [...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Flying')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Fire')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Normal')).filter(e => e[1].RARITY != 'N')]).concat(searchDex('NAME','Drowzee')[0]),
     'Dark Cave': [...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Dark')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Rock')).filter(e => e[1].RARITY != 'N')]).concat(searchDex('NAME','Machop')[0]).filter(e => { return !e[1].TYPE.includes('Water') && !e[1].TYPE.includes('Grass') }),
 }
 
@@ -395,7 +397,8 @@ var pokes = [...Object.values(pokedex)];
 export class EncounterTable {
     constructor(name='Route 1') {
 
-        
+        document.title = `Explore: ${name}`
+    
         this.encounterGroup = encounterGroups[name];
 
         console.log(`${name}: ${this.encounterGroup['Catch'].length} encounters`,this.encounterGroup['Catch'].map(e => e[1].NAME))

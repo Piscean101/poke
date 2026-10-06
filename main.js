@@ -82,6 +82,13 @@ CRIT RATES ( --double power AND half def
 
 // }   
 
+// localStorage.setItem("badgeList","")
+
+// localStorage.clear("playerRoster")
+const t = localStorage.getItem("currentRoute");
+
+console.log(t);
+
 function startGame() {
     document.title == 'Pokedex' ? populateDexPage() : 
     document.title == 'PC' ? updateProfile() : 
@@ -90,7 +97,7 @@ function startGame() {
     document.title == 'Choose Your Route' ? selectRoute() : null;
     
     if (document.title.split(':')[0] == 'Explore') {
-        const routeName = document.title.split(':')[1].replace(' ','');
+        const routeName = localStorage.getItem("currentRoute")
         const encounterTable = new EncounterTable(routeName); 
     }
 }

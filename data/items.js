@@ -53,7 +53,7 @@ export const items = {
         },
         MoonStone: {
         NAME: 'Moon Stone',
-        COST: 595,
+        COST: 625,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'UMBREON,NIDOQUEEN,NIDOKING,WIGGLYTUFF,CLEFABLE,DELCATTY',
@@ -63,7 +63,7 @@ export const items = {
         },
         SunStone: {
         NAME: 'Sun Stone',
-        COST: 595,
+        COST: 625,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'ESPEON,BELLOSSOM,SUNFLORA',
