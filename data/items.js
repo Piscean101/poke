@@ -18,7 +18,7 @@ export const items = {
         TYPE: 'Evolve',
         TARGET: 'FLAREON,NINETALES,ARCANINE,MAGMORTAR',
         URL: `https://archives.bulbagarden.net/media/upload/8/86/Bag_Fire_Stone_Sprite.png`,
-        DESC: 'Use to evolve VULPIX EEVEE GROWLITHE OR MAGMAR',
+        DESC: 'Use to evolve VULPIX EEVEE GROWLITHE or MAGMAR',
         CONSUME: true
         },
         WaterStone: {
@@ -53,7 +53,7 @@ export const items = {
         },
         MoonStone: {
         NAME: 'Moon Stone',
-        COST: 650,
+        COST: 595,
         ENERGY: 0,
         TYPE: 'Evolve',
         TARGET: 'UMBREON,NIDOQUEEN,NIDOKING,WIGGLYTUFF,CLEFABLE,DELCATTY',
@@ -246,7 +246,7 @@ export const items = {
         },
         CherishBall: {
             NAME: 'Cherish Ball',
-            COST: 750,
+            COST: 875,
             DESC: 'Contains a Random Pokémon',
             ENERGY: null,
             TYPE: 'Random',

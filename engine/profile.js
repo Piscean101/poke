@@ -82,7 +82,7 @@ const checkBadges = (badgeChecklist) => {
 
 export const verifySpecies = (species) => {
 
-    const result = [...Object.values(pokedex)].filter((e) => { return e[0].toLowerCase() == species.toLowerCase() });
+    const result = [...Object.values(pokedex)].filter((e) => { return e[1]['NAME'].toLowerCase() == species.toLowerCase() });
 
     return result;
 

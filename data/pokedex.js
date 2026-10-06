@@ -2506,37 +2506,34 @@ const gen2dex = {
         NEXT: null
     },
     /* 
+    
+    
+    PSEUDO
+    1 -> 2 -> 2|3
+    5 -> 10 -> 15|17
 
-
-
-    BOTTOM HEAVY
-    0 -> 1 -> 2
-    3 -> 6 -> 14
-
-
-
-
+    
+    
     */
-    //
     Swinub: {
         NAME: 'Swinub',
-        HP: 1,
+        HP: 2,
         POW: 1,
-        DEF: 0,
+        DEF: 1,
         SPE: 1,
         TYPE: ['Ice','Ground'],
-        COST: 0,
+        COST: 1,
         RARITY: 'U',
         NEXT: 'Piloswine'
     },
     Piloswine: {
         NAME: 'Piloswine',
         HP: 3,
-        POW: 2,
-        DEF: 1,
-        SPE: 0,
+        POW: 3,
+        DEF: 3,
+        SPE: 1,
         TYPE: ['Ice','Ground'],
-        COST: 1,
+        COST: 2,
         RARITY: 'X',
         NEXT: 'Mamoswine'
     },
@@ -2544,23 +2541,14 @@ const gen2dex = {
         NAME: 'Mamoswine',
         HP: 4,
         POW: 5,
-        DEF: 2,
+        DEF: 3,
         SPE: 3,
         TYPE: ['Ice','Ground'],
         COST: 2,
         RARITY: 'N',
         NEXT: null
     },
-    /* 
-    
-    
-    PSEUDO
-    1 -> 2 -> 3
-    5 -> 10 -> 17
-
-    
-    
-    */
+    //
     Larvitar: {
         NAME: 'Larvitar',
         HP: 1,
@@ -5160,8 +5148,47 @@ const gen3dex = {
         NEXT: null
     },
 }
+const gen4dex = {
+        /* 
+    
+    
 
-export const pokedex = [...Object.entries(gen1dex),...Object.entries(gen2dex),...Object.entries(gen3dex)]
+    STARTER 
+    0 -> 1 -> 2
+    4 -> 8 -> 13
+
+
+    
+    
+    */
+        /* 
+    
+    
+
+    SECONDARY 
+    0 -> 1 -> 2
+    3 -> 7 -> 11
+
+    
+    
+    
+    */
+    /* 
+    
+    
+
+    PSEUDO 
+    1 -> 2 -> 2 | 3
+    5 -> 10 -> 15 | 17
+
+    
+    
+    
+    */
+
+}
+
+export const pokedex = [...Object.entries(gen1dex),...Object.entries(gen2dex),...Object.entries(gen3dex),...Object.entries(gen4dex)]
 
 export const searchDex = (attr='NAME',value,range='=',dex=[...Object.values(pokedex)]) => {
 

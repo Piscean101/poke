@@ -19,11 +19,11 @@ newHeader.classList.add('encounterHeader','hidden');
 body.appendChild(newHeader);
 
 const rarityTable = {
-    C: 20,
-    U: 10,
-    R: 0,
-    X: -2,
-    M: -5,
+    C: 10,
+    U: 0,
+    R: -2,
+    X: -5,
+    M: -7,
     L: -9,
     N: -100
 }
@@ -320,15 +320,15 @@ export const encounterGroups = {
     'Route 4': {
         Trainer: ['Hiker','Trainer','Jogger','Rocket Grunt','Pokémaniac','Police Officer','Burglar','Challenger','Cyclist','Bird Keeper'],
         Catch: biomes['Route 4'].concat(biomes['Route 3']),
-        Item: ['Poké Ball','Potion','Nest Ball','Net Ball','Great Ball','Ultra Ball','Dream Ball','Super Potion','Revive','Premier Ball','Rare Candy','Moon Stone','Hyper Potion','Leaf Stone'],
-        Path: ['Catch','Trainer','Trainer','Random','Catch','Trainer','Catch','Catch','Random','Trainer','Trainer'],
+        Item: ['Poké Ball','Potion','Nest Ball','Net Ball','Great Ball','Dream Ball','Super Potion','Revive','Premier Ball','Moon Stone','Leaf Stone'],
+        Path: ['Catch','Trainer','Trainer','Random','Catch','Trainer','Item','Catch','Random','Trainer','Trainer'],
         Difficulty: 3
     },
     'Dark Cave': {
         Trainer: ['Trainer','Rocket Grunt','Pokémaniac','Burglar','Challenger','Explorer','Scientist','Police Officer','Ninja'],
         Catch: biomes['Dark Cave'].concat(biomes['Route 2']),
         Item: ['Poké Ball','Potion','Nest Ball','Net Ball','Dusk Ball','Great Ball','Ultra Ball','Dream Ball','Super Potion','Revive','Premier Ball','Rare Candy','Moon Stone','Hyper Potion','Dusk Stone',`King's Rock`],
-        Path: ['Catch','Catch','Catch','Catch','Trainer','Random','Trainer','Trainer','Catch','Random','Catch','Item','Trainer'],
+        Path: ['Catch','Catch','Catch','Catch','Trainer','Item','Trainer','Random','Catch','Random','Catch','Item','Trainer'],
         Difficulty: 3
     },
 }
