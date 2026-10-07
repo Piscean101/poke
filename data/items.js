@@ -170,7 +170,7 @@ export const items = {
             DESC: 'Improved catch rate from Great Ball',
             ENERGY: 1,
             TYPE: 'Capture',
-            RATE: [30], 
+            RATE: [25], 
             URL: `https://archives.bulbagarden.net/media/upload/0/0c/Ultra_Ball_battle_IV.png`,
             CONSUME: true
         },
@@ -226,7 +226,7 @@ export const items = {
         },
         NestBall: {
             NAME: 'Nest Ball',
-            COST: 20,
+            COST: 30,
             DESC: 'Exceptionally good for catching COMMON Pokémon',
             ENERGY: 0,
             TYPE: 'Capture',

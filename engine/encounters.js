@@ -3,19 +3,22 @@ import { pokedex, searchDex } from '../data/pokedex.js';
 import { items } from '../data/items.js';
 import { allItems, addToInventory, removeFromInventory, moveMoney } from './shop.js';
 import { placeInPC } from './profile.js';
+import { startBattle, resolveBattle } from './combat.js';
 
 
 const nextEncounterButton = document.getElementById("nextEncounterButton");
-const encounterDisplay = document.getElementById("encounter");
+export const encounterDisplay = document.getElementById("encounter");
 const body = document.querySelector("body");
 const inventory = localStorage.getItem("playerInventory");
 var newHeader = document.createElement("h1");
-var battleScreen = document.createElement("div");
+export const battleScreen = document.createElement("div");
 const newEncounterImg = new Image();
 const exploreRoute = localStorage.getItem("currentRoute");
+const battleButton = document.getElementById("battle");
 newEncounterImg.classList.add('newEncounterImg');
 // encounterDisplay.appendChild(newEncounterImg);
 newHeader.classList.add('encounterHeader','hidden');
+battleScreen.classList.add('battleScreen','hidden');
 
 body.appendChild(newHeader);
 body.appendChild(battleScreen);
@@ -343,6 +346,8 @@ const nextEncounter = ([...encounter]) => {
     newEncounterImg.src = '../../../data/images/transparent.png';
     newEncounterImg.removeEventListener("click",addToInventory);
     newEncounterImg.classList.remove('item');
+    battleScreen.classList.add('hidden');
+    encounterDisplay.classList.remove("hidden");
 
     tempUIList.forEach((e) => {
         body.removeChild(e);
@@ -397,7 +402,13 @@ var pokes = [...Object.values(pokedex)];
 export class EncounterTable {
     constructor(name='Route 1') {
 
-        document.title = `Explore: ${name}`
+        document.title = `Explore: ${name}`;
+
+        battleButton.addEventListener("click", () => {
+            startBattle();
+        });
+
+        localStorage.setItem("teamStatus",localStorage.getItem("playerRoster"))
     
         this.encounterGroup = encounterGroups[name];
 

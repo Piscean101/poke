@@ -85,9 +85,6 @@ CRIT RATES ( --double power AND half def
 // localStorage.setItem("badgeList","")
 
 // localStorage.clear("playerRoster")
-const t = localStorage.getItem("currentRoute");
-
-console.log(t);
 
 function startGame() {
     document.title == 'Pokedex' ? populateDexPage() : 

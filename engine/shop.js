@@ -238,8 +238,8 @@ export const populateShop = ([...itemList]) => {
 };
 
 export const loadShop = () => {
-            const REFRESH_INTERVAL_MS = 1 * 5 * 60 * 1000;
-            // const REFRESH_INTERVAL_MS = 0;
+            // const REFRESH_INTERVAL_MS = 1 * 5 * 60 * 1000;
+            const REFRESH_INTERVAL_MS = 0;
             const STORAGE_KEY = "lastRefreshTimePokeApp";
 
             const lastRefresh = localStorage.getItem(STORAGE_KEY);
