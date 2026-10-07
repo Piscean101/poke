@@ -116,38 +116,64 @@ const displayPokeBalls = ([...ballRoster]) => {
 
 const firstNames = [...boyName,...girlName];
 
+const biomes = {
+    'Route 1': [...searchDex('TOTAL',5,'-')[0].filter(e => e[1].TYPE.includes('Normal')).filter(e => e[1].RARITY == 'C')], 
+    'Route 2': [...searchDex('TOTAL',5,'-')[0].filter(e => e[1].TYPE.includes('Normal')).filter(e => e[1].RARITY == 'C')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Bug')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Tyrogue')[0]),
+    'Viridian Forest': [...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Bug')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Grass')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Pikachu')[0]).filter((e) => { return !e[1].TYPE.includes('Ghost') }),
+    'Route 3': [...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Grass')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Flying')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Poliwag')[0]),
+    'Mount Moon': [...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Rock')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',5,'-')[0].filter(e => e[1].TYPE.includes('Ground')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Clefairy')[0]).filter(e => { return !e[1].TYPE.includes('Water')}),
+    'Route 4': [...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Flying')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Fire')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Normal')).filter(e => e[1].RARITY != 'N')]).concat(searchDex('NAME','Drowzee')[0]),
+    'Dark Cave': [...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Dark')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Rock')).filter(e => e[1].RARITY != 'N')]).concat(searchDex('NAME','Machop')[0]).filter(e => { return !e[1].TYPE.includes('Water') && !e[1].TYPE.includes('Grass') }),
+    //
+    'Hiker': [...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Ground')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Fighting')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Rock')).filter(e => e[1].RARITY == 'C')]).filter((e) => { return !e[1].TYPE.includes('Water') }),
+    'Trainer': [...searchDex('TOTAL',8,'-')[0].filter((e) => { return !e[1].TYPE.includes('Dragon') && e[1].RARITY != 'R' && e[1].RARITY != 'X' && e[1].RARITY != 'M' })],
+    'Police': [...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Dark')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Fire')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Fighting')).filter(e => e[1].RARITY != 'M')]).concat(searchDex('NAME','Manectric')[0]).filter(e => { return !e[1].TYPE.includes('Water')}),
+    'Scientist': [...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Psychic')).filter(e => e[1].RARITY != 'L')].concat([...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY != 'C')]).concat([...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Steel')).filter(e => e[1].RARITY != 'M')]).concat(searchDex('NAME','Lanturn')[0]).filter(e => { return !e[1].TYPE.includes('Ghost')}),
+    'Athlete': [...searchDex('TOTAL',10,'-')[0].filter(e => e[1].TYPE.includes('Fighting')).filter(e => e[1].RARITY != 'C')].concat([...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Ground')).filter(e => e[1].RARITY != 'C')]).concat([...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Fire')).filter(e => e[1].RARITY != 'N')]).concat(searchDex('NAME','Magikarp'/*REPLACE WITH STARAPTOR*/)[0]).filter(e => { return !e[1].TYPE.includes('Flying') && !e[1].TYPE.includes('Fairy') && !e[1].TYPE.includes('Rock') && e[1].POW > 1 }),
+    'Explorer': [...searchDex('TOTAL',10,'-')[0].filter((e) => { return !e[1].TYPE.includes('Dragon') && e[1].RARITY != 'X' && e[1].RARITY != 'U' && e[1].RARITY != 'C' })],
+    'Rocket Grunt': [...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Dark')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Ghost')).filter(e => e[1].RARITY != 'M')]).concat(searchDex('NAME','Meowth')[0]).filter(e => { return !e[1].TYPE.includes('Grass')}),
+}
+
+console.log(biomes['Rocket Grunt']);
+
 export const rosterGroups = {
     'Youngster': [
         ['https://play.pokemonshowdown.com/sprites/trainers/youngster-gen3.png',
         'https://play.pokemonshowdown.com/sprites/trainers/youngster-gen7.png',
         'https://play.pokemonshowdown.com/sprites/trainers/youngster.png'],
-        []
+        [biomes['Route 1']],
+        [1,1,2]
     ],
     'Schoolkid': [
         ['https://play.pokemonshowdown.com/sprites/trainers/schoolkidf-gen4.png',
             'https://play.pokemonshowdown.com/sprites/trainers/schoolgirl.png'],
-        []
+        [biomes['Route 2']],
+        [1,2,2]
     ],
     'Bug Catcher': [
         ['https://play.pokemonshowdown.com/sprites/trainers/bugcatcher-gen4dp.png',
             'https://play.pokemonshowdown.com/sprites/trainers/bugcatcher-gen6.png'],
-        []
+        [biomes['Viridian Forest']],
+        [1,2,2,2]
     ],
     'Bug Maniac': [
         ['https://play.pokemonshowdown.com/sprites/trainers/bugmaniac-gen6.png'],
-        []
+        [biomes['Viridian Forest']],
+        [2,3,4]
     ],
     'Rookie Trainer': [
         ['https://play.pokemonshowdown.com/sprites/trainers/risingstar.png',
             'https://play.pokemonshowdown.com/sprites/trainers/risingstar-gen6.png',
             'https://play.pokemonshowdown.com/sprites/trainers/camper.png',
             'https://play.pokemonshowdown.com/sprites/trainers/lass-gen6oras.png'],
-        []
+        [biomes['Route 3']],
+        [2,2,2,3]
     ],
     'Hiker': [
         ['https://play.pokemonshowdown.com/sprites/trainers/hiker-gen4.png',
             'https://play.pokemonshowdown.com/sprites/trainers/hiker-gen9.png'],
-        []
+        [biomes['Hiker']],
+        [1,2,2,3,3]
     ],
     'Trainer': [
         ['https://play.pokemonshowdown.com/sprites/trainers/lass-gen4dp.png',
@@ -164,24 +190,28 @@ export const rosterGroups = {
             'https://play.pokemonshowdown.com/sprites/trainers/lass.png',
             'https://play.pokemonshowdown.com/sprites/trainers/mirror.png',
             'https://play.pokemonshowdown.com/sprites/trainers/ruffian.png'],
-        []
+        [biomes['Trainer']],
+        [1,2,2,3,3,4]
     ],
     'Police Officer': [
         ['https://play.pokemonshowdown.com/sprites/trainers/policeman.png',
             'https://play.pokemonshowdown.com/sprites/trainers/policeman-gen4.png',
             'https://play.pokemonshowdown.com/sprites/trainers/policeman-gen7.png'],
-        []
+        [biomes['Police']],
+        [2,2,3]
     ],
     'Jogger': [
         ['https://play.pokemonshowdown.com/sprites/trainers/jogger.png',
             'https://play.pokemonshowdown.com/sprites/trainers/triathleterunner-gen6.png'],
-        []
+        [biomes['Route 4']],
+        [2,3]
     ],
     'Scientist': [
         ['https://play.pokemonshowdown.com/sprites/trainers/scientistf.png',
             'https://play.pokemonshowdown.com/sprites/trainers/scientist-gen4dp.png',
             'https://play.pokemonshowdown.com/sprites/trainers/scientistf-gen6.png'],
-        []
+        [biomes['Scientist']],
+        [2,3,3,3,4]
     ],
     'Athlete': [
         ['https://play.pokemonshowdown.com/sprites/trainers/bodybuilderf-gen9.png',
@@ -189,14 +219,16 @@ export const rosterGroups = {
             'https://play.pokemonshowdown.com/sprites/trainers/striker.png',
             'https://play.pokemonshowdown.com/sprites/trainers/hoopster.png',
             'https://play.pokemonshowdown.com/sprites/trainers/linebacker.png'],
-        []
+        [biomes['Athlete']],
+        [2,3]
     ], 
     'Explorer': [
         ['https://play.pokemonshowdown.com/sprites/trainers/colza.png',
             'https://play.pokemonshowdown.com/sprites/trainers/toddsnap2.png',
             'https://play.pokemonshowdown.com/sprites/trainers/hiker-gen7.png',
             'https://play.pokemonshowdown.com/sprites/trainers/ruinmaniac.png'],
-        []
+        [biomes['Explorer']],
+        [2,3,3,4]
     ],
     'Rocket Grunt': [
         ['https://play.pokemonshowdown.com/sprites/trainers/rainbowrocketgrunt.png',
@@ -205,7 +237,8 @@ export const rosterGroups = {
             'https://play.pokemonshowdown.com/sprites/trainers/rocketgruntf.png',
             'https://play.pokemonshowdown.com/sprites/trainers/teamrocketgruntf-gen3.png',
             'https://play.pokemonshowdown.com/sprites/trainers/teamrocketgruntm-gen3.png'],
-        []
+        [biomes['Rocket Grunt']],
+        [1,2,3,4]
     ],
     // 'Camper': [
     //     [''],
@@ -255,6 +288,11 @@ export const rosterGroups = {
             'https://play.pokemonshowdown.com/sprites/trainers/ruinmaniac-gen3.png'],
         []
     ],
+    'Ninja': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/shadowtriad.png'],
+        [biomes['Dark Cave']],
+        [1,2,3]
+    ],
     'Professor': [
         ['https://play.pokemonshowdown.com/sprites/trainers/sycamore.png',
             'https://play.pokemonshowdown.com/sprites/trainers/elm.png'],
@@ -267,20 +305,6 @@ export const rosterGroups = {
             'https://play.pokemonshowdown.com/sprites/trainers/beauty-gen8.png'],
         []
     ],
-    'Ninja': [
-        ['https://play.pokemonshowdown.com/sprites/trainers/shadowtriad.png'],
-        []
-    ]
-}
-
-const biomes = {
-    'Route 1': [...searchDex('TOTAL',5,'-')[0].filter(e => e[1].TYPE.includes('Normal')).filter(e => e[1].RARITY == 'C')], 
-    'Route 2': [...searchDex('TOTAL',5,'-')[0].filter(e => e[1].TYPE.includes('Normal')).filter(e => e[1].RARITY == 'C')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Bug')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Tyrogue')[0]),
-    'Viridian Forest': [...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Bug')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Grass')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Pikachu')[0]),
-    'Route 3': [...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Grass')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Flying')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Poliwag')[0]),
-    'Mount Moon': [...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Rock')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',5,'-')[0].filter(e => e[1].TYPE.includes('Ground')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY == 'C')]).concat(searchDex('NAME','Clefairy')[0]).filter(e => { return !e[1].TYPE.includes('Water')}),
-    'Route 4': [...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Flying')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',6,'-')[0].filter(e => e[1].TYPE.includes('Fire')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Normal')).filter(e => e[1].RARITY != 'N')]).concat(searchDex('NAME','Drowzee')[0]),
-    'Dark Cave': [...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Dark')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Rock')).filter(e => e[1].RARITY != 'N')]).concat(searchDex('NAME','Machop')[0]).filter(e => { return !e[1].TYPE.includes('Water') && !e[1].TYPE.includes('Grass') }),
 }
 
 
@@ -368,11 +392,21 @@ const nextEncounter = ([...encounter]) => {
             break;
         case 'Trainer':
             caseStatus = 'Trainer';
+            var targetTrainer = rosterGroups[encounter[1]];
             var encSprites = rosterGroups[encounter[1]][0];
             var randSpriteIndex = Math.floor(Math.random()*encSprites.length);
             newEncounterImg.src = rosterGroups[encounter[1]][0][randSpriteIndex];
+            var enemySize = targetTrainer[2][Math.floor(Math.random()*targetTrainer[2].length)]
+            var enemyRoster = [];
+            var pokePool = rosterGroups[encounter[1]][1];
+            while (enemySize) {
+                enemyRoster.push(pokePool[0][Math.floor(Math.random()*pokePool[0].length)])
+                enemySize--;
+            }
+            // console.log(targetTrainer[2],enemyRoster);
             // encounterDisplay.appendChild(newEncounterImg);
             gameMessage(`${encounter[1]} challenged you to a battle!`);
+            setTimeout(() => { startBattle(enemyRoster) }, 1400);
             break;
         case 'Item':
             caseStatus = 'Item';
