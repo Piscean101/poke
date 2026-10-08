@@ -2901,7 +2901,41 @@ const gen2dex = {
         RARITY: 'R',
         NEXT: null
     },
-       /* 
+    /*
+
+
+
+    RUNNER
+    0 -> 2
+    6 -> 10
+    
+    
+
+    
+    */
+    Bonsly: {
+        NAME: 'Bonsly',
+        HP: 1,
+        POW: 2,
+        DEF: 3,
+        SPE: 0,
+        TYPE: ['Rock'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Sudowoodo'
+    },
+    Sudowoodo: {
+        NAME: 'Sudowoodo',
+        HP: 2,
+        POW: 4,
+        DEF: 4,
+        SPE: 0,
+        TYPE: ['Rock'],
+        COST: 2,
+        RARITY: 'X',
+        NEXT: null
+    },
+    /* 
     
     
     RARE
@@ -3033,7 +3067,7 @@ const gen2dex = {
         DEF: 2,
         SPE: 0,
         TYPE: ['Ground'],
-        COST: 0,
+        COST: 1,
         RARITY: 'U',
         NEXT: 'Donphan'
     },
@@ -3044,8 +3078,31 @@ const gen2dex = {
         DEF: 4,
         SPE: 1,
         TYPE: ['Ground'],
-        COST: 1,
+        COST: 2,
         RARITY: 'X',
+        NEXT: null
+    },
+    //
+    Mantyke: {
+        NAME: 'Mantyke',
+        HP: 1,
+        POW: 1,
+        DEF: 4,
+        SPE: 1,
+        TYPE: ['Water','Flying'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: 'Mantine'
+    },
+    Mantine: {
+        NAME: 'Mantine',
+        HP: 2,
+        POW: 2,
+        DEF: 6,
+        SPE: 2,
+        TYPE: ['Water','Flying'],
+        COST: 2,
+        RARITY: 'R',
         NEXT: null
     },
     /* 
@@ -3214,7 +3271,6 @@ const gen2dex = {
         RARITY: 'R',
         NEXT: null
     },
-    //
     /* 
     
 
@@ -3225,17 +3281,6 @@ const gen2dex = {
     
     
     */
-    Sudowoodo: {
-        NAME: 'Sudowoodo',
-        HP: 2,
-        POW: 3,
-        DEF: 4,
-        SPE: 0,
-        TYPE: ['Rock'],
-        COST: 1,
-        RARITY: 'X',
-        NEXT: null
-    },
     //
     Girafarig: {
         NAME: 'Girafarig',
@@ -3303,18 +3348,6 @@ const gen2dex = {
         TYPE: ['Bug','Fighting'],
         COST: 2,
         RARITY: 'X',
-        NEXT: null
-    },
-    //
-    Mantine: {
-        NAME: 'Mantine',
-        HP: 2,
-        POW: 2,
-        DEF: 6,
-        SPE: 2,
-        TYPE: ['Water','Flying'],
-        COST: 2,
-        RARITY: 'R',
         NEXT: null
     },
     //
@@ -3648,6 +3681,40 @@ const gen3dex = {
         RARITY: 'N',
         NEXT: null
     },
+    //
+    Budew: {
+        NAME: 'Budew',
+        HP: 1,
+        POW: 1,
+        DEF: 2,
+        SPE: 0,
+        TYPE: ['Grass','Poison'],
+        COST: 0,
+        RARITY: 'R',
+        NEXT: 'Roselia'
+    },
+    Roselia: {
+        NAME: 'Roselia',
+        HP: 3,
+        POW: 2,
+        DEF: 1,
+        SPE: 1,
+        TYPE: ['Grass','Poison'],
+        COST: 1,
+        RARITY: 'X',
+        NEXT: 'Roserade'
+    },
+    Roserade: {
+        NAME: 'Roserade',
+        HP: 2,
+        POW: 5,
+        DEF: 3,
+        SPE: 3,
+        TYPE: ['Grass','Poison'],
+        COST: 2,
+        RARITY: 'N',
+        NEXT: null
+    },
     /* 
     
     
@@ -3813,7 +3880,6 @@ const gen3dex = {
         RARITY: 'M',
         NEXT: null
     },
-    //
     /* 
     
     
@@ -4147,7 +4213,7 @@ const gen3dex = {
         NEXT: 'Pelipper'
     },
     Pelipper: {
-        NAME: 'Linoone',
+        NAME: 'Pelipper',
         HP: 2,
         POW: 2,
         DEF: 3,
@@ -4477,6 +4543,29 @@ const gen3dex = {
         TYPE: ['Ghost'],
         COST: 1,
         RARITY: 'X',
+        NEXT: null
+    },
+    //
+    Chingling: {
+        NAME: 'Chingling',
+        HP: 1,
+        POW: 1,
+        DEF: 1,
+        SPE: 1,
+        TYPE: ['Psychic'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Chimecho'
+    },
+    Chimecho: {
+        NAME: 'Chimecho',
+        HP: 2,
+        POW: 3,
+        DEF: 3,
+        SPE: 1,
+        TYPE: ['Psychic'],
+        COST: 1,
+        RARITY: 'U',
         NEXT: null
     },
     /* 
@@ -4964,18 +5053,6 @@ const gen3dex = {
         RARITY: 'U',
         NEXT: null
     },
-    //
-    Chimecho: {
-        NAME: 'Chimecho',
-        HP: 2,
-        POW: 3,
-        DEF: 3,
-        SPE: 1,
-        TYPE: ['Psychic'],
-        COST: 1,
-        RARITY: 'U',
-        NEXT: null
-    },
     /* 
     
     
@@ -5161,6 +5238,141 @@ const gen4dex = {
     
     
     */
+    Turtwig: {
+        NAME: 'Turtwig',
+        HP: 1,
+        POW: 1,
+        DEF: 2,
+        SPE: 0,
+        TYPE: ['Grass'],
+        COST: 0,
+        RARITY: 'N',
+        NEXT: 'Grotle'
+    },
+    Grotle: {
+        NAME: 'Grotle',
+        HP: 2,
+        POW: 3,
+        DEF: 3,
+        SPE: 0,
+        TYPE: ['Grass'],
+        COST: 1,
+        RARITY: 'N',
+        NEXT: 'Torterra'
+    },
+    Torterra: {
+        NAME: 'Torterra',
+        HP: 3,
+        POW: 4,
+        DEF: 5,
+        SPE: 1,
+        TYPE: ['Grass','Ground'],
+        COST: 2,
+        RARITY: 'N',
+        NEXT: null
+    },
+    //
+    Chimchar: {
+        NAME: 'Chimchar',
+        HP: 1,
+        POW: 1,
+        DEF: 1,
+        SPE: 1,
+        TYPE: ['Fire'],
+        COST: 0,
+        RARITY: 'N',
+        NEXT: 'Monferno'
+    },
+    Monferno: {
+        NAME: 'Monferno',
+        HP: 2,
+        POW: 2,
+        DEF: 1,
+        SPE: 3,
+        TYPE: ['Fire','Fighting'],
+        COST: 1,
+        RARITY: 'N',
+        NEXT: 'Infernape'
+    },
+    Infernape: {
+        NAME: 'Infernape',
+        HP: 3,
+        POW: 4,
+        DEF: 2,
+        SPE: 4,
+        TYPE: ['Fire','Fighting'],
+        COST: 2,
+        RARITY: 'N',
+        NEXT: null
+    },
+    //
+    Piplup: {
+        NAME: 'Piplup',
+        HP: 1,
+        POW: 1,
+        DEF: 1,
+        SPE: 1,
+        TYPE: ['Water'],
+        COST: 0,
+        RARITY: 'N',
+        NEXT: 'Prinplup'
+    },
+    Prinplup: {
+        NAME: 'Prinplup',
+        HP: 2,
+        POW: 2,
+        DEF: 2,
+        SPE: 2,
+        TYPE: ['Water'],
+        COST: 1,
+        RARITY: 'N',
+        NEXT: 'Empoleon'
+    },
+    Empoleon: {
+        NAME: 'Empoleon',
+        HP: 3,
+        POW: 4,
+        DEF: 4,
+        SPE: 2,
+        TYPE: ['Water','Steel'],
+        COST: 2,
+        RARITY: 'N',
+        NEXT: null
+    },
+    //
+    Starly: {
+        NAME: 'Starly',
+        HP: 1,
+        POW: 1,
+        DEF: 0,
+        SPE: 2,
+        TYPE: ['Normal','Flying'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Staravia'
+    },
+    Staravia: {
+        NAME: 'Staravia',
+        HP: 2,
+        POW: 2,
+        DEF: 1,
+        SPE: 3,
+        TYPE: ['Normal','Flying'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: 'Staraptor'
+    },
+    Staraptor: {
+        NAME: 'Staraptor',
+        HP: 3,
+        POW: 5,
+        DEF: 1,
+        SPE: 4,
+        TYPE: ['Normal','Flying'],
+        COST: 2,
+        RARITY: 'N',
+        NEXT: null
+    },
         /* 
     
     
@@ -5173,6 +5385,39 @@ const gen4dex = {
     
     
     */
+    Shinx: {
+        NAME: 'Shinx',
+        HP: 1,
+        POW: 1,
+        DEF: 0,
+        SPE: 1,
+        TYPE: ['Electric'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Luxio'
+    },
+    Luxio: {
+        NAME: 'Luxio',
+        HP: 2,
+        POW: 3,
+        DEF: 1,
+        SPE: 1,
+        TYPE: ['Electric'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: 'Luxray'
+    },
+    Luxray: {
+        NAME: 'Luxray',
+        HP: 3,
+        POW: 4,
+        DEF: 2,
+        SPE: 2,
+        TYPE: ['Electric'],
+        COST: 2,
+        RARITY: 'M',
+        NEXT: null
+    },
     /* 
     
     
@@ -5185,6 +5430,849 @@ const gen4dex = {
     
     
     */
+    Gible: {
+        NAME: 'Gible',
+        HP: 1,
+        POW: 2,
+        DEF: 1,
+        SPE: 1,
+        TYPE: ['Dragon','Ground'],
+        COST: 1,
+        RARITY: 'X',
+        NEXT: 'Gabite'
+    },
+    Gabite: {
+        NAME: 'Gabite',
+        HP: 2,
+        POW: 3,
+        DEF: 2,
+        SPE: 3,
+        TYPE: ['Dragon','Ground'],
+        COST: 2,
+        RARITY: 'M',
+        NEXT: 'Garchomp'
+    },
+    Garchomp: {
+        NAME: 'Garchomp',
+        HP: 4,
+        POW: 6,
+        DEF: 3,
+        SPE: 4,
+        TYPE: ['Dragon','Ground'],
+        COST: 3,
+        RARITY: 'N',
+        NEXT: null
+    },
+    /* 
+    
+    
+
+    COMMON
+    0 -> 1
+    3 -> 7
+
+    
+    
+    
+    */
+    Bidoof: {
+        NAME: 'Bidoof',
+        HP: 2,
+        POW: 1,
+        DEF: 0,
+        SPE: 0,
+        TYPE: ['Normal'],
+        COST: 0,
+        RARITY: 'C',
+        NEXT: 'Bibarel'
+    },
+    Bibarel: {
+        NAME: 'Bibarel',
+        HP: 2,
+        POW: 2,
+        DEF: 1,
+        SPE: 2,
+        TYPE: ['Normal','Water'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: null
+    },
+    //
+    Kricketot: {
+        NAME: 'Kricketot',
+        HP: 1,
+        POW: 1,
+        DEF: 1,
+        SPE: 0,
+        TYPE: ['Bug'],
+        COST: 0,
+        RARITY: 'C',
+        NEXT: 'Kricketune'
+    },
+    Kricketune: {
+        NAME: 'Kricketune',
+        HP: 2,
+        POW: 2,
+        DEF: 1,
+        SPE: 2,
+        TYPE: ['Bug'],
+        COST: 1,
+        RARITY: 'U',
+        NEXT: null
+    },
+    //
+    Burmy: {
+        NAME: 'Burmy',
+        HP: 1,
+        POW: 0,
+        DEF: 1,
+        SPE: 1,
+        TYPE: ['Bug','Grass'],
+        COST: 0,
+        RARITY: 'C',
+        NEXT: 'Wormadam,Mothim'
+    },
+    Wormadam: {
+        NAME: 'Wormadam',
+        HP: 2,
+        POW: 2,
+        DEF: 3,
+        SPE: 0,
+        TYPE: ['Bug','Grass'],
+        COST: 1,
+        RARITY: 'U',
+        NEXT: null
+    },
+    Mothim: {
+        NAME: 'Mothim',
+        HP: 2,
+        POW: 3,
+        DEF: 1,
+        SPE: 1,
+        TYPE: ['Bug','Flying'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: null
+    },
+    /* 
+    
+    
+
+    UNCOMMON
+    0 -> 1
+    4 -> 9
+
+    
+    
+    
+    */
+    Combee: {
+        NAME: 'Combee',
+        HP: 1,
+        POW: 0,
+        DEF: 1,
+        SPE: 2,
+        TYPE: ['Bug','Flying'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Vespiquen'
+    },
+    Vespiquen: {
+        NAME: 'Vespiquen',
+        HP: 2,
+        POW: 3,
+        DEF: 4,
+        SPE: 0,
+        TYPE: ['Bug','Flying'],
+        COST: 1,
+        RARITY: 'X',
+        NEXT: null
+    },
+    //
+    Cherubi: {
+        NAME: 'Cherubi',
+        HP: 1,
+        POW: 2,
+        DEF: 1,
+        SPE: 0,
+        TYPE: ['Grass'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Cherrim'
+    },
+    Cherrim: {
+        NAME: 'Cherrim',
+        HP: 2,
+        POW: 2,
+        DEF: 2,
+        SPE: 3,
+        TYPE: ['Bug','Flying'],
+        COST: 1,
+        RARITY: 'X',
+        NEXT: null
+    },
+    //
+    Bronzor: {
+        NAME: 'Bronzor',
+        HP: 1,
+        POW: 0,
+        DEF: 3,
+        SPE: 0,
+        TYPE: ['Steel','Psychic'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Bronzong'
+    },
+    Bronzong: {
+        NAME: 'Bronzong',
+        HP: 2,
+        POW: 2,
+        DEF: 5,
+        SPE: 0,
+        TYPE: ['Steel','Psychic'],
+        COST: 1,
+        RARITY: 'X',
+        NEXT: null
+    },
+    //
+    Croagunk: {
+        NAME: 'Croagunk',
+        HP: 1,
+        POW: 2,
+        DEF: 0,
+        SPE: 1,
+        TYPE: ['Poison','Fighting'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Toxicroak'
+    },
+    Toxicroak: {
+        NAME: 'Toxicroak',
+        HP: 2,
+        POW: 4,
+        DEF: 1,
+        SPE: 2,
+        TYPE: ['Poison','Fighting'],
+        COST: 1,
+        RARITY: 'X',
+        NEXT: null
+    },
+    //
+    Finneon: {
+        NAME: 'Finneon',
+        HP: 1,
+        POW: 1,
+        DEF: 1,
+        SPE: 1,
+        TYPE: ['Water'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Lumineon'
+    },
+    Lumineon: {
+        NAME: 'Lumineon',
+        HP: 2,
+        POW: 2,
+        DEF: 2,
+        SPE: 3,
+        TYPE: ['Water'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: null
+    },
+    /*
+    
+    
+    
+    RUNNER
+    0 -> 2
+    6 -> 10
+
+
+    
+    
+    */
+    Shellos: {
+        NAME: 'Shellos',
+        HP: 2,
+        POW: 2,
+        DEF: 2,
+        SPE: 0,
+        TYPE: ['Water'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Gastrodon'
+    },
+    Gastrodon: {
+        NAME: 'Gastrodon',
+        HP: 4,
+        POW: 3,
+        DEF: 3,
+        SPE: 0,
+        TYPE: ['Water','Ground'],
+        COST: 2,
+        RARITY: 'X',
+        NEXT: null
+    },
+    //
+    Buneary: {
+        NAME: 'Buneary',
+        HP: 1,
+        POW: 2,
+        DEF: 1,
+        SPE: 2,
+        TYPE: ['Normal'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Lopunny'
+    },
+    Lopunny: {
+        NAME: 'Lopunny',
+        HP: 2,
+        POW: 2,
+        DEF: 3,
+        SPE: 3,
+        TYPE: ['Normal'],
+        COST: 2,
+        RARITY: 'M',
+        NEXT: null
+    },
+    //
+    Glameow: {
+        NAME: 'Glameow',
+        HP: 1,
+        POW: 1,
+        DEF: 1,
+        SPE: 3,
+        TYPE: ['Normal'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Purugly'
+    },
+    Purugly: {
+        NAME: 'Purugly',
+        HP: 2,
+        POW: 2,
+        DEF: 2,
+        SPE: 4,
+        TYPE: ['Normal'],
+        COST: 2,
+        RARITY: 'X',
+        NEXT: null
+    },
+    //
+    Stunky: {
+        NAME: 'Stunky',
+        HP: 2,
+        POW: 1,
+        DEF: 1,
+        SPE: 2,
+        TYPE: ['Poison','Dark'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Skuntank'
+    },
+    Skuntank: {
+        NAME: 'Skuntank',
+        HP: 3,
+        POW: 3,
+        DEF: 2,
+        SPE: 2,
+        TYPE: ['Poison','Dark'],
+        COST: 2,
+        RARITY: 'X',
+        NEXT: null
+    },
+    //
+    Snover: {
+        NAME: 'Snover',
+        HP: 2,
+        POW: 2,
+        DEF: 2,
+        SPE: 0,
+        TYPE: ['Grass','Ice'],
+        COST: 0,
+        RARITY: 'U',
+        NEXT: 'Abomasnow'
+    },
+    Abomasnow: {
+        NAME: 'Abomasnow',
+        HP: 3,
+        POW: 3,
+        DEF: 3,
+        SPE: 1,
+        TYPE: ['Grass','Ice'],
+        COST: 2,
+        RARITY: 'X',
+        NEXT: null
+    },
+    /* 
+    
+    
+
+    RARE
+    1 -> 2 
+    7 -> 12
+
+    
+    
+    
+    */
+    Cranidos: {
+        NAME: 'Cranidos',
+        HP: 2,
+        POW: 4,
+        DEF: 0,
+        SPE: 1,
+        TYPE: ['Rock'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: 'Rampardos'
+    },
+    Rampardos: {
+        NAME: 'Rampardos',
+        HP: 3,
+        POW: 7,
+        DEF: 1,
+        SPE: 1,
+        TYPE: ['Rock'],
+        COST: 2,
+        RARITY: 'M',
+        NEXT: null
+    },
+    //
+    Shieldon: {
+        NAME: 'Shieldon',
+        HP: 1,
+        POW: 1,
+        DEF: 5,
+        SPE: 0,
+        TYPE: ['Rock','Steel'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: 'Bastiodon'
+    },
+    Bastiodon: {
+        NAME: 'Bastiodon',
+        HP: 2,
+        POW: 2,
+        DEF: 8,
+        SPE: 0,
+        TYPE: ['Rock','Steel'],
+        COST: 2,
+        RARITY: 'M',
+        NEXT: null
+    },
+    //
+    Buizel: {
+        NAME: 'Buizel',
+        HP: 2,
+        POW: 2,
+        DEF: 0,
+        SPE: 3,
+        TYPE: ['Water'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: 'Floatzel'
+    },
+    Floatzel: {
+        NAME: 'Floatzel',
+        HP: 3,
+        POW: 4,
+        DEF: 1,
+        SPE: 4,
+        TYPE: ['Water'],
+        COST: 2,
+        RARITY: 'M',
+        NEXT: null
+    },
+    //
+    Drifloon: {
+        NAME: 'Drifloon',
+        HP: 3,
+        POW: 1,
+        DEF: 1,
+        SPE: 2,
+        TYPE: ['Ghost','Flying'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: 'Drifblim'
+    },
+    Drifblim: {
+        NAME: 'Drifblim',
+        HP: 6,
+        POW: 3,
+        DEF: 1,
+        SPE: 2,
+        TYPE: ['Ghost','Flying'],
+        COST: 2,
+        RARITY: 'M',
+        NEXT: null
+    },
+    //
+    Riolu: {
+        NAME: 'Riolu',
+        HP: 1,
+        POW: 3,
+        DEF: 1,
+        SPE: 2,
+        TYPE: ['Fighting'],
+        COST: 1,
+        RARITY: 'X',
+        NEXT: 'Lucario'
+    },
+    Lucario: {
+        NAME: 'Lucario',
+        HP: 2,
+        POW: 3,
+        DEF: 2,
+        SPE: 5,
+        TYPE: ['Fighting','Steel'],
+        COST: 2,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Skorupi: {
+        NAME: 'Skorupi',
+        HP: 1,
+        POW: 1,
+        DEF: 3,
+        SPE: 2,
+        TYPE: ['Poison','Bug'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: 'Drapion'
+    },
+    Drapion: {
+        NAME: 'Drapion',
+        HP: 2,
+        POW: 3,
+        DEF: 4,
+        SPE: 3,
+        TYPE: ['Poison','Dark'],
+        COST: 2,
+        RARITY: 'M',
+        NEXT: null
+    },
+    /* 
+    
+    
+
+    ULTRA RARE 
+    0|1 -> 2
+    4|8 -> 14
+
+    
+    
+    
+    */
+    Hippopotas: {
+        NAME: 'Hippopotas',
+        HP: 1,
+        POW: 1,
+        DEF: 2,
+        SPE: 0,
+        TYPE: ['Ground'],
+        COST: 0,
+        RARITY: 'X',
+        NEXT: 'Hippowdon'
+    },
+    Hippowdon: {
+        NAME: 'Hippowdon',
+        HP: 4,
+        POW: 4,
+        DEF: 5,
+        SPE: 1,
+        TYPE: ['Ground'],
+        COST: 2,
+        RARITY: 'L',
+        NEXT: null
+    },
+    /* 
+    
+    
+
+    COMMON 
+    1
+    6
+
+    
+    
+    
+    */
+    /* 
+    
+    
+
+    UNCOMMON 
+    1|2
+    9|12
+
+    
+    
+    
+    */
+    Pachirisu: {
+        NAME: 'Pachirisu',
+        HP: 2,
+        POW: 1,
+        DEF: 3,
+        SPE: 3,
+        TYPE: ['Electric'],
+        COST: 1,
+        RARITY: 'U',
+        NEXT: null
+    },
+    //
+    Chatot: {
+        NAME: 'Chatot',
+        HP: 2,
+        POW: 3,
+        DEF: 1,
+        SPE: 3,
+        TYPE: ['Normal','Flying'],
+        COST: 1,
+        RARITY: 'U',
+        NEXT: null
+    },
+    //
+    Spiritomb: {
+        NAME: 'Spiritomb',
+        HP: 2,
+        POW: 3,
+        DEF: 4,
+        SPE: 0,
+        TYPE: ['Ghost','Dark'],
+        COST: 1,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Carnivine: {
+        NAME: 'Carnivine',
+        HP: 2,
+        POW: 4,
+        DEF: 2,
+        SPE: 1,
+        TYPE: ['Grass'],
+        COST: 1,
+        RARITY: 'R',
+        NEXT: null
+    },
+    //
+    Rotom: {
+        NAME: 'Rotom',
+        HP: 1,
+        POW: 3,
+        DEF: 2,
+        SPE: 3,
+        TYPE: ['Electric','Ghost'],
+        COST: 1,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Phione: {
+        NAME: 'Phione',
+        HP: 3,
+        POW: 3,
+        DEF: 3,
+        SPE: 3,
+        TYPE: ['Water'],
+        COST: 2,
+        RARITY: 'L',
+        NEXT: null
+    },
+    /* 
+    
+    
+
+    PIXIE 
+    3
+    14
+
+    
+    
+    
+    */
+    Uxie: {
+        NAME: 'Uxie',
+        HP: 3,
+        POW: 2,
+        DEF: 6,
+        SPE: 3,
+        TYPE: ['Psychic'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Mesprit: {
+        NAME: 'Mesprit',
+        HP: 3,
+        POW: 4,
+        DEF: 4,
+        SPE: 3,
+        TYPE: ['Psychic'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Azelf: {
+        NAME: 'Azelf',
+        HP: 2,
+        POW: 6,
+        DEF: 2,
+        SPE: 4,
+        TYPE: ['Psychic'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
+    /* 
+    
+    
+
+    LEGEND 
+    3
+    16
+
+    
+    
+    
+    */
+    Heatran: {
+        NAME: 'Heatran',
+        HP: 3,
+        POW: 6,
+        DEF: 4,
+        SPE: 3,
+        TYPE: ['Fire','Steel'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Cresselia: {
+        NAME: 'Cresselia',
+        HP: 5,
+        POW: 2,
+        DEF: 6,
+        SPE: 3,
+        TYPE: ['Psychic'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Darkrai: {
+        NAME: 'Darkrai',
+        HP: 2,
+        POW: 6,
+        DEF: 3,
+        SPE: 5,
+        TYPE: ['Dark'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Manaphy: {
+        NAME: 'Manaphy',
+        HP: 4,
+        POW: 4,
+        DEF: 4,
+        SPE: 4,
+        TYPE: ['Water'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Shaymin: {
+        NAME: 'Shaymin',
+        HP: 4,
+        POW: 4,
+        DEF: 4,
+        SPE: 4,
+        TYPE: ['Grass'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
+    /* 
+    
+    
+
+    BOSS 
+    3
+    20
+
+    
+    
+    
+    */
+    Dialga: {
+        NAME: 'Dialga',
+        HP: 4,
+        POW: 7,
+        DEF: 6,
+        SPE: 3,
+        TYPE: ['Steel','Dragon'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Palkia: {
+        NAME: 'Palkia',
+        HP: 3,
+        POW: 7,
+        DEF: 6,
+        SPE: 4,
+        TYPE: ['Water','Dragon'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Giratina: {
+        NAME: 'Giratina',
+        HP: 7,
+        POW: 4,
+        DEF: 6,
+        SPE: 3,
+        TYPE: ['Ghost','Dragon'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Regigigas: {
+        NAME: 'Regigigas',
+        HP: 4,
+        POW: 7,
+        DEF: 5,
+        SPE: 4,
+        TYPE: ['Normal'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
+    //
+    Arceus: {
+        NAME: 'Arceus',
+        HP: 5,
+        POW: 5,
+        DEF: 5,
+        SPE: 5,
+        TYPE: ['Normal'],
+        COST: 3,
+        RARITY: 'L',
+        NEXT: null
+    },
 
 }
 
@@ -5311,6 +6399,8 @@ export const populateDexPage = () => {
 
 }
 
-// searchDex('TOTAL',10,'=')
+// let search = searchDex('HP','6','=')
+
+// console.log(search[2])
 
 // C:41 U:47 R:44 X:40 M:34 L:17 N:49

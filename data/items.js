@@ -117,7 +117,7 @@ export const items = {
         COST: 995,
         ENERGY: 0,
         TYPE: 'Evolve',
-        TARGET: 'ALAKAZAM,GENGAR,GOLEM,MACHAMP,RHYPERIOR,PORYGONZ',
+        TARGET: 'ALAKAZAM,GENGAR,GOLEM,MACHAMP,RHYPERIOR,PORYGON,PORYGONZ',
         URL: `https://archives.bulbagarden.net/media/upload/2/2c/MDBag_Link_Cable_TDS_Sprite.png`,
         DESC: 'Use to evolve Pokémon requiring a trade',
         CONSUME: true

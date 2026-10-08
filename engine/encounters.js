@@ -20,8 +20,11 @@ newEncounterImg.classList.add('newEncounterImg');
 newHeader.classList.add('encounterHeader','hidden');
 battleScreen.classList.add('battleScreen','hidden');
 
-body.appendChild(newHeader);
-body.appendChild(battleScreen);
+if (document.title.split(':')[0] == 'Explore') {
+    body.appendChild(newHeader);
+    body.appendChild(battleScreen);
+}
+
 
 const rarityTable = {
     C: 10,
@@ -33,7 +36,7 @@ const rarityTable = {
     N: -100
 }
 
-const gameMessage = (msg) => {
+export const gameMessage = (msg) => {
 
     newHeader.classList.remove('hidden');
 
@@ -132,9 +135,14 @@ const biomes = {
     'Athlete': [...searchDex('TOTAL',10,'-')[0].filter(e => e[1].TYPE.includes('Fighting')).filter(e => e[1].RARITY != 'C')].concat([...searchDex('TOTAL',8,'-')[0].filter(e => e[1].TYPE.includes('Ground')).filter(e => e[1].RARITY != 'C')]).concat([...searchDex('TOTAL',7,'-')[0].filter(e => e[1].TYPE.includes('Fire')).filter(e => e[1].RARITY != 'N')]).concat(searchDex('NAME','Magikarp'/*REPLACE WITH STARAPTOR*/)[0]).filter(e => { return !e[1].TYPE.includes('Flying') && !e[1].TYPE.includes('Fairy') && !e[1].TYPE.includes('Rock') && e[1].POW > 1 }),
     'Explorer': [...searchDex('TOTAL',10,'-')[0].filter((e) => { return !e[1].TYPE.includes('Dragon') && e[1].RARITY != 'X' && e[1].RARITY != 'U' && e[1].RARITY != 'C' })],
     'Rocket Grunt': [...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Dark')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Poison')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Ghost')).filter(e => e[1].RARITY != 'M')]).concat(searchDex('NAME','Meowth')[0]).filter(e => { return !e[1].TYPE.includes('Grass')}),
+    'Maniac': [...searchDex('TOTAL',7,'+')[0].filter((e) => { return !e[1].TYPE.includes('Dragon') && e[1].RARITY != 'N' && e[1].RARITY != 'L' && e[1].RARITY != 'M'  && e[1].RARITY != 'X' })],
+    'Tourist': [...searchDex('TOTAL',10,'-')[0].filter(e => e[1].TYPE.includes('Fairy')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',10,'-')[0].filter(e => e[1].TYPE.includes('Grass')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',9,'-')[0].filter(e => e[1].TYPE.includes('Electric')).filter(e => e[1].RARITY != 'M')]).concat(searchDex('NAME','Pelipper')[0]).filter(e => { return !e[1].TYPE.includes('Dark')}),
+    'Challenger': [...searchDex('TOTAL',8,'+')[0].filter((e) => { return e[1].POW > 0 && e[1].RARITY != 'N' && e[1].RARITY != 'L' && e[1].RARITY != 'U'  && e[1].RARITY != 'C' })],
+    'Bird Keeper': [...searchDex('TOTAL',6,'+')[0].filter(e => e[1].TYPE.includes('Flying')).filter(e => e[1].RARITY != 'N' && e[1].RARITY != 'L' && e[1].RARITY != 'M' && e[1].HP > 1 && !e[1].TYPE.includes('Dragon') )],
+    'Cyclist': [...searchDex('TOTAL',12,'-')[0].filter(e => e[1].TYPE.includes('Electric')).filter(e => e[1].RARITY != 'N')].concat([...searchDex('TOTAL',11,'-')[0].filter(e => e[1].TYPE.includes('Flying')).filter(e => e[1].RARITY != 'N')]).concat([...searchDex('TOTAL',10,'-')[0].filter(e => e[1].TYPE.includes('Fighting')).filter(e => e[1].RARITY != 'M')]).concat(searchDex('NAME','Zangoose')[0]).filter(e => { return !e[1].TYPE.includes('Poison')}),
 }
 
-console.log(biomes['Rocket Grunt']);
+// console.log(biomes['Cyclist']);
 
 export const rosterGroups = {
     'Youngster': [
@@ -211,7 +219,7 @@ export const rosterGroups = {
             'https://play.pokemonshowdown.com/sprites/trainers/scientist-gen4dp.png',
             'https://play.pokemonshowdown.com/sprites/trainers/scientistf-gen6.png'],
         [biomes['Scientist']],
-        [2,3,3,3,4]
+        [2,3,3,3]
     ],
     'Athlete': [
         ['https://play.pokemonshowdown.com/sprites/trainers/bodybuilderf-gen9.png',
@@ -238,7 +246,7 @@ export const rosterGroups = {
             'https://play.pokemonshowdown.com/sprites/trainers/teamrocketgruntf-gen3.png',
             'https://play.pokemonshowdown.com/sprites/trainers/teamrocketgruntm-gen3.png'],
         [biomes['Rocket Grunt']],
-        [1,2,3,4]
+        [1,2,2,2,3,4]
     ],
     // 'Camper': [
     //     [''],
@@ -247,12 +255,22 @@ export const rosterGroups = {
     'Pokémaniac': [
         ['https://play.pokemonshowdown.com/sprites/trainers/pokemaniac-gen6.png',
             'https://play.pokemonshowdown.com/sprites/trainers/pokemaniac.png'],
-        []
+        [biomes['Maniac']],
+        [3,3,4]
     ],
     'Tourist': [
         ['https://play.pokemonshowdown.com/sprites/trainers/touristf.png',
             'https://play.pokemonshowdown.com/sprites/trainers/tourist.png'],
-        []
+        [biomes['Tourist']],
+        [2,3,4,4]
+    ],
+    'Worker': [
+        ['https://play.pokemonshowdown.com/sprites/trainers/worker.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/worker-gen4.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/worker-gen6.png',
+            'https://play.pokemonshowdown.com/sprites/trainers/ruinmaniac-gen3.png'],
+        [biomes['Athlete'].concat(biomes['Hiker'])],
+        [2,3,3,4]
     ],
     'Challenger': [
         ['https://play.pokemonshowdown.com/sprites/trainers/collector-gen6.png',
@@ -262,36 +280,33 @@ export const rosterGroups = {
             'https://play.pokemonshowdown.com/sprites/trainers/cyrano.png',
             'https://play.pokemonshowdown.com/sprites/trainers/gambler.png',
             'https://play.pokemonshowdown.com/sprites/trainers/gentleman-gen8.png'],
-        []
+        [biomes['Challenger']],
+        [3,4,4]
     ],
     'Burglar': [
         ['https://play.pokemonshowdown.com/sprites/trainers/burglar.png',
             'https://play.pokemonshowdown.com/sprites/trainers/burglar-lgpe.png',
             'https://play.pokemonshowdown.com/sprites/trainers/burglar-gen3.png'],
-        []
+        [biomes['Athlete'].concat(biomes['Rocket Grunt'])],
+        [2,2,2,3,3,4]
     ],
     'Bird Keeper': [
         ['https://play.pokemonshowdown.com/sprites/trainers/birdkeeper-gen3.png',
             'https://play.pokemonshowdown.com/sprites/trainers/birdkeeper.png'],
-        []
+        [biomes['Bird Keeper']],
+        [2,3,3,3,4]
     ],
     'Cyclist': [
         ['https://play.pokemonshowdown.com/sprites/trainers/cyclistf-gen4.png',
             'https://play.pokemonshowdown.com/sprites/trainers/cyclist-gen4.png',
             'https://play.pokemonshowdown.com/sprites/trainers/cyclist.png'],
-        []
-    ],
-    'Worker': [
-        ['https://play.pokemonshowdown.com/sprites/trainers/worker.png',
-            'https://play.pokemonshowdown.com/sprites/trainers/worker-gen4.png',
-            'https://play.pokemonshowdown.com/sprites/trainers/worker-gen6.png',
-            'https://play.pokemonshowdown.com/sprites/trainers/ruinmaniac-gen3.png'],
-        []
+        [biomes['Cyclist']],
+        [1,2,2,3,3,4,5]
     ],
     'Ninja': [
         ['https://play.pokemonshowdown.com/sprites/trainers/shadowtriad.png'],
         [biomes['Dark Cave']],
-        [1,2,3]
+        [1,2,2,3]
     ],
     'Professor': [
         ['https://play.pokemonshowdown.com/sprites/trainers/sycamore.png',
@@ -355,9 +370,9 @@ export const encounterGroups = {
     },
     'Dark Cave': {
         Trainer: ['Trainer','Rocket Grunt','Pokémaniac','Burglar','Challenger','Explorer','Scientist','Police Officer','Ninja'],
-        Catch: biomes['Dark Cave'].concat(biomes['Route 2']),
+        Catch: biomes['Dark Cave'],
         Item: ['Poké Ball','Potion','Nest Ball','Net Ball','Dusk Ball','Great Ball','Ultra Ball','Dream Ball','Super Potion','Revive','Premier Ball','Rare Candy','Moon Stone','Hyper Potion','Dusk Stone',`King's Rock`],
-        Path: ['Catch','Catch','Catch','Catch','Trainer','Item','Trainer','Random','Catch','Random','Catch','Item','Trainer'],
+        Path: ['Catch','Catch','Catch','Random','Trainer','Item','Trainer','Random','Catch','Random','Catch','Item','Trainer'],
         Difficulty: 3
     },
 }

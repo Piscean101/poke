@@ -50,7 +50,7 @@ const itemEvo = {
     },
     LinkCase: {
         NAME: 'Link Case',
-        TARGETS: ['Graveler','Haunter','Kadabra','Machoke','Porygon2','Rhydon']
+        TARGETS: ['Graveler','Haunter','Kadabra','Machoke','Porygon','Porygon2','Rhydon']
     },
 }
 const rareCandyList = [];
